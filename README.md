@@ -16,3 +16,5 @@ Alejandro Bianchi, Estudiante de Fullstack en Digital house
 Juan Cruz Acuña, Estudiante de Fullstack en Digital house
 
 Juan Cruz Lima, Estudiante de Fullstack en Digital house
+
+Mauro Ivan Romero, Estudiando FullStack en Digital house
