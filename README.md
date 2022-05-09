@@ -14,3 +14,5 @@ Si puedes diseñar una cosa, entonces puedes diseñarlo todo. Si lo haces bien p
 Alejandro Bianchi, Estudiante de Fullstack en Digital house
 
 Juan Cruz Acuña, Estudiante de Fullstack en Digital house
+
+Juan Cruz Lima, Estudiante de Fullstack en Digital house
