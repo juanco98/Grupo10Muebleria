@@ -1,11 +1,11 @@
-# Grupo10Muebleria
+# **Grupo10Muebleria**
 Proyecto Integrador (Sprint)
 
-## Descripción del Proyecto (Primer Sprint)
+## **Descripción del Proyecto (Primer Sprint)**
 
 Muebleria, productos en general, de venta rápida, no especificos o personalizados, en donde apunta al público en general, ya que contiene productos en general importantes para el hogar
 
-### Integrantes
+### **Integrantes**
 
 Alejandro Bianchi, Estudiante de Fullstack en Digital house
 
