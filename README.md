@@ -3,9 +3,15 @@ Proyecto Integrador (Sprint)
 
 ## **Descripción del Proyecto (Primer Sprint)**
 
-Muebleria, productos en general, de venta rápida, no especificos o personalizados, en donde apunta al público en general, ya que contiene productos en general importantes para el hogar
+Muebleria, productos en general, de venta rápida, que a su vez diseña, construye y opera tiendas que resuelven integramente, las necesidades de mejora del hogar, en donde apunta al público en general, ya que contiene productos importantes para el mismo. 
 
-### **Integrantes**
+## Objetivos Principales 
+
+Crear un Sitio web en donde, la gente pueda entender su uso de manera sencilla y simplificar los procesos de visualización de productos y compra de los mismos.
+
+Restar información innecesaria y simplificar la información 
+
+### **Integrantes** 
 
 Alejandro Bianchi, Estudiante de Fullstack en Digital house
 
@@ -18,12 +24,6 @@ Mauro Ivan Romero, Estudiando FullStack en Digital house
 
 #### Referentes
 
->"Si puedes diseñar una cosa, entonces puedes diseñarlo todo. Si lo haces bien perdurará para siempre." (Massimo Vignelli)
-
->“Un aspecto esencial de la creatividad es no tener miedo al fracaso”. (Ewin H. Lang)
-
->"Que tus diseños tengan un buen significado". (Jacqueline Casey)
-
->"La información solo es util cuando es comprendida" (Muriel Cooper)
-
->"Deshazte de todo lo que no es esencial para mostrar algo" (Cristoph Niemann)
+https://www.sodimac.com.ar/ referencia de confiabilidad y variedad de productos que ofrecen para todo publico y todo estilo que conforma la comodidad del hogar y preferencias del publico en general
+https://tiendaideal.com.ar/ tomado de referencia de la estetica y la organización y categorización de los productos
+https://www.epicgames.com/site/es-ES/home tomado para el estilo del home siendo las categorias y los mismos productos que son lo primero que se tenga que ver
