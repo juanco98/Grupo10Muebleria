@@ -24,6 +24,6 @@ Mauro Ivan Romero, Estudiando FullStack en Digital house
 
 #### Referentes
 
-https://www.sodimac.com.ar/ referencia de confiabilidad y variedad de productos que ofrecen para todo publico y todo estilo que conforma la comodidad del hogar y preferencias del publico en general
-https://tiendaideal.com.ar/ tomado de referencia de la estetica y la organización y categorización de los productos
-https://www.epicgames.com/site/es-ES/home tomado para el estilo del home siendo las categorias y los mismos productos que son lo primero que se tenga que ver
+* https://www.sodimac.com.ar/ referencia de confiabilidad y variedad de productos que ofrecen para todo publico y todo estilo que conforma la comodidad del hogar y preferencias del publico en general
+* https://tiendaideal.com.ar/ tomado de referencia de la estetica y la organización y categorización de los productos
+* https://www.epicgames.com/site/es-ES/home tomado para el estilo del home siendo las categorias y los mismos productos que son lo primero que se tenga que ver
