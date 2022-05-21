@@ -1,0 +1,79 @@
+/* INICIO ESTILOS GENERALES */
+
+* {
+    font-family: nunito;
+}
+
+.bgmain {
+    background-color: aliceblue;
+}
+
+/* FIN ESTILOS GENERALES */
+
+/* INICIO ESTILOS PRODUCTOS */
+
+.products-room-img {
+    width: 100%;
+    height: 85%;
+    display: block;
+}
+
+.product-card {
+    width: 18rem;
+}
+
+.product-img {
+    width: 50%;
+}
+
+.product-img-size {
+    width: 100%;
+    height: 200px;
+    display: block;
+    margin: 5% auto 5% auto;
+}
+
+.product-price {
+    align-self: center;
+}
+
+.product-price > h3 {
+    margin-bottom: 0px;
+}
+
+.product-button {
+    text-align: center;
+}
+
+/* FIN ESTILOS PRODUCTOS */
+
+/* INICIO ESTILOS CONTACTO */
+
+
+
+/* FIN ESTILO CONTACTO */
+
+/* INICIO ESTILO NOSOTROS */
+
+.aboutus-img {
+    width: 20%;
+    height: 200px;
+    display: block;
+    margin: 5% auto 5% auto;
+}
+
+/* FIN ESTILO NOSOTROS */
+
+
+/* INICIO ESTILO CARRITO */
+
+
+
+/* FIN ESTILO CARRITO */
+
+
+/* INICIO ESTILO REGISTRO */
+
+
+
+/* FIN ESTILO REGISTRO */
