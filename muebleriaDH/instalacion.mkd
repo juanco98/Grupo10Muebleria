@@ -1,5 +1,6 @@
 # COMO INICIALIZAR EL SERVER?
 
+* hacer desde la terminal cd/Grupo10Muebleria/muebleriaDH
 * Instalar las depencencias con npm i
-* En la carpeta /mueblcd eriadh abrir una consola y ejecutar el comando npm run dev
+* Ejecutar el comando npm run dev
 * Ir al localhost:puerto (en puerto reemplazar por el que nos indique la consola al levantar el server)
