@@ -1,5 +1,11 @@
 /* INICIO ESTILOS GENERALES */
 
+
+:root {  /* VAR GENERALES PARA TITULOS Y TEXTOS DEL PROYECTO*/
+    --font-size-title: 1.5rem;
+    --font-size-txt: 1rem;
+}
+
 * {
     font-family: nunito;
 }
@@ -64,6 +70,38 @@
 }
 
 /* FIN ESTILOS PRODUCTOS */
+
+/* INICIO ESTILOS DETALLE PRODUCTOS */
+
+.product-img-mini-gallery{
+    width: 100%;
+    height: 30px;
+    margin: 5% auto 5% auto;
+}
+
+.card-pers{
+    border: solid 2px lightgray;
+    height: auto;
+    width: 100%;
+}
+
+.mini-gallery{
+    justify-content: center;
+}
+
+.font-title{
+    font-weight: bold;
+    font-size: var(--font-size-title);
+    text-align: center;
+}
+
+.font-txt{
+    font-weight: bold;
+    font-size: var(--font-size-txt);
+    text-align: center;
+}
+
+/* FIN ESTILOS DETALLE PRODUCTOS*/
 
 /* INICIO ESTILOS CONTACTO */
 
