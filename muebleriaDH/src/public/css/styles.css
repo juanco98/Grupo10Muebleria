@@ -1,7 +1,7 @@
 /* INICIO ESTILOS GENERALES */
 
-
-:root {  /* VAR GENERALES PARA TITULOS Y TEXTOS DEL PROYECTO*/
+/* VAR GENERALES PARA TITULOS Y TEXTOS DEL PROYECTO*/
+:root {
     --font-size-title: 1.5rem;
     --font-size-txt: 1rem;
 }
@@ -73,29 +73,29 @@
 
 /* INICIO ESTILOS DETALLE PRODUCTOS */
 
-.product-img-mini-gallery{
+.product-img-mini-gallery {
     width: 100%;
     height: 30px;
     margin: 5% auto 5% auto;
 }
 
-.card-pers{
+.card-pers {
     border: solid 2px lightgray;
     height: auto;
     width: 100%;
 }
 
-.mini-gallery{
+.mini-gallery {
     justify-content: center;
 }
 
-.font-title{
+.font-title {
     font-weight: bold;
     font-size: var(--font-size-title);
     text-align: center;
 }
 
-.font-txt{
+.font-txt {
     font-weight: bold;
     font-size: var(--font-size-txt);
     text-align: center;
