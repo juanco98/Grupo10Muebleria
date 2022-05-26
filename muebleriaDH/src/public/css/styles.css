@@ -141,25 +141,15 @@ body .background{
 /* INICIO ESTILO NOSOTROS */
 
 .aboutus-img {
-<<<<<<< HEAD
-  width: 20%;
-  height: 200px;
-  display: block;
-  margin: 5% auto 5% auto;
-}
-
-.search-bar {
-    margin-top: 10px;
-=======
     width: 800px; /*ancho*/
     height: 400px; /*alto*/
-   
     margin: 7% auto 7% ;
     border-left: 5px solid rgb(255, 252, 252);
     position: relative;
     bottom: 450px;
     left: 450px;
 }
+
 h4 {
     text-indent:25px;
     
@@ -188,8 +178,7 @@ p {
 .valores{
     position: absolute;
     left:900px;
-  bottom:10px;
->>>>>>> Ale
+    bottom:10px;
 }
 
 /* FIN ESTILO NOSOTROS */
@@ -214,6 +203,10 @@ p {
     
     .home-login-popup {
         margin-left: 0px;
+    }
+
+    .search-bar {
+      margin-top: 10px;
     }
 
 }
