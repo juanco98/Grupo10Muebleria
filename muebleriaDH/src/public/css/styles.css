@@ -7,11 +7,11 @@
 }
 
 * {
-    font-family: nunito;
+  font-family: nunito;
 }
 
 .bgmain {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 /* FIN ESTILOS GENERALES */
@@ -22,6 +22,12 @@
     width: 100%;
     height: 85%;
     display: block;
+}
+
+.products-room-img {
+  width: 100%;
+  height: 85%;
+  display: block;
 }
 
 .home-room-img {
@@ -47,26 +53,26 @@
 }
 
 .product-img {
-    width: 50%;
+  width: 50%;
 }
 
 .product-img-size {
-    width: 100%;
-    height: 200px;
-    display: block;
-    margin: 5% auto 5% auto;
+  width: 100%;
+  height: 200px;
+  display: block;
+  margin: 5% auto 5% auto;
 }
 
 .product-price {
-    align-self: center;
+  align-self: center;
 }
 
 .product-price > h3 {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .product-button {
-    text-align: center;
+  text-align: center;
 }
 
 /* FIN ESTILOS PRODUCTOS */
@@ -107,15 +113,38 @@
 
 
 
+iframe{
+  max-width: 100%;
+  height: auto;
+  
+}
+body .background{
+  opacity: 0.4;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+.form-contact{
+  width: 350px;
+  justify-content: center;
+}
+.icon-size{
+  width: 48px;
+  
+}
+
+
 /* FIN ESTILO CONTACTO */
 
 /* INICIO ESTILO NOSOTROS */
 
 .aboutus-img {
-    width: 20%;
-    height: 200px;
-    display: block;
-    margin: 5% auto 5% auto;
+  width: 20%;
+  height: 200px;
+  display: block;
+  margin: 5% auto 5% auto;
 }
 
 .search-bar {
@@ -124,13 +153,9 @@
 
 /* FIN ESTILO NOSOTROS */
 
-
 /* INICIO ESTILO CARRITO */
 
-
-
 /* FIN ESTILO CARRITO */
-
 
 /* INICIO ESTILO REGISTRO */
 
