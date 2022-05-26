@@ -10,16 +10,34 @@
 
 /* FIN ESTILOS GENERALES */
 
-/* INICIO ESTILOS PRODUCTOS */
+/* INICIO ESTILOS HOME */
 
-.products-room-img {
+.home-room-img {
     width: 100%;
     height: 85%;
     display: block;
 }
 
+.home-room-img {
+    transition: 1s;
+}
+
+.home-room-img:hover, .home-room-img:active {
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.home-login-popup {
+    margin-left: -175px;
+}
+
+/* FIN ESTILOS HOME */
+
+/* INICIO ESTILOS PRODUCTOS */
+
 .product-card {
-    width: 18rem;
+    width: 17rem;
 }
 
 .product-img {
@@ -62,6 +80,10 @@
     margin: 5% auto 5% auto;
 }
 
+.search-bar {
+    margin-top: 10px;
+}
+
 /* FIN ESTILO NOSOTROS */
 
 
@@ -77,3 +99,22 @@
 
 
 /* FIN ESTILO REGISTRO */
+
+/* FIN ESTILOS GENERALES */
+
+/* INICIO MEDIA QUERYS */
+
+/* INICIO MEDIA QUERY HOME */
+
+@media (max-width: 990px) {
+    
+    .home-login-popup {
+        margin-left: 0px;
+    }
+
+}
+
+/* FIN MEDIA QUERY HOME */
+
+
+/* FIN MEDIA QUERYS */
