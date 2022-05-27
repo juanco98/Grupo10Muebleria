@@ -150,12 +150,12 @@ body .background{
     left: 450px;
 }
 
-h4 {
+.aboutus-tittle {
     text-indent:25px;
     
 }
 
-p {
+.aboutus-text {
     text-indent:25px;
     margin-left: 20px;
 }
