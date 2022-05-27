@@ -3,21 +3,23 @@
     <a class="navbar-brand" href="/">
       <img src="/img/chairlogo.svg" alt="" width="30" height="24">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
-      <form class="d-flex mx-auto">
+      <form class="d-flex mx-auto search-bar">
         <div class="input-group">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+          </button>
         </div>
       </form>
       <ul class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="" id="navbarScrollingDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
             Productos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -25,7 +27,9 @@
             <li><a class="dropdown-item" href="/products">Comedor</a></li>
             <li><a class="dropdown-item" href="/products">Dormitorio</a></li>
             <li><a class="dropdown-item" href="/products">Living</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="/products">Exterior</a></li>
             <li><a class="dropdown-item" href="/products">Oficina</a></li>
           </ul>
@@ -34,20 +38,43 @@
           <a class="nav-link" href="/aboutus">¿Quienes Somos?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="/contact">Contacto</a>
+          <a class="nav-link" href="/contact">Contacto</a>
         </li>
       </ul>
       <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <button type="button" class="btn btn-outline-primary">
-            <a href="/register">
-                <i class="fa-solid fa-user"></i>
-            </a>
-        </button>
-        <button type="button" class="btn btn-outline-primary">
-            <a href="/cart">
-                <i class="fa-solid fa-cart-arrow-down"></i>
-            </a>
-        </button>
+          <a href="/cart"  class="btn btn-outline-primary">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+          </a>
+          <a href="/register" class="btn btn-outline-primary dropdown-toggle" id="navbarScrollingDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user"></i>
+          </a>
+
+          <div class="dropdown-menu home-login-popup" aria-labelledby="navbarScrollingDropdown2">
+            <form class="px-4 py-3">
+              <div class="mb-3">
+                <label for="exampleDropdownFormEmail1" class="form-label">Correo Electronico</label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="muebles@deco.com">
+              </div>
+              <div class="mb-3">
+                <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Recordarme
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Logearse</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/register">Nuevo? Registrate!</a>
+            <a class="dropdown-item" href="#">Olvidaste tu contraseña?</a>
+          </div>
+
+
       </div>
     </div>
   </div>
