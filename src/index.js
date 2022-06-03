@@ -18,16 +18,6 @@ app.engine('.hbs', engine({
 }));
 app.set('view engine', '.hbs');
 
-// Middlewares
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
-
-// Variables Globales
-app.use((req, res, next) => {
-
-    next();
-});
-
 // Rutas
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
