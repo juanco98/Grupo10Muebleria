@@ -10,19 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.0-beta1",
-    "connect-flash": "^0.1.1",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.5",
-    "express-mysql-session": "^2.1.8",
-    "express-session": "^1.17.2",
-    "express-validator": "^6.14.0",
-    "morgan": "^1.10.0",
-    "mysql": "^2.18.1",
-    "passport": "^0.5.2",
-    "passport-local": "^1.0.0",
-    "timeago.js": "^4.0.2"
+    "express-handlebars": "^6.0.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
