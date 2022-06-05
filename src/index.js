@@ -8,6 +8,8 @@ const app = express();
 // Configuraciones
 // aca configuramos que tome el server que tenga la pc definida, caso de no tener toma el 4000
 app.set('port', process.env.PORT || 4000);
+
+// aca se configura las vistas
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', engine({
     defaultLayout:  'main',
@@ -19,14 +21,7 @@ app.engine('.hbs', engine({
 app.set('view engine', '.hbs');
 
 // Rutas
-app.use(require('./routes'));
-app.use(require('./routes/authentication'));
-app.use('/products',    require('./routes/products'));
-app.use('/register',    require('./routes/register'));
-app.use('/aboutus',     require('./routes/aboutus'));
-app.use('/contact',     require('./routes/contact'));
-app.use('/cart',        require('./routes/cart'));
-
+app.use("/", require ("./routes/index.routes"));
 
 // Publico
 app.use(express.static(path.join(__dirname, 'public')))
