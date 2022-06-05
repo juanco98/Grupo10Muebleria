@@ -1,6 +1,6 @@
 const userController = {
     register: (req, res) => {
-        res.render('register/form');
+        res.render('user/register', {tittle: 'Registrate'});
     }
 }
 

@@ -1,0 +1,23 @@
+/* ESTILOS */
+
+iframe{
+    max-width: 100%;
+    height: auto;
+}
+body .background{
+    opacity: 0.4;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+.form-contact{
+    width: 350px;
+    justify-content: center;
+}
+.icon-size{
+    width: 48px;
+}
+
+/* MEDIA QUERYS */

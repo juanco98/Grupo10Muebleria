@@ -1,0 +1,19 @@
+/* ESTILOS */
+
+.home-login-popup {
+    margin-left: -175px;
+}
+
+/* MEDIA QUERYS */
+
+@media (max-width: 990px) {
+    
+    .home-login-popup {
+        margin-left: 0px;
+    }
+
+    .search-bar {
+      margin-top: 10px;
+    }
+
+}

@@ -1,9 +1,9 @@
 const productController = {
     products: (req, res) => {
-        res.render('products/products');
+        res.render('products/products', {tittle: 'Productos'});
     },
     detailProduct: (req, res) => {
-        res.render('products/detailProducts');
+        res.render('products/detailProducts', {tittle: 'Detalle Producto'});
     }
 }
 

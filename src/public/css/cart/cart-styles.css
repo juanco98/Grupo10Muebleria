@@ -1,0 +1,34 @@
+/* ESTILOS */
+
+.product-img-mini-cart{
+    width: 100%;
+    height: 85px;
+    margin: 5% auto 5% auto;
+}
+
+.font-title-cart{
+    font-weight: bold;
+    font-size: var(--font-size-title);
+    text-align: left;
+}
+
+.mini-gallery {
+    justify-content: center;
+}
+
+.center-add{
+    justify-content: center;
+    text-align: center;
+}
+
+.input-add{
+    width: 45px;
+}
+
+.card-pers {
+    border: solid 2px lightgray;
+    height: auto;
+    width: 100%;
+}
+
+/* MEDIA QUERYS */
