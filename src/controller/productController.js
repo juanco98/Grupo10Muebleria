@@ -1,5 +1,3 @@
-const path = require ("path");
-
 const productController = {
     products: (req, res) => {
         res.render('products/products');
