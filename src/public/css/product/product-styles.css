@@ -2,6 +2,22 @@
 
 /* INICIO ESTILOS PRODUCTOS */
 
+.container-gral{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.div-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.div-col{
+  display: flex;
+  flex-direction: column;
+}
+
+
 .product-card {
     width: 17rem;
 }
@@ -42,7 +58,9 @@
 .card-pers {
     border: solid 2px lightgray;
     height: auto;
-    width: 100%;
+    width: 300px;
+    justify-content: center;
+    padding: 10px 0px;
 }
 
 .mini-gallery {
