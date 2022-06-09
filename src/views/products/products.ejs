@@ -9,200 +9,58 @@
             <%- include('../partials/navigation'); %>
         </header>
         
-        <div class="products bgmain">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-2">
-                        <div class="products-recommended p-3">
-                            <h3>Variables</h3>
-                            <div class="grupo1 mb-2">
-                                <div class="list-group">
-                                    <h5>Madera</h5>
-                                    <div class="ml-2">
-                                        <div class="form-check ml-2">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                                value="option1">
-                                            <label class="form-check-label" for="exampleRadios1">
-                                                Default radio
-                                            </label>
-                                        </div>
-                                        <div class="form-check ml-2">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                                value="option2">
-                                            <label class="form-check-label" for="exampleRadios2">
-                                                Second default radio
-                                            </label>
-                                        </div>
-                                        <div class="form-check ml-2">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                                                value="option3">
-                                            <label class="form-check-label" for="exampleRadios3">
-                                                Disabled radio
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grupo2 mb-2">
-                                <div class="list-group">
-                                    <h5>Tela</h5>
-                                    <div class="ml-2">
-                                        <label class="ml-4 mr-4">
-                                            <input class="form-check-input me-1" type="checkbox" value="">
-                                            First checkbox
-                                        </label>
-                                        <label class="ml-4 mr-4">
-                                            <input class="form-check-input me-1" type="checkbox" value="">
-                                            Second checkbox
-                                        </label>
-                                        <label class="ml-4 mr-4">
-                                            <input class="form-check-input me-1" type="checkbox" value="">
-                                            Third checkbox
-                                        </label>
-                                        <label class="ml-4 mr-4">
-                                            <input class="form-check-input me-1" type="checkbox" value="">
-                                            Fourth checkbox
-                                        </label>
-                                        <label class="ml-4 mr-4">
-                                            <input class="form-check-input me-1" type="checkbox" value="">
-                                            Fifth checkbox
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <div class="products-all p-3">
+        <div class="products">
+            <%- include('./optionsProducts'); %>
+            <div class="product-products">
+                <div class="all-products">
+                    <div class="all-products-top">
+                        <div>
                             <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb bg-white border">
+                                <ol class="breadcrumb bg-white">
                                     <li class="breadcrumb-item"><a href="#">Oficina</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Sillas</li>
                                 </ol>
                             </nav>
-                            <div class="row row-cols-auto">
-                                <div class="mb-4">
-                                    <div class="card product-card">
-                                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="Chair" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Silla</h5>
-                                            <p class="card-text">Silla fachera de madera con tornillos de
-                                                plasticos reutilizados de embases de manaos.</p>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col product-price">
-                                                        <h3>$19.99</h3>
-                                                    </div>
-                                                    <div class="col product-button">
-                                                        <a href="/products/detailProduct" class="btn btn-primary">Go</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="card product-card">
-                                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Silla</h5>
-                                            <p class="card-text">Silla fachera de madera con tornillos de
-                                                plasticos reutilizados de embases de manaos.</p>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col product-price">
-                                                        <h3>$19.99</h3>
-                                                    </div>
-                                                    <div class="col product-button">
-                                                        <a href="#" class="btn btn-primary">Go</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="card product-card">
-                                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Silla</h5>
-                                            <p class="card-text">Silla fachera de madera con tornillos de
-                                                plasticos reutilizados de embases de manaos.</p>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col product-price">
-                                                        <h3>$19.99</h3>
-                                                    </div>
-                                                    <div class="col product-button">
-                                                        <a href="#" class="btn btn-primary">Go</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="card product-card">
-                                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Silla</h5>
-                                            <p class="card-text">Silla fachera de madera con tornillos de
-                                                plasticos reutilizados de embases de manaos.</p>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col product-price">
-                                                        <h3>$19.99</h3>
-                                                    </div>
-                                                    <div class="col product-button">
-                                                        <a href="#" class="btn btn-primary">Go</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="card product-card">
-                                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Silla</h5>
-                                            <p class="card-text">Silla fachera de madera con tornillos de
-                                                plasticos reutilizados de embases de manaos.</p>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col product-price">
-                                                        <h3>$19.99</h3>
-                                                    </div>
-                                                    <div class="col product-button">
-                                                        <a href="#" class="btn btn-primary">Go</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="card product-card">
-                                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Silla</h5>
-                                            <p class="card-text">Silla fachera de madera con tornillos de
-                                                plasticos reutilizados de embases de manaos.</p>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col product-price">
-                                                        <h3>$19.99</h3>
-                                                    </div>
-                                                    <div class="col product-button">
-                                                        <a href="#" class="btn btn-primary">Go</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+                        <div class="btn-options">
+                            <a href="#">
+                                <i class="fas fa-sliders-h"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="all-products-bot">
+                        <% for( let i=0; i<7; i++ ) { %>
+                            <article>
+                                <div class="product-card">
+                                    <div class="product-logo">
+                                        <a href="">
+                                            <img src="/img/chair.svg" alt="" class="product-img-card">
+                                        </a>
+                                    </div>
+                                    <div class="product-desc">
+                                        <div class="product-tittle">
+                                            Silla
+                                        </div>
+                                        <div class="product-description">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit!
+                                        </div>
+                                        <div class="product-bottom">
+                                            <div class="product-price">
+                                                $99.99
+                                            </div>
+                                            <div class="product-buttom btn-group">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fas fa-cart-plus icon-nice-blue"></i>
+                                                </a>
+                                                <a href="/products/detailProduct" class="btn btn-outline-primary">
+                                                    <i class="fas fa-external-link-square-alt icon-nice-blue" ></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        <% } %>
                     </div>
                 </div>
             </div>

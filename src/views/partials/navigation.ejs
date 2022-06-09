@@ -53,11 +53,12 @@
             <form class="px-4 py-3">
               <div class="mb-3">
                 <label for="exampleDropdownFormEmail1" class="form-label">Correo Electronico</label>
-                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="muebles@deco.com">
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="muebles@deco.com" required>
               </div>
               <div class="mb-3">
                 <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres">
               </div>
               <div class="mb-3">
                 <div class="form-check">
@@ -71,7 +72,7 @@
             </form>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/user/register">Nuevo? Registrate!</a>
-            <a class="dropdown-item" href="#">Olvidaste tu contraseña?</a>
+            <a class="dropdown-item" href="/user/recover">Olvidaste tu contraseña?</a>
           </div>
       </div>
     </div>

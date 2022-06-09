@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="/css/backoffice/product/product-styles.css">
+    <link rel="stylesheet" href="/css/backoffice/product/form-product-styles.css">
+</head>
+<body>
+    <div class="main">
+        <%- include('../partials/topbar', {tittle: tittle});  %> 
+        <div class="mid-main">
+            <%- include('../partials/leftbar');  %> 
+            <div class="right-main">
+                <%- include('../partials/rightoption');  %> 
+                <%- include('./formProduct');  %> 
+            </div>
+        </div>
+        <%- include('../partials/footer');  %> 
+    </div>
+</body>
+</html>

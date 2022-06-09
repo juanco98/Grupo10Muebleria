@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="/css/backoffice/product/product-styles.css">
+    <link rel="stylesheet" href="/css/backoffice/product/form-product-styles.css">
+</head>
+<body>
+    <div class="main">
+        <%- include('../partials/topbar', {tittle: tittle});  %> 
+        <div class="mid-main">
+            <%- include('../partials/leftbar');  %> 
+            <div class="right-main">
+                <%- include('../partials/rightoption');  %> 
+                <div class="all-products">
+                    <% for( let i=0; i < 7; i++ ) { %>
+                        <article>
+                            <div class="product-card">
+                                <div class="product-buttom-delet">
+                                    <a href="/admin/products/deleteProduct" class="delete">
+                                        <i class="fa-solid fa-xmark redbtn"></i>
+                                    </a>
+                                </div>
+                                <div class="product-logo">
+                                    <a href="">
+                                        <img src="/img/chair.svg" alt="" class="product-img-card">
+                                    </a>
+                                </div>
+                                <div class="product-desc">
+                                    <div class="product-tittle">
+                                        Silla
+                                    </div>
+                                    <div class="product-description">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit!
+                                    </div>
+                                    <div class="product-bottom">
+                                        <div class="product-price">
+                                            $99.99
+                                        </div>
+                                        <div class="product-buttom">
+                                            <a href="/admin/products/editProduct">
+                                                <button class="button-blue-sm">Moficiar</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <%- include('../partials/footer');  %> 
+    </div>
+</body>
+</html>
