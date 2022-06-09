@@ -1,0 +1,38 @@
+.form-product {
+    display: flex;
+    justify-content: center;
+}
+
+.form-up {
+    display         : flex;
+    flex-direction  : column;
+    width           : 300px;
+    justify-content : center;
+    align-self      : center;
+    margin-bottom   : 25px;
+}
+
+.product-img {
+    height  : 300px;
+    width   : auto;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-input {
+    padding-left: 5px;
+}
+
+.form-desc {
+    resize      : vertical; 
+    max-height  : 200px;
+}
+
+.mid {
+    display         : flex;
+    align-self      : center;
+    align-items     : center;
+    justify-content : center;
+}

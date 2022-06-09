@@ -13,7 +13,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Rutas
-app.use("/", require ("./routes/index.routes"));
+app.use("/",        require ("./routes/index.routes"));
+app.use("/admin",   require ("./routes/backoffice/admin.routes"));
 
 // Publico
 app.use(express.static(path.join(__dirname, 'public')))

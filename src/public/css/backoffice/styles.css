@@ -1,0 +1,55 @@
+/* ESTILOS */
+
+body {
+    background-color: rgb(122, 167, 206);
+}
+
+.bgblue {
+    background-color: lightskyblue;
+}
+
+.bgwhite {
+    background-color: white;
+}
+
+.bgadmin {
+    background  : rgb(255,255,255);
+    background  : -moz-linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(210,210,235,1) 50%, rgba(0,212,255,1) 100%);
+    background  : -webkit-linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(210,210,235,1) 50%, rgba(0,212,255,1) 100%);
+    background  : linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(210,210,235,1) 50%, rgba(0,212,255,1) 100%);
+    filter      : progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#00d4ff",GradientType=1); 
+    position    : fixed; 
+    top         : 0; 
+    left        : 0; 
+    min-width   : 100%;
+    min-height  : 100%;
+}
+
+* {
+    font-family: nunito;
+    margin: 0px;
+}
+
+.letwhite {
+    color: white;
+}
+
+.button-blue {
+    width           : 150px;
+    height          : 50px;
+    border-radius   : 10px;
+    background-color: #40b6e7;
+    font-size       : 15px;
+    color           : white;
+}
+
+.button-blue-sm {
+    width           : 100px;
+    height          : 30px;
+    border-radius   : 10px;
+    background-color: #40b6e7;
+    font-size       : 15px;
+    color           : white;
+}
+
+/* MEDIA QUERYS */

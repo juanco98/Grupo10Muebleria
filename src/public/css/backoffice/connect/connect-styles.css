@@ -1,0 +1,63 @@
+/* ESTILOS */
+
+main {
+    border          : 1px solid black;
+    border-radius   : 10px;
+    margin-bottom   : 100px;
+    margin-top      : 100px;
+    box-shadow      : 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.connect {
+    display         : flex;
+    justify-content : center;
+    align-content   : center;
+}
+
+.logo-img {
+    width   : 150px;
+    height  : auto;
+    margin  : 100px;
+}
+
+.form-connect {
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    padding-bottom  : 100px;
+}
+
+.form-up {
+    display         : flex;
+    flex-direction  : column;
+    width           : 200px;
+    justify-content : center;
+    align-self      : center;
+    margin-bottom   : 25px;
+}
+
+.form-button {
+    display         : flex;
+    justify-content : center;
+    margin-top      : 80px;
+}
+
+.button-blue {
+    width           : 150px;
+    height          : 50px;
+    border-radius   : 10px;
+    background-color: #40b6e7;
+    font-size       : 15px;
+    color           : white;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-input {
+    padding-left: 5px;
+}
+
+
+/* MEDIA QUERYS */

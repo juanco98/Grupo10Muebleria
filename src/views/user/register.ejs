@@ -3,47 +3,89 @@
 <html lang="en">
     <head>
         <%- include('../partials/head', {tittle: tittle} ); %>
+        <link rel="stylesheet" href="/css/user/register-styles.css">
     </head>
     <body>
         <header>
             <%- include('../partials/navigation'); %>
         </header>
         
-        <div class="register bgmain">
-            <div class="container p-4">
-                <div class="row">
-                    <div class="col-md-4 mx-auto">
-                        <div class="card">
-                            <div class="card-body">
-                                <form action="/register/register" method="POST">
-                                    <div class="form-group">
-                                        <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario" autofocus>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="Nombre">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="lastname" class="form-control" placeholder="Apellido">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="address" class="form-control" placeholder="Direccion">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Correo electronico">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-success btn-block">
-                                            Crear
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+        <div class="register">
+            <div class="form-register">
+                <h3 class="tittle-form">Registrate</h3>
+                <form action="/">
+                    <div class="form-up">
+                        <label for="userName" class="form-label">Nombre</label>
+                        <input type="text" name="userName" placeholder="Nombre" class="form-input" required maxlength="60">
+                    </div>
+                    <div class="form-up">
+                        <label for="userLastName" class="form-label">Apellido</label>
+                        <input type="text" name="userLastName" placeholder="Apellido" class="form-input" required maxlength="60">
+                    </div>
+                    <div class="form-up">
+                        <label for="userBornDate" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" name="userBornDate" class="form-input" required >
+                    </div>
+                    <div class="form-up">
+                        <label for="userEmail" class="form-label">Email</label>
+                        <input type="email" name="userEmail" placeholder="hola@mundo.com" class="form-input" required>
+                    </div>
+                    <div class="form-compartido">
+                        <div class="form-up-half">
+                            <label for="userCity" class="form-label">Ciudad</label>
+                            <input type="text" id="userCity" placeholder="Ciudad" class="form-input" required pattern="[A-Za-z\s]+">
+                        </div>
+                        <div class="form-up-half">
+                            <label for="userState" class="form-label">Provincia</label>
+                            <input type="text" id="userState" placeholder="Provincia" class="form-input" required pattern="[A-Za-z\s]+">
                         </div>
                     </div>
-                </div>
+                    <div class="form-compartido">
+                        <div class="form-up-half">
+                            <label for="userPostalCode" class="form-label">Código postal</label>
+                            <input type="text" id="userPostalCode" placeholder="1000" class="form-input" required pattern="[0-9]+" 
+                            title="Solamente números" maxlength="4" >
+                        </div>
+                    </div>
+                    <div class="form-up">
+                        <label for="userAdress" class="form-label">Dirección</label>
+                        <input type="text" id="userAdress" placeholder="Calle Falsa" class="form-input" required maxlength="60">
+                    </div>
+                    <div class="form-compartido">
+                        <div class="form-up-half">
+                            <label for="userNumberAdress" class="form-label">Altura</label>
+                            <input type="text" id="userNumberAdress" placeholder="123" class="form-input" pattern="[0-9]+" 
+                            title="Solamente números" required>
+                        </div>
+                        <div class="form-up-half">
+                            <label for="userNumberFloor" class="form-label">Piso</label>
+                            <input type="text" id="userNumberFloor" placeholder="PB" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-up">
+                        <label for="userUser" class="form-label">Usuario</label>
+                        <input type="text" name="userUser" placeholder="Usuario" class="form-input"
+                        pattern="[A-Za-z0-9_]{5,10}" title="5 caracteres como mínimo, 10 máximo, sin espacios" required>
+                    </div>
+                    <div class="form-up">
+                        <label for="userPass" class="form-label">Contraseña</label>
+                        <input type="password" name="userPass" placeholder="Contraseña" class="form-input"
+                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres">
+                    </div>
+                    <div class="form-up">
+                        <label for="passAdmin" class="form-label">Repetir Contraseña</label>
+                        <input type="password" name="passAdmin" placeholder="Contraseña" class="form-input"
+                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres">
+                    </div>
+                    <input type="reset" name="Limpiar" class="forgetpass cleanbtn">
+                    <div class="form-button">
+                        <button type="submit" class="button-blue" >Registrate
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
         
