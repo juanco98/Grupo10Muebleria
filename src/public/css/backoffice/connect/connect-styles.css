@@ -61,3 +61,26 @@ main {
 
 
 /* MEDIA QUERYS */
+
+@media (max-width: 660px) {
+    main {
+        margin-top      : 50px;
+        margin-bottom   : 50px;
+    }
+    .logo-img {
+        margin: 50px;
+    }
+    .form-connect {
+        padding-bottom: 50px;
+    }
+    .form-button {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    main {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}

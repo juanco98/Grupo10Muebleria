@@ -1,8 +1,10 @@
 <div class="form-product">
     <form action="/admin/products">
-        <div class="form-up">
-            <img src="/img/chair.svg" alt="" class="product-img">
-        </div>
+        <% if (option == 'edit') { %>
+            <div class="form-up">
+                <img src="/img/chair.svg" alt="" class="product-img">
+            </div>
+        <% } %>
         <div class="form-up">
             <label for="productName">Nombre</label>
             <input type="text" name="productName" id="productName" placeholder="Nombre Producto" value=""
