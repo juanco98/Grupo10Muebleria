@@ -1,44 +1,169 @@
 /* ESTILOS */
 
-.aboutus-img {
-    width: 800px; /*ancho*/
-    height: 400px; /*alto*/
-    margin: 7% auto 7% ;
-    border-left: 5px solid rgb(255, 252, 252);
-    position: relative;
-    bottom: 450px;
-    left: 450px;
+.navar{
+    width: 100%;
 }
 
-.aboutus-tittle {
+.aboutus-img {
+    width: 90%; /*ancho*/
+    height: 500px; /*alto*/
+    margin: 7%   ;
+    border-left: 5px solid rgb(255, 252, 252);
+    position: relative;
+    bottom:10px;
+    right: 50px;
+    display: flex;
+    
+}
+
+.aboutus-tittle h4 {
+    padding: 10px;
+    top: 100px;
     text-indent:25px;
+    display: flex;
+    text-align: center;
+    width: 20%;
     
 }
 
 .aboutus-text {
+    margin-top: 30px;
     text-indent:25px;
-    margin-left: 20px;
+    margin-left: 100px;
+    text-align: center;
+    font-size: 35px;
+    display: flex;
+    width: 80%;
 }
+
+.contenedor{
+    width: 100%;
+  
+
+}
+  
 .quieneSomos{
-    position: relative;
-   top:300px;
+    
+    display: flex;
+    width: 90%;
+    top:200px;
+    left: 100px;
+    text-align: center;
+    justify-content: center;
+    font-size: 50px;
+    
+    
 }
 
 .vision{
-    position: absolute;
     
-    bottom:10px;
+   
+    display: flex;
+    width: 90%;
+    top:200px;
+    left: 100px;
+    text-align: center;
+    justify-content: center;
+    font-size: 50px;
+    
+}
+.aboutus-text-vision{
+    display: flex;
 }
 .mision{
-    position: absolute;
-    left:450px;
-    bottom: 10px;
+   
+    display: flex;
+    width: 90%;
+    top:200px;
+    left: 100px;
+    text-align: center;
+    justify-content: center;
+    font-size: 50px;
+   
+    
 }
 
 .valores{
-    position: absolute;
-    left:900px;
-    bottom:10px;
+    
+    display: flex;
+    width: 90%;
+    top:200px;
+    left: 100px;
+    text-align: center;
+    justify-content: center;
+    font-size: 50px;
+   
+    
+}
+.aboutus-tittle-mision{
+    display: flex;
 }
 
+
 /* MEDIA QUERYS */
+@media screen and (max-width: 858px){
+.quieneSomos{
+    height: 65px;
+    font-size: 20px;
+    left: 100px;
+    width: 100%;
+   margin-left: 2px;
+}
+.aboutus-img{
+    height: 300px;
+    width: 100%;
+    align-items: center;
+    margin-left: 80px;
+    bottom: 450px;
+}
+.aboutus-img{
+    margin-top: 500px;
+}
+.aboutus-text-vision{
+
+    top:  200px;
+}
+.vision,.mision.valores,.aboutus-tittle{
+    text-align: center;
+    flex-direction: column;
+
+}
+.vision{
+    top: 15px;
+    width: 100%;
+   margin-left: 2px;
+ 
+
+}
+.aboutus-tittle-mision{
+    align-items: center;
+    left: 300px;
+   bottom: 400px;
+    margin-bottom: 500px;
+
+}
+.mision{
+    height: 65px;
+   left: 10px;
+   top: 850px;
+   text-align: center;
+   width: 100%;
+   margin-left: 2px;
+
+}
+.valores{
+    text-align: center;
+    padding: auto;
+    top: 1480px;
+    width: 100%;
+   margin-left: 2px;
+}
+}
+@media screen and (max-width: 840px){
+    .aboutus-tittle-mision{
+        align-items: center;
+        left: 300px;
+       bottom: 400px;
+    }
+    
+}
