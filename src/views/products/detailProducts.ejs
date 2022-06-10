@@ -8,50 +8,95 @@
     <header>
         <%- include('../partials/navigation'); %>
     </header>
-        
-    <div class="bgmain">
+
+    <div class="great-container">
         <div class="container-gral align-center">
             <div class="div-row div-row-mobile">
-                <div class="div-col margins-x card-pers">
+                <div class="div-col margins-x product-card-detail">
                     <div class="div-row">
-                        <img src="/img/chair.svg" class="card-img-top img-fluid product-img-size" alt="..." />
+                        <img src="/img/chair.svg" class="product-img-size" alt="..." />
                     </div>
                     <hr />
-                    <div class="div-row pb-3 mini-gallery">
+                    <div class="div-row mini-gallery">
+                    <% for( let index = 0; index < 4; index++ ) { %>
                         <div class="div-col div-col-mobile">
-                            <img src="/img/chair.svg" class="card-img-top img-fluid product-img-mini-gallery" alt="..." />
+                            <img src="/img/chair.svg" class="product-img-mini-gallery" alt="..." />
                         </div>
-                        <div class="div-col div-col-mobile">
-                            <img src="/img/chair.svg" class="card-img-top img-fluid product-img-mini-gallery" alt="..." />
-                        </div>
-                        <div class="div-col div-col-mobile">
-                            <img src="/img/chair.svg" class="card-img-top img-fluid product-img-mini-gallery" alt="..." />
-                        </div>
-                        <div class="div-col div-col-mobile">
-                            <img src="/img/chair.svg" class="card-img-top img-fluid product-img-mini-gallery" alt="..." />
-                        </div>
+                    <% } %>
                     </div>
                 </div>
-                <div class="div-col margins-x py-4">
+                <div class="div-col margins-x py-2">
                     <div class="font-title mb-2">
-                        TITULO
+                        Silla
                     </div>
                     <div class="font-txt mb-4">
-                        texto
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </div>
-                    <div class="font-title mb-2">
-                        titulito
+                    <div class="font-txt mb-2">
+                        Descripcion (color, textura, tamano, etc)
                     </div>
-                    <div class="font-txt mb-4">
-                        texto
+                    <div class="font-txt mb-2">
+                        Llega gratis o retiralo por nuestro local
                     </div>
-                    <div class="font-title mb-2">
-                        titulito
+                    <div class="font-txt mb-2">
+                        Stock disponible
                     </div>
-                    <div class="font-txt mb-4">
-                        texto
+                    <div class="font-txt mb-2">
+                        <div class="form-group">
+                          <label for="">Cantidad:</label>
+                          <select class="form-control" name="" id="">
+                            <option>Selecciona una opción</option>
+                            <% for( let index = 1; index < 11; index++ ) { %>
+                                <option><%= index%></option>
+                            <% } %>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="margin-btn">
+                        <a href="#" class="btn btn-primary">
+                            Comprar ahora
+                        </a>
+                    </div>
+                    <div class="margin-btn">
+                        <a href="/products/detailProduct" class="btn btn-outline-primary">
+                            Agregar al carrito
+                        </a>
+                    </div>
+                    <div class="margin-btn btn-group">
+                        <a href="/admin/products/editProduct" class="btn btn-outline-primary">
+                            Editar
+                        </a>
+                        <a href="/products/detailProduct" class="btn btn-outline-danger">
+                            Eliminar
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="great-container2">
+        <div class="container-gral align-center">
+            <div class="div-row">
+                <div class="font-title mb-5">
+                    Productos recomendados
+                </div>
+            </div>
+            <div class="div-row div-row-mobile">
+                <% for( let index = 0; index < 3; index++ ) { %>
+                    <div class="margins-x product-card-detail">
+                        <div class="div-row">
+                            <img src="/img/chair.svg" class="product-img-size" alt="..." />
+                        </div>
+                        <hr />
+                        <div class="div-row mini-gallery">
+                        <% for( let index = 0; index < 4; index++ ) { %>
+                            <div class="div-col div-col-mobile">
+                                <img src="/img/chair.svg" class="product-img-mini-gallery" alt="..." />
+                            </div>
+                        <% } %>
+                        </div>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>
