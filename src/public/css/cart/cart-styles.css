@@ -1,5 +1,31 @@
 /* ESTILOS */
 
+.great-container{
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: 50px 50px 50px 50px;
+    height: auto;
+  }
+
+.container-gral{
+    display         : flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;
+    justify-content : center;
+    margin          : 10px;
+}
+  
+.div-row{
+    display: flex;
+    flex-direction: row;
+}
+  
+.div-col{
+    display: flex;
+    flex-direction: column;
+}
+
 .product-img-mini-cart{
     width: 100%;
     height: 85px;
@@ -14,6 +40,7 @@
 
 .mini-gallery {
     justify-content: center;
+    align-items: center;
 }
 
 .center-add{
@@ -32,3 +59,58 @@
 }
 
 /* MEDIA QUERYS */
+
+@media (max-width: 600px) {
+    .great-container{
+        border-radius: 5px;
+        border: 1px solid gray;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        margin: 50px 50px 5px 50px;
+        height: auto;
+      }
+    
+    .container-gral{
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : center;
+        margin          : 50px;
+    }
+      
+    .div-row{
+        display: flex;
+        flex-direction: row;
+    }
+      
+    .div-col{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 425px) {
+    .great-container{
+        border-radius: 5px;
+        border: 1px solid gray;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        margin: 50px 50px 5px 50px;
+        height: auto;
+      }
+    
+    .container-gral{
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : center;
+        margin          : 50px;
+    }
+      
+    .div-row{
+        display: flex;
+        flex-direction: row;
+    }
+      
+    .div-col{
+        display: flex;
+        flex-direction: column;
+    }
+}
