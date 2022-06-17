@@ -1,63 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../partials/head', {tittle: tittle} ); %>
-    <link rel="stylesheet" href="/css/aboutus/aboutus-styles.css">
-</head>
-<body>
-    <header>
-        <%- include('../partials/navigation'); %>
-    </header>
 
-    <div class="about-us bgmain">
-      <div class="container-xxl" style="background-color: white;">
-        <div class="card mb-4" style="max-width: 400px;">
-          <div class="row g-1">
-            <div class="quieneSomos">
-              <h4 class="aboutus-tittle">¿Quiénes somos?</h4>
-              <div>
-                <p class='aboutus-text'>Somos una empresa que diseña, construye
-                  y opera tiendas que resuelven, íntegramente, las necesidades de mejora del hogar,
-                  como también de abastecimiento de productos y de servicios para empresas y profesionales.
-                </p>
+<head>
+  <%- include('../partials/head', {tittle: tittle} ); %>
+  <link rel="stylesheet" href="/css/aboutus/aboutus-styles.css">
+</head>
+
+<body>
+  <header class="navar">
+    
+    <%- include('../partials/navigation'); %>
+  </header>
+
+  <!-- LOS COLUM-DIV INDICAN QUE ADENTRO DE SU DIV VAN A ESTA ACOMODADO COMO COLUMNA
+      Y LOS ROW-DIV INDIAN QUE ADENTRO VAN A ESTAR ACOMODADO COMO FILAS -->
+  
+  <div class="contenedor">
+    <div class="column-div">
+      <div class="column-div">
+          <div class="div-tittle">
+            <h3 class="h-tittle">¿Quiénes somos?</h3>
+          </div>
+          <div class="div-desc">
+            <p class='p-desc'>Somos una empresa que diseña, construye
+              y opera tiendas que resuelven, íntegramente, las necesidades de mejora del hogar,
+              como también de abastecimiento de productos y de servicios para empresas y profesionales.
+            </p>
+          </div>
+          <hr class="hr">
+      </div>
+      <div class="column-div">
+        <div class="row-div">
+          <div class="img-div w45por">
+            <img src="/img/fotolocal.jpg" class="aboutus-img" alt="">
+          </div>
+          <div class="column-div jc-spa-ar w45por">
+            <hr class="hr">
+            <div class="column-div-up">
+              <div class="div-tittle">
+                <h3 class="h-tittle">Nuestra Visión</h3>
               </div>
-      
-              <img src="/img/living.jpg" class="aboutus-img" alt="">
-            </div>
-      
-            <div class="row g-3">
-              <div class="col-md-4">
-              </div>
-              <div class="vision">
-                <h4>Nuestra Visión</h4>
-      
-                <p class='aboutus-text'>Ser la empresa líder de proyectos para el hogar y construcción
+              <div class="div-desc">
+                <p class='p-desc'>Ser la empresa líder de proyectos para el hogar y construcción
                   que, mejorando la calidad de vida, sea la más querida,
                   admirada y respetada por la comunidad, clientes, trabajadores y proveedores en América.</p>
               </div>
-              <div class="mision">
-                <h4 class="aboutus-tittle">Nuestra Misión</h4>
-      
-                <p class='aboutus-text'>Desarrollarnos con innovación y sostenibilidad,
+              <hr class="hr">
+            </div>
+            <div class="colum-div-bot">
+              <div class="div-tittle">
+                <h3 class="h-tittle">Nuestra Misión</h3>
+              </div>
+              <div class="div-desc">
+                <p class='p-desc'>Desarrollarnos con innovación y sostenibilidad,
                   ofreciendo los mejores productos, servicios y asesoría, al mejor precio del mercado,
                   para inspirar y construir los sueños y proyectos de nuestros clientes.</p>
               </div>
-              <div class="valores">
-                <h4 class="aboutus-tittle">Nuestros Valores</h4>
-      
-                <p class='aboutus-text'>Son la base que marca nuestras relaciones y la forma de hacer negocios.
-                  Representan aquello en lo que creemos y trazan el camino que nos permite llevar adelante nuestra misión.
-                  Constituyen los principios, objetivos y prioridades estratégicas sobre los cuales se construye nuestra
-                  empresa.</p>
-              </div>
-      
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <hr class="hr">
             </div>
           </div>
         </div>
       </div>
+      <div class="column-div">
+        <div class="div-tittle">
+          <h3 class="h-tittle">Nuestros Valores</h3>
+        </div>
+        <div class="div-desc">
+          <p class='p-desc'>Son la base que marca nuestras relaciones y la forma de hacer negocios.
+            Representan aquello en lo que creemos y trazan el camino que nos permite llevar adelante nuestra misión.
+            Constituyen los principios, objetivos y prioridades estratégicas sobre los cuales se construye nuestra
+            empresa.</p>
+        </div>
+      </div>
     </div>
+  </div>
 
 </body>
-</html>
 
+</html>

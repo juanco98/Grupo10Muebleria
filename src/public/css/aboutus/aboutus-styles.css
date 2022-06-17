@@ -1,44 +1,74 @@
 /* ESTILOS */
 
+.contenedor{
+    margin: 65px;
+}
+
+.cajas-en-columna {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+}
+
+.jc-spa-ar {
+    justify-content: space-around;
+}
+
+.cajas-en-filas {
+    display         : flex;
+    flex-direction  : row;
+    justify-content : center;
+}
+
+.h-tittle {
+    text-align: center;
+}
+
+.p-desc {
+    text-align: center;
+    font-size: 20px;
+}
+
 .aboutus-img {
-    width: 800px; /*ancho*/
-    height: 400px; /*alto*/
-    margin: 7% auto 7% ;
-    border-left: 5px solid rgb(255, 252, 252);
-    position: relative;
-    bottom: 450px;
-    left: 450px;
+    margin: 7%;
 }
 
-.aboutus-tittle {
-    text-indent:25px;
-    
+
+@media (max-width: 1550px) {
+    .row-div {
+        justify-content: space-between;
+    }
 }
 
-.aboutus-text {
-    text-indent:25px;
-    margin-left: 20px;
-}
-.quieneSomos{
-    position: relative;
-   top:300px;
+@media (max-width: 1280px) {
+    .row-div {
+        flex-direction  : column;
+        justify-content : center;
+    }
+
+    .img-div {
+        display: flex;
+        justify-content: center;
+    }
 }
 
-.vision{
-    position: absolute;
-    
-    bottom:10px;
-}
-.mision{
-    position: absolute;
-    left:450px;
-    bottom: 10px;
+@media (min-width: 1280px) {
+    .w45por {
+        width: 45%;
+    }
+    .hr {
+        visibility: hidden;
+    }
 }
 
-.valores{
-    position: absolute;
-    left:900px;
-    bottom:10px;
+@media (min-width: 650px) {
+    .aboutus-img {
+        height: 400px;;
+    }
 }
 
-/* MEDIA QUERYS */
+@media (max-width: 650px) {
+    .aboutus-img {
+        width: 300px;
+    }
+}
