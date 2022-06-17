@@ -35,13 +35,13 @@
 
 
 @media (max-width: 1550px) {
-    .row-div {
+    .cajas-en-filas {
         justify-content: space-between;
     }
 }
 
 @media (max-width: 1280px) {
-    .row-div {
+    .cajas-en-filas {
         flex-direction  : column;
         justify-content : center;
     }
