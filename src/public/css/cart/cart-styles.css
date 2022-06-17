@@ -33,10 +33,12 @@
 .caja1{
     display: flex;
     width: 80%;
+    margin-right: 50px;
 }
 .caja2{
     display: flex;
     width: 80%;
+    margin-left: 50px;
 }
 
 .product-img-mini-cart{
