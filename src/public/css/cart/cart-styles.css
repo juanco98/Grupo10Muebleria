@@ -6,7 +6,7 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin: 50px 50px 50px 50px;
     height: auto;
-  }
+}
 
 .container-gral{
     display         : flex;
@@ -24,6 +24,19 @@
 .div-col{
     display: flex;
     flex-direction: column;
+}
+
+.space-box{
+    justify-content: space-between;
+}
+
+.caja1{
+    display: flex;
+    width: 80%;
+}
+.caja2{
+    display: flex;
+    width: 80%;
 }
 
 .product-img-mini-cart{
