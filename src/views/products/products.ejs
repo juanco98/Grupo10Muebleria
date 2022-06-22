@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="all-products-bot">
-                        <% for( let i=0; i<7; i++ ) { %>
+                        <% for( let i=0; i<products.length; i++ ) { %>
                             <article>
                                 <div class="product-card">
                                     <div class="product-logo">
@@ -39,20 +39,20 @@
                                     </div>
                                     <div class="product-desc">
                                         <div class="product-tittle">
-                                            Silla
+                                            <%= products[i].name %> 
                                         </div>
                                         <div class="product-description">
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit!
+                                            <%= products[i].description %> 
                                         </div>
                                         <div class="product-bottom">
                                             <div class="product-price">
-                                                $99.99
+                                                $<%= products[i].price %> 
                                             </div>
                                             <div class="product-buttom btn-group">
                                                 <a href="#" class="btn btn-outline-primary">
                                                     <i class="fas fa-cart-plus icon-nice-blue"></i>
                                                 </a>
-                                                <a href="/products/detailProduct" class="btn btn-outline-primary">
+                                                <a href="/products/detailProduct/<%= products[i].id %>" class="btn btn-outline-primary">
                                                     <i class="fas fa-external-link-square-alt icon-nice-blue" ></i>
                                                 </a>
                                             </div>
@@ -61,6 +61,7 @@
                                 </div>
                             </article>
                         <% } %>
+
                     </div>
                 </div>
             </div>

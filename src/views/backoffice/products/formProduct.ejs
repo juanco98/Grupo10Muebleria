@@ -1,18 +1,19 @@
 <div class="form-product">
-    <form action="/admin/products">
+    <form action="/admin/products/editProduct/" method="POST">
         <% if (option == 'edit') { %>
             <div class="form-up">
                 <img src="/img/chair.svg" alt="" class="product-img">
             </div>
         <% } %>
+        <input type="hidden" name="productId" id="productId" value="<%= product.id %>">
         <div class="form-up">
             <label for="productName">Nombre</label>
-            <input type="text" name="productName" id="productName" placeholder="Nombre Producto" value=""
+            <input type="text" name="productName" id="productName" placeholder="Nombre Producto" value="<%= product.name %>"
             required maxlength="60">
         </div>
         <div class="form-up">
             <label for="productDesc">Descripcion</label>
-            <textarea name="productDesc" id="productDesc" cols="30" rows="10" class="form-desc" required></textarea>
+            <textarea name="productDesc" id="productDesc" cols="30" rows="10" class="form-desc" required><%= product.description %></textarea>
         </div>
         <div class="form-up">
             <label for="productPrice">Precio</label>

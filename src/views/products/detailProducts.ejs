@@ -27,7 +27,7 @@
                 </div>
                 <div class="div-col margins-x py-2">
                     <div class="font-title mb-2">
-                        Silla
+                        <%= product.name %> 
                     </div>
                     <div class="font-txt mb-4">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -40,6 +40,9 @@
                     </div>
                     <div class="font-txt mb-2">
                         Stock disponible
+                    </div>
+                    <div class="font-txt mb-2">
+                        Precio: <%= product.price %> 
                     </div>
                     <div class="font-txt mb-2">
                         <div class="form-group">
@@ -57,13 +60,14 @@
                             Comprar ahora
                         </a>
                     </div>
+                    
                     <div class="margin-btn">
                         <a href="/products/detailProduct" class="btn btn-outline-primary">
                             Agregar al carrito
                         </a>
                     </div>
                     <div class="margin-btn btn-group">
-                        <a href="/admin/products/editProduct" class="btn btn-outline-primary">
+                        <a href="/admin/products/editProduct/<%= product.id %>" class="btn btn-outline-primary">
                             Editar
                         </a>
                         <a href="/products/detailProduct" class="btn btn-outline-danger">
