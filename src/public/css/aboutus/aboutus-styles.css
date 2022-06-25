@@ -1,7 +1,11 @@
 /* ESTILOS */
+.fondo{
+    background-color:beige;
+}
 
 .contenedor{
     margin: 65px;
+    
 }
 
 .cajas-en-columna {
@@ -22,11 +26,13 @@
 
 .h-tittle {
     text-align: center;
+    font-weight: bold;
 }
 
 .p-desc {
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .aboutus-img {
