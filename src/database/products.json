@@ -4,10 +4,11 @@
         "name"          : "Mesa",
         "description"   : "Mesa comedor",
         "price"         : 10000,
+        "img"           : "",
         "images"        : [],
         "room"          : ["comedor"],
         "mats" : {
-            "wood"  : ["pino"],
+            "wood"  : ["pino", "fenolico"],
             "metal" : [],
             "cloth" : [],
             "others": []
@@ -15,7 +16,8 @@
         "size" : {
             "height"    : 180,
             "width"     : 60,
-            "deep"      : 60
+            "deep"      : 60,
+            "weight"    : 12.5
         },
         "colors"        : ["marron"],
         "available"     : true,
@@ -26,6 +28,7 @@
         "name"          : "Sommier",
         "description"   : "Sommier 2 plazas",
         "price"         : 50000,
+        "img"           : "",
         "images"        : [],
         "room"          : ["dormitorio"],
         "mats" : {
@@ -37,7 +40,8 @@
         "size" : {
             "height"    : 40,
             "width"     : 200,
-            "deep"      : 160
+            "deep"      : 160,
+            "weight"    : 10
         },
         "colors"        : ["rojo"],
         "available"     : true,
@@ -48,6 +52,7 @@
         "name"          : "Sillon",
         "description"   : "Sillon de Oficina",
         "price"         : 10000,
+        "img"           : "",
         "images"        : [],
         "room"          : ["oficina"],
         "mats" : {
@@ -59,7 +64,8 @@
         "size" : {
             "height"    : 160,
             "width"     : 50,
-            "deep"      : 50
+            "deep"      : 50,
+            "weight"    : 10
         },
         "colors"        : ["negro"],
         "available"     : true,
@@ -70,6 +76,7 @@
         "name"          : "Mesita",
         "description"   : "mesita ratonera",
         "price"         : 5000,
+        "img"           : "",
         "images"        : [],
         "room"          : ["dormitorio"],
         "mats" : {
@@ -81,7 +88,8 @@
         "size" : {
             "height"    : 50,
             "width"     : 50,
-            "deep"      : 50
+            "deep"      : 50,
+            "weight"    : 10
         },
         "colors"        : ["marron","blanca"],
         "available"     : true,

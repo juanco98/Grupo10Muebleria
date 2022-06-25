@@ -6,7 +6,10 @@ let productsJson    = JSON.parse(products);
 
 const productController = {
     products: (req, res) => {
-        res.render('backoffice/products/products', {tittle: 'Productos'});
+        res.render('backoffice/products/products', {
+            tittle: 'Productos', 
+            products: productsJson
+        });
     },
     newProduct: (req, res) => {
         res.render('backoffice/products/newProduct', {tittle: 'Nuevo Producto'});

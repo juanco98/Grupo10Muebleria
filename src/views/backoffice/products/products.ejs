@@ -13,7 +13,7 @@
             <div class="right-main">
                 <%- include('../partials/rightoption');  %> 
                 <div class="all-products">
-                    <% for( let i=0; i < 7; i++ ) { %>
+                    <% for( let i = 0; i < products.length; i++ ) { %>
                         <article>
                             <div class="product-card">
                                 <div class="product-buttom-delet">
@@ -28,17 +28,17 @@
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-tittle">
-                                        Silla
+                                        <%= products[i].name %> 
                                     </div>
                                     <div class="product-description">
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit!
+                                        <%= products[i].description %> 
                                     </div>
                                     <div class="product-bottom">
                                         <div class="product-price">
-                                            $99.99
+                                            $<%= products[i].price %> 
                                         </div>
                                         <div class="product-buttom">
-                                            <a href="/admin/products/editProduct">
+                                            <a href="/admin/products/editProduct/<%= products[i].id %>">
                                                 <button class="button-blue-sm">Moficiar</button>
                                             </a>
                                         </div>
