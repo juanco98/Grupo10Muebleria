@@ -1,7 +1,4 @@
 <div class="form-product">
-    <% if (option == 'new') { %>
-    <form action="/admin/products/newProduct/" method="POST">
-    <% } %> 
     <% if (option == 'edit') { %>
     <form action="/admin/products/editProduct/" method="POST">
             <div class="form-up">
@@ -154,8 +151,8 @@
             </div>
             <div class="form-input-div-half">
                 <label for="quantity">Cantidad</label>
-                <input type="text" name="quantity" id="quantity" placeholder="Nombre Producto" value="<%= product.quantity %>"
-                required maxlength="60">
+                <input type="text" name="quantity" id="quantity" placeholder="10" value="<%= product.quantity %>"
+                pattern="[0-9]+" title="Solamente números">
             </div>
         </div>
         <div class="form-up">

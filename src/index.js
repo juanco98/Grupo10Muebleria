@@ -1,5 +1,6 @@
-const express   = require('express');
-const path      = require('path');
+const express       = require('express');
+const path          = require('path');
+const bodyParser    = require('body-parser')
 
 // Inicializando express
 const app = express();
@@ -11,6 +12,12 @@ app.set('port', process.env.PORT || 4000);
 // aca se configura las vistas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// se setea para soportar el body
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({
+  extended: true
+})); 
 
 // Rutas
 app.use("/",        require ("./routes/index.routes"));

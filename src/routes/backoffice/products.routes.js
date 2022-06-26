@@ -4,7 +4,8 @@ const productController = require ("../../controller/backoffice/productControlle
 
 //rutas
 routes.get("/",                 productController.products);
-routes.get("/newProduct",       productController.newProduct);
+routes.get("/newProduct",       productController.newProductGet);
+routes.post("/newProduct",      productController.newProductPost);
 routes.get("/editProduct/:id",  productController.editProductGet);
 
 module.exports = routes; 
