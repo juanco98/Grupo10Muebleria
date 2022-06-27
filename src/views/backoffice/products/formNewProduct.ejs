@@ -1,6 +1,6 @@
 <div class="form-product">
     <% if (option == 'new') { %>
-    <form action="/admin/products/newProduct/" method="POST">
+    <form action="/admin/products/newProduct/" method="POST" enctype="multipart/form-data">
     <% } %>
         <div class="form-up">
             <label for="productName">Nombre</label>

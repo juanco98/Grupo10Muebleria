@@ -2,6 +2,8 @@ const fs                    = require('fs');
 const path                  = require('path');
 const {json}                = require('express');
 const {validationResult}    = require('express-validator');
+const jsonMethods           = require('../../database/jsonMethods');
+const productsModel         = jsonMethods('products');
 const filePath              = path.resolve(__dirname, '../../database/products.json');
 let products                = fs.readFileSync(filePath, {encoding: 'utf-8'});
 let productsArray           = JSON.parse(products);
@@ -46,11 +48,16 @@ const productController = {
             sizeDeep,
             sizeWeigth,
             colors,
-            productImg,
-            productImages,
             radioAvailable,
             quantity
         } = req.body
+
+        // almaceno las imagenes
+        productImg          = req.files['productImg'][0]['filename']
+        let productImages   = [];
+        req.files['productImages'].forEach(element => {
+            productImages.push(element['filename']);
+        });
 
         // pasos los string a array de los multiple
         arrayMatWood    = strToArray(matWood);
@@ -87,7 +94,7 @@ const productController = {
             }
         )
         fs.writeFileSync(filePath, JSON.stringify(productsArray, null, ''))
-        
+
         res.redirect('/admin/products/');
     },
     editProductGet: (req, res) => {
@@ -102,6 +109,86 @@ const productController = {
             tittle: 'Modificar Producto',
             product: product
         });
+    },
+    editProductPut: (req, res) => {
+        // guardo el id enviado por parametro
+        let productId = req.params.id;
+
+        // verifico que no haya errores
+        const arrayErrors = validationResult(req);
+        console.log("error =>", arrayErrors.errors.length);
+        if (arrayErrors.errors.length > 0) {
+            return res.render('create', {
+                messageErrors: arrayErrors.mapped(),
+                oldBodyData: req.body
+            });
+        }
+
+        // procedo a almacenar las variables para realizar el guardado
+        const {
+            productName,
+            productDesc,
+            productPrice,
+            checkroom,
+            matWood,
+            matMetal,
+            matCloth,
+            matOther,
+            sizeHeight,
+            sizeWidth,
+            sizeDeep,
+            sizeWeigth,
+            colors,
+            radioAvailable,
+            quantity
+        } = req.body
+
+        // pasos los string a array de los multiple
+        arrayMatWood    = strToArray(matWood);
+        arrayMatMetal   = strToArray(matMetal);
+        arrayMatCloth   = strToArray(matCloth);
+        arrayMaOther    = strToArray(matOther);
+        arrayColor      = strToArray(colors);
+
+        productsArray.forEach(product => {
+            if ( product.id == productId ) {
+                product.name        = productName;
+                product.description = productDesc;
+                product.price       = productPrice;
+                product.room        = checkroom;
+                product.mats.wood   = arrayMatWood
+                product.mats.metal  = arrayMatMetal
+                product.mats.cloth  = arrayMatCloth
+                product.mats.others = arrayMaOther
+                product.size.height = sizeHeight
+                product.size.width  = sizeWidth
+                product.size.deep   = sizeDeep
+                product.size.weight = sizeWeigth
+                product.colors      = arrayColor
+                product.available   = radioAvailable
+                product.quantity    = quantity
+            }
+        });
+
+        fs.writeFileSync(filePath, JSON.stringify(productsArray, null, ''),
+            {encoding: "utf-8"}
+        );
+
+        res.redirect('/admin/products/');
+    },
+    deleteProduct:(req, res) => {
+        // guardo el id enviado por parametro
+        let productId = req.params.id;
+
+        // lo filtro
+        newProductsArray = productsArray.filter((product) => product.id != productId)
+
+        // lo guardo
+        fs.writeFileSync(filePath, JSON.stringify(newProductsArray, null, ''),
+            {encoding: "utf-8"}
+        );
+
+        res.redirect('/admin/');
     }
 }
 

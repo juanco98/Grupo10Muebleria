@@ -70,9 +70,9 @@
                         <a href="/admin/products/editProduct/<%= product.id %>" class="btn btn-outline-primary">
                             Editar
                         </a>
-                        <a href="/products/detailProduct" class="btn btn-outline-danger">
-                            Eliminar
-                        </a>
+                        <form action="/admin/products/deleteProduct/<%= product.id %>?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                        </form>
                     </div>
                 </div>
             </div>

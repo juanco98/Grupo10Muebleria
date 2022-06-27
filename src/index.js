@@ -1,6 +1,7 @@
 const express       = require('express');
 const path          = require('path');
 const bodyParser    = require('body-parser')
+const methodOverride= require('method-override');
 
 // Inicializando express
 const app = express();
@@ -18,6 +19,7 @@ app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({
   extended: true
 })); 
+app.use(methodOverride('_method'));
 
 // Rutas
 app.use("/",        require ("./routes/index.routes"));

@@ -1,11 +1,8 @@
 <div class="form-product">
-    <% if (option == 'edit') { %>
-    <form action="/admin/products/editProduct/" method="POST">
+    <form action="/admin/products/editProduct/<%=product.id%>?_method=PUT" method="POST">
             <div class="form-up">
                 <img src="/img/chair.svg" alt="" class="product-img">
             </div>
-    <% } %>
-        <input type="hidden" name="productId" id="productId" value="<%= product.id %>">
         <div class="form-up">
             <label for="productName">Nombre</label>
             <input type="text" name="productName" id="productName" placeholder="Nombre Producto" value="<%= product.name %>"
@@ -69,25 +66,25 @@
         <div class="form-up">
             <label for="matWood">Maderas</label>
             <input type="text" name="matWood" id="matWood" placeholder="fenolico, pino" value="<%= product.mats.wood %>"
-            required maxlength="60">
+            maxlength="60">
             <label class="little-text">Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matMetal">Metales</label>
             <input type="text" name="matMetal" id="matMetal" placeholder="aluminio, hierro" value="<%= product.mats.metal %>"
-            required maxlength="60">
+            maxlength="60">
             <label class="little-text">Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matCloth">Telas</label>
             <input type="text" name="matCloth" id="matCloth" placeholder="cuero, algodon" value="<%= product.mats.cloth %>"
-            required maxlength="60">
+            maxlength="60">
             <label class="little-text">Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matOther">Otros</label>
             <input type="text" name="matOther" id="matOther" placeholder="plastico, vidrio" value="<%= product.mats.others %>"
-            required maxlength="60">
+            maxlength="60">
             <label class="little-text">Ingrese separados por comas</label>
         </div>
         <div class="form-up">
@@ -137,13 +134,13 @@
                 <div class="form-compartido">
                     <div class="form-input-div-four">
                         <div>
-                            <input type="radio" name="radioavailable" id="availableYes">
+                            <input type="radio" name="radioAvailable" id="availableYes" value="true">
                             <label for="availableYes">Si</label>
                         </div>
                     </div>
                     <div class="form-input-div-four">
                         <div>
-                            <input type="radio" name="radioavailable" id="availableNo" checked>
+                            <input type="radio" name="radioAvailable" id="availableNo" value="false" checked>
                             <label for="availableNo">No</label>
                         </div>
                     </div>
