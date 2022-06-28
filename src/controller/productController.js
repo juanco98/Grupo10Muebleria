@@ -2,7 +2,7 @@ const fs            = require('fs');
 const path          = require('path');
 const filePath      = path.resolve(__dirname, '../database/products.json');
 let products        = fs.readFileSync(filePath, {encoding: 'utf-8'});
-let productsArray    = JSON.parse(products);
+let productsArray   = JSON.parse(products);
 
 const productController = {
     products: (req, res) => {

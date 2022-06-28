@@ -1,1 +1,44 @@
-[{"id":1,"name":"Sommier y Colchon 1 Plaza","description":"El Colchón Sealy Linen posee Resortes Bonnell, elaborados en acero doble templado que otorgan gran resistencia y durabilidad. Su marco de acero, permite una perfecta ventilación interna y una mayor superficie de uso. ","price":"57100","img":"productImg-1656373000101-523769120.jpg","images":["productImages-1656373000101-861817438.jpg","productImages-1656373000104-800224970.jpg"],"room":["dormitorio"],"mats":{"wood":["algarrobo","fenolico 9mm"],"metal":["acero"],"cloth":[""],"others":["resorte"]},"size":{"height":"22","width":"80","deep":"190","weight":"25"},"colors":["blanco"],"available":"true","quantity":"5","mark":"Sealy","model":"Linen"}]
+[
+    {
+        "id": 1,
+        "name": "Sommier y Colchon 1 Plaza",
+        "description": "El Colchón Sealy Linen posee Resortes Bonnell, elaborados en acero doble templado que otorgan gran resistencia y durabilidad. Su marco de acero, permite una perfecta ventilación interna y una mayor superficie de uso. ",
+        "price": "57100",
+        "img": "productImg-1656373000101-523769120.jpg",
+        "images": [
+            "productImages-1656373000101-861817438.jpg",
+            "productImages-1656373000104-800224970.jpg"
+        ],
+        "room": [
+            "dormitorio"
+        ],
+        "mats": {
+            "wood": [
+                "algarrobo",
+                "fenolico 9mm"
+            ],
+            "metal": [
+                "acero"
+            ],
+            "cloth": [
+                ""
+            ],
+            "others": [
+                "resorte"
+            ]
+        },
+        "size": {
+            "height": "22",
+            "width": "80",
+            "deep": "190",
+            "weight": "25"
+        },
+        "colors": [
+            "blanco"
+        ],
+        "available": "true",
+        "quantity": "5",
+        "mark": "Sealy",
+        "model": "Linen"
+    }
+]
