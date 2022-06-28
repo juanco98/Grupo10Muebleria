@@ -17,6 +17,20 @@
     width   : auto;
 }
 
+.product-img-galery {
+    height  : 150px;
+    width   : 150px;
+    padding : 5px;
+}
+
+.img-galery-row-wrap {
+    display         : flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;
+    float           : left;
+}
+
+
 .form-label {
     font-weight: bold;
 }

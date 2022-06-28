@@ -16,16 +16,17 @@ const storage = multer.diskStorage({
     }
 })
 let fileUpload = multer({ storage });
+const multipleImgProd = fileUpload.fields([{ name: 'productImg', maxCount: 1 }, { name: 'productImages', maxCount: 8 }])
 
 //rutas
 routes.get("/",                 productController.products);
 
-routes.get("/newProduct",       productController.newProductGet);
-const multipleImgProd = fileUpload.fields([{ name: 'productImg', maxCount: 1 }, { name: 'productImages', maxCount: 8 }])
+
+routes.get("/newProduct",                   productController.newProductGet);
 routes.post("/newProduct", multipleImgProd, productController.newProductPost);
 
-routes.get("/editProduct/:id",      productController.editProductGet);
-routes.put("/editProduct/:id",      productController.editProductPut);
+routes.get("/editProduct/:id",                  productController.editProductGet);
+routes.put("/editProduct/:id", multipleImgProd, productController.editProductPut);
 
 routes.delete("/deleteProduct/:id", productController.deleteProduct);
 

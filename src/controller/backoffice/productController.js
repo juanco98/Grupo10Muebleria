@@ -36,6 +36,8 @@ const productController = {
         // procedo a almacenar las variables para realizar el guardado
         const {
             productName,
+            productMark,
+            productModel,
             productDesc,
             productPrice,
             checkroom,
@@ -71,6 +73,8 @@ const productController = {
             {
                 id:             size + 1,
                 name:           productName,
+                mark:           productMark,
+                model:          productModel,
                 description:    productDesc,
                 price:          productPrice,
                 img:            productImg,
@@ -127,6 +131,8 @@ const productController = {
         // procedo a almacenar las variables para realizar el guardado
         const {
             productName,
+            productMark,
+            productModel,
             productDesc,
             productPrice,
             checkroom,
@@ -143,6 +149,20 @@ const productController = {
             quantity
         } = req.body
 
+        let cambioImgGaleria = false;
+        let agregoImgGaleria = false;
+        if ( req.files['productImg'] ) {
+            cambioImgGaleria = true;
+            productImg = req.files['productImg'][0]['filename']
+        }
+        let arrayImgGalery   = [];
+        if (req.files['productImages'] ) {
+            agregoImgGaleria = true;
+            req.files['productImages'].forEach(element => {
+                arrayImgGalery.push(element['filename']);
+            });
+        }
+
         // pasos los string a array de los multiple
         arrayMatWood    = strToArray(matWood);
         arrayMatMetal   = strToArray(matMetal);
@@ -153,9 +173,20 @@ const productController = {
         productsArray.forEach(product => {
             if ( product.id == productId ) {
                 product.name        = productName;
+                product.mark        = productMark;
+                product.model       = productModel;
                 product.description = productDesc;
                 product.price       = productPrice;
                 product.room        = checkroom;
+                if (cambioImgGaleria) {
+                    product.img     = productImg;
+                }
+                if (agregoImgGaleria) {
+                    product.images.forEach(element => {
+                        arrayImgGalery.push(element)
+                    })
+                    product.images  = arrayImgGalery;
+                }
                 product.mats.wood   = arrayMatWood
                 product.mats.metal  = arrayMatMetal
                 product.mats.cloth  = arrayMatCloth
@@ -187,8 +218,12 @@ const productController = {
         fs.writeFileSync(filePath, JSON.stringify(newProductsArray, null, ''),
             {encoding: "utf-8"}
         );
+        
+        // le doy un setTimeout para que le de tiempo a rescribir todo de vuelta
+        setTimeout(() => {
+        }, 2000);
 
-        res.redirect('/admin/');
+        res.redirect('/admin/products/');
     }
 }
 
