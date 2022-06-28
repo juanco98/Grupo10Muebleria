@@ -156,7 +156,7 @@ const productController = {
             productImg = req.files['productImg'][0]['filename']
         }
         let arrayImgGalery   = [];
-        if (req.files['productImages'] ) {
+        if ( req.files['productImages'] ) {
             agregoImgGaleria = true;
             req.files['productImages'].forEach(element => {
                 arrayImgGalery.push(element['filename']);
@@ -208,7 +208,7 @@ const productController = {
         res.redirect('/admin/products/');
     },
     deleteProduct:(req, res) => {
-        // guardo el id enviado por parametro
+        // tomo el id enviado por parametro
         let productId = req.params.id;
 
         // lo filtro

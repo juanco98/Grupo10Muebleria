@@ -6,10 +6,24 @@
         </div>
         <div class="form-up">
             <label>Imagenes Galeria</label>
+            <label class="little-text">Desmarque los que quiera borrar</label>
             <div class="img-galery-row-wrap">
-                <% product.images.forEach(element => { %>
-                    <img src="/images/products/<%= element %>" alt="Portada" class="product-img-galery">
-                <% }) %>
+                <% for( let i=0; i<product.images.length; i++ ) { %>
+                    <div>
+                        <img src="/images/products/<%=product.images[i] %>" alt="Portada" class="product-img-galery">
+                        <div class="check-delete-img-gal">
+                            <input type="checkbox" name="checkImgGal[]" value="<%=product.images[i]%>" id="<%=product.images[i]%>" checked >
+                            <label class="label-form " for="<%=product.images[i]%>">Mantener</label>
+                        </div>
+                    </div>
+                <% } %>
+                <!-- <% product.images.forEach(element => { %>
+                    <div>
+                        <img src="/images/products/<%= element %>" alt="Portada" class="product-img-galery">
+                        <input type="checkbox" name="checkroom[]" value="oficina" id="oficina">
+                        <label class="label-form " for="dormitorio">Borrar</label>
+                    </div>
+                <% }) %> -->
             </div>
         </div>
         <div class="form-up">
@@ -121,26 +135,26 @@
         <div class="form-up">
             <label for="matWood">Maderas</label>
             <input type="text" name="matWood" id="matWood" placeholder="fenolico, pino" value="<%= product.mats.wood %>"
-            maxlength="60" pattern="[a-zA-Z0-9\s,]+">
-            <label class="little-text" title="Separe por comas">Ingrese separados por comas</label>
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
+            <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matMetal">Metales</label>
             <input type="text" name="matMetal" id="matMetal" placeholder="aluminio, hierro" value="<%= product.mats.metal %>"
-            maxlength="60" pattern="[a-zA-Z0-9\s,]+">
-            <label class="little-text" title="Separe por comas">Ingrese separados por comas</label>
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
+            <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matCloth">Telas</label>
             <input type="text" name="matCloth" id="matCloth" placeholder="cuero, algodon" value="<%= product.mats.cloth %>"
-            maxlength="60" pattern="[a-zA-Z0-9\s,]+">
-            <label class="little-text" title="Separe por comas">Ingrese separados por comas</label>
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
+            <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matOther">Otros</label>
             <input type="text" name="matOther" id="matOther" placeholder="plastico, vidrio" value="<%= product.mats.others %>"
-            maxlength="60" pattern="[a-zA-Z0-9\s,]+">
-            <label class="little-text" title="Separe por comas">Ingrese separados por comas</label>
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
+            <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label>Medidas</label>
@@ -172,7 +186,7 @@
         <div class="form-up">
             <label for="colors">Colores</label>
             <input type="text" name="colors" id="colors" placeholder="azul, blanco" value="<%= product.colors %>"
-            required maxlength="60">
+            required maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
             <label class="little-text">Ingrese separados por comas</label>
         </div>
         <div class="form-up">
