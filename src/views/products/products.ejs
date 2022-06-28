@@ -17,8 +17,8 @@
                         <div>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb bg-white">
-                                    <li class="breadcrumb-item"><a href="#">Oficina</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Sillas</li>
+                                    <li class="breadcrumb-item active"><a href="/products/roomProducts/<%= room %>"><%= room %></a></li>
+                                    <li class="breadcrumb-item" aria-current="page">Silla</li>
                                 </ol>
                             </nav>
                         </div>
@@ -33,8 +33,8 @@
                             <article>
                                 <div class="product-card">
                                     <div class="product-logo">
-                                        <a href="">
-                                            <img src="/img/chair.svg" alt="" class="product-img-card">
+                                        <a href="/products/detailProduct/<%= products[i].id %>">
+                                            <img src="/images/products/<%= products[i].img %>" alt="" class="product-img-card">
                                         </a>
                                     </div>
                                     <div class="product-desc">

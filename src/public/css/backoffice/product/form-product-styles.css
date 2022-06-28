@@ -9,13 +9,27 @@
     width           : 300px;
     justify-content : center;
     align-self      : center;
-    margin-bottom   : 25px;
+    margin-bottom   : 10px;
 }
 
 .product-img {
     height  : 300px;
     width   : auto;
 }
+
+.product-img-galery {
+    height  : 150px;
+    width   : 150px;
+    padding : 5px;
+}
+
+.img-galery-row-wrap {
+    display         : flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;
+    float           : left;
+}
+
 
 .form-label {
     font-weight: bold;
@@ -35,4 +49,55 @@
     align-self      : center;
     align-items     : center;
     justify-content : center;
+}
+
+.form-input-div,
+.form-input-div-half,
+.form-input-div-three,
+.form-input-div-four {
+    width           : 300px;
+    display         : flex;
+    flex-direction  : column;
+}
+
+.form-input-div-half {
+    width: 140px;
+}
+
+.form-input-div-three {
+    width: 80px;
+}
+
+.form-input-div-four {
+    width: 60px;
+}
+
+.form-checkbox {
+    text-align: start;
+    margin: 5px 20px 5px 5px;
+}
+
+.label-form {
+    text-align: start;
+    margin-bottom: 5px;
+}
+
+.label-form-radio {
+    margin-bottom: 10px;
+}
+
+.form-compartido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.little-text {
+    margin-top: 5px;
+    text-align: start;
+    font-size: 10px;
+}
+
+.m10 {
+    margin: 10px;
 }

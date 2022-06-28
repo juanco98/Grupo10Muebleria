@@ -93,9 +93,9 @@ article {
 }
 
 .product-img-card {
-  width : auto;
-  height: 200px;
-  margin: 10px;
+  width   : auto;
+  height  : 200px;
+  padding : 10px;
 }
 
 .product-desc {

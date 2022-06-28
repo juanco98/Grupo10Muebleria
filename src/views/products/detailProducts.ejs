@@ -66,13 +66,13 @@
                             Agregar al carrito
                         </a>
                     </div>
-                    <div class="margin-btn btn-group">
-                        <a href="/admin/products/editProduct/<%= product.id %>" class="btn btn-outline-primary">
-                            Editar
-                        </a>
-                        <a href="/products/detailProduct" class="btn btn-outline-danger">
-                            Eliminar
-                        </a>
+                    <div class="margin-btn">
+                        <form action="/admin/products/editProduct/<%= product.id %>" method="GET">
+                            <button type="submit" class="btn btn-outline-primary">Editar</button>
+                        </form>
+                        <form action="/admin/products/deleteProduct/<%= product.id %>?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                        </form>
                     </div>
                 </div>
             </div>
