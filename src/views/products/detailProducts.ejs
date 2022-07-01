@@ -30,16 +30,21 @@
                         <%= product.name %> 
                     </div>
                     <div class="font-txt mb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <%= product.description %> 
                     </div>
                     <div class="font-txt mb-2">
-                        Descripcion (color, textura, tamano, etc)
+                        Descripcion (color, textura, tamano, etc) 
                     </div>
                     <div class="font-txt mb-2">
-                        Llega gratis o retiralo por nuestro local
+                        Llega gratis o retiralo por nuestro local.
+                        <!-- AGREGAR COLOR, AMBIENTE, MATERIAL,TAMANO -->
                     </div>
                     <div class="font-txt mb-2">
-                        Stock disponible
+                        <% if(product.available == 'true') { %> 
+                            Stock disponible: <%= product.quantity %> un.
+                        <% }else{ %> 
+                            Sin stock disponible
+                        <% } %> 
                     </div>
                     <div class="font-txt mb-2">
                         Precio: <%= product.price %> 
@@ -49,7 +54,7 @@
                           <label for="">Cantidad:</label>
                           <select class="form-control" name="" id="">
                             <option>Selecciona una opción</option>
-                            <% for( let index = 1; index < 11; index++ ) { %>
+                            <% for( let index = 1; index <= product.quantity; index++ ) { %>
                                 <option><%= index%></option>
                             <% } %>
                           </select>

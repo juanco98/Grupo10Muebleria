@@ -1,1 +1,40 @@
-[]
+[
+    {
+        "id": 1,
+        "name": "silla",
+        "description": "fachera",
+        "price": "1212",
+        "img": "productImg-1656633840006-794800869.jpg",
+        "images": [
+            "productImages-1656633840007-272473920.jpg"
+        ],
+        "room": [
+            "cocina"
+        ],
+        "mats": {
+            "wood": [
+                "madera"
+            ],
+            "metal": [
+                "hierro fundido"
+            ],
+            "cloth": [
+                "pana"
+            ],
+            "others": [
+                ""
+            ]
+        },
+        "size": {
+            "height": "12",
+            "width": "12",
+            "deep": "12",
+            "weight": "12"
+        },
+        "colors": [
+            "verde"
+        ],
+        "available": "true",
+        "quantity": "12"
+    }
+]
