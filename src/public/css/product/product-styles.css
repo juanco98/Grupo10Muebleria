@@ -72,13 +72,15 @@
   flex-wrap     : wrap;
 }
 
-article {
+.article {
+  font-weight: 100%;
   margin: 20px;
+  
 }
 
 .product-card {
   background-color: white;
-  width           : 400px;
+  width           : 355px;
   height          : 400px;
   border-radius   : 5px;
   border          : 1px solid black;
