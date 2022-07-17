@@ -1,34 +1,20 @@
-const fs                    = require('fs');
-const path                  = require('path');
-const {json}                = require('express');
-const {validationResult}    = require('express-validator');
-const jsonMethods           = require('../../database/jsonMethods');
-const productsModel         = jsonMethods('products');
-const filePath              = path.resolve(__dirname, '../../database/products.json');
-let products                = fs.readFileSync(filePath, {encoding: 'utf-8'});
-let productsArray           = JSON.parse(products);
+const fs            = require('fs');
+const path          = require('path');
+const filePath      = path.resolve(__dirname, '../../database/products.json');
+let products        = fs.readFileSync(filePath, {encoding: 'utf-8'});
+let productsArray   = JSON.parse(products);
 
 const productController = {
     products: (req, res) => {
-        res.render('backoffice/products/products', {
+        return res.render('backoffice/products/products', {
             tittle: 'Productos', 
             products: productsArray
         });
     },
     newProductGet: (req, res) => {
-        res.render('backoffice/products/newProduct', {tittle: 'Nuevo Producto'});
+        return res.render('backoffice/products/newProduct', {tittle: 'Nuevo Producto'});
     },
     newProductPost: (req, res) => {
-
-        // verifico que no haya errores
-        const arrayErrors = validationResult(req);
-        console.log("error =>", arrayErrors.errors.length);
-        if (arrayErrors.errors.length > 0) {
-            return res.render('create', {
-               messageErrors: arrayErrors.mapped(),
-               oldBodyData: req.body
-           });
-        }
 
         // cuento la cantidad de productos actuales, para saber el id
         let size = productsArray.length;
@@ -99,7 +85,7 @@ const productController = {
         )
         fs.writeFileSync(filePath, JSON.stringify(productsArray, null, ''))
 
-        res.redirect('/admin/products/');
+        return res.redirect('/admin/products/');
     },
     editProductGet: (req, res) => {
         let idProduct = req.params.id;
@@ -109,7 +95,7 @@ const productController = {
         } catch (error) {
             console.error(error.message())
         }
-        res.render('backoffice/products/editProduct', {
+        return res.render('backoffice/products/editProduct', {
             tittle: 'Modificar Producto',
             product: product
         });
@@ -117,16 +103,6 @@ const productController = {
     editProductPut: (req, res) => {
         // guardo el id enviado por parametro
         let productId = req.params.id;
-
-        // verifico que no haya errores
-        const arrayErrors = validationResult(req);
-        console.log("error =>", arrayErrors.errors.length);
-        if (arrayErrors.errors.length > 0) {
-            return res.render('create', {
-                messageErrors: arrayErrors.mapped(),
-                oldBodyData: req.body
-            });
-        }
 
         // procedo a almacenar las variables para realizar el guardado
         const {
@@ -205,7 +181,7 @@ const productController = {
             {encoding: "utf-8"}
         );
 
-        res.redirect('/admin/products/');
+        return res.redirect('/admin/products/');
     },
     deleteProduct:(req, res) => {
         // tomo el id enviado por parametro
@@ -223,7 +199,7 @@ const productController = {
         setTimeout(() => {
         }, 2000);
 
-        res.redirect('/admin/products/');
+        return res.redirect('/admin/products/');
     }
 }
 

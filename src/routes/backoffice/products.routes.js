@@ -7,7 +7,6 @@ const {multipleImgProd} = require ('../../utils/multerProducts')
 //rutas
 routes.get("/",                 productController.products);
 
-
 routes.get("/newProduct",                   productController.newProductGet);
 routes.post("/newProduct", multipleImgProd, productController.newProductPost);
 

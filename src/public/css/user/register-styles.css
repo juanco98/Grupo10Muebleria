@@ -16,17 +16,22 @@
 }
 
 .form-up,
-.form-up-half {
+.form-up-half, 
+.form-up-three {
     display         : flex;
     flex-direction  : column;
     width           : 300px;
     justify-content : center;
-    align-self      : center;
+    align-self      : baseline;
     margin-bottom   : 15px;
 }
 
 .form-up-half {
     width: 140px;
+}
+
+.form-up-three {
+    width: 80px;
 }
 
 .tittle-form {
@@ -68,16 +73,35 @@
 }
 
 .cleanbtn {
-    margin-top  : 5px !important;
+    margin-top  : 10px !important;
     all         : unset;
     cursor      : pointer;
     color       : #40b6e7;
 }
 
 .forgetpass {
-    margin-top  : 5px;
+    margin-top  : 10px;
     text-align  : start;
     font-size   : 12px;
+}
+
+.little-text {
+    text-align      : start;
+    font-size       : 10px;
+    margin-top      : -10px;
+    margin-bottom   : -10px;
+}
+
+.form-checkbox {
+    text-align  : start;
+    margin      : 5px 0px 5px 5px;
+}
+
+.text-danger {
+    font-size:      15px;
+    margin-bottom:  0;
+    text-align:     start;
+    font-weight:    bold;
 }
 
 /* MEDIA QUERYS */

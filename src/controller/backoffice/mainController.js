@@ -1,12 +1,12 @@
 const mainController = {
     home0: (req, res) => {
-        res.redirect('/admin/connect');
+        return res.redirect('/admin/connect');
     },
     home: (req, res) => {
-        res.render('backoffice/home/home', {tittle: 'Home'})
+        return res.render('backoffice/home/home', {tittle: 'Home'})
     },
     connect: (req, res) => {
-        res.render('backoffice/home/connect', {tittle: 'Conectarse'})
+        return res.render('backoffice/home/connect', {tittle: 'Conectarse'})
     }
 }
 
