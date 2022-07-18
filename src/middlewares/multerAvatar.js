@@ -20,10 +20,10 @@ const fileUpload = multer({
         let fileExt = path.extname(file.originalname);
         let extensionIsOk = okExt.includes(fileExt);
         if (extensionIsOk) {
-			cb(null, true);
-		} else {
-			cb(null, false);
-		}
+            cb(null, true);
+        } else {
+            cb(null, false);
+        }
     }
 });
 

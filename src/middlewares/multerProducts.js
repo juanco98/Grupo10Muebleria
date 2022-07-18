@@ -16,6 +16,4 @@ let fileUpload = multer({ storage });
 
 const multipleImgProd = fileUpload.fields([{ name: 'productImg', maxCount: 1 }, { name: 'productImages', maxCount: 8 }])
 
-module.exports = {
-    multipleImgProd: multipleImgProd
-};
+module.exports = multipleImgProd;

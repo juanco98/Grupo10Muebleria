@@ -4,6 +4,13 @@
     margin-left: -175px;
 }
 
+.text-danger {
+    font-size:      15px;
+    margin-bottom:  0;
+    text-align:     start;
+    font-weight:    bold;
+}
+
 /* MEDIA QUERYS */
 
 @media (max-width: 990px) {

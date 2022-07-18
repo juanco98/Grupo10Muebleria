@@ -1,15 +1,20 @@
 const express           = require ("express");
 const routes            = express.Router();
 const userController    = require ("../controller/userController");
-const fileUpload        = require ("../utils/multerAvatar");
-const userRegValidation = require("../middlewares/formUserReg");
+const fileUpload        = require ("../middlewares/multerAvatar");
+const userRegValidation = require ("../middlewares/formUserReg");
+const userLogged        = require ("../middlewares/userLogged");
+const userNotLogged     = require ("../middlewares/userNotLogged");
 
 //rutas
-routes.get("/register",                         userController.register);
-routes.post("/newRegister", fileUpload.single('userAvatar'), userRegValidation, userController.newRegister);
+routes.get("/register", userLogged,userController.register);
+routes.post("/newRegister", fileUpload.single('avatar'), userRegValidation, userController.newRegister);
 
-routes.get("/recover",                          userController.recover);
+routes.post("/login", userController.login);
+routes.get("/logout", userController.logout);
 
-routes.get("/profile",                          userController.profile);
+routes.get("/recover", userLogged, userController.recover);
+
+routes.get("/profile", userNotLogged, userController.profile);
 
 module.exports = routes; 
