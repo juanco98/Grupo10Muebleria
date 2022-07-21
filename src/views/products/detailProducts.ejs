@@ -72,7 +72,7 @@
                         </a>
                     </div>
                     <div class="margin-btn">
-                        <form action="/admin/products/editProduct/<%= product.id %>" method="post">
+                        <form action="/admin/products/editProduct/<%= product.id %>" method="GET">
                             <button type="submit" class="btn btn-outline-primary">Editar</button>
                         </form>
                         <form action="/admin/products/deleteProduct/<%= product.id %>?_method=DELETE" method="post">

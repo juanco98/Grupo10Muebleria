@@ -16,13 +16,9 @@
                     <% for( let i = 0; i < products.length; i++ ) { %>
                         <article>
                             <div class="product-card">
-                                <div class="product-buttom-delet">
-                                    <!-- <a href="/admin/products/deleteProduct/<%= products[i].id %>?_method=DELETE" class="delete">
-                                    </a> -->
-                                </div>
                                 <div class="product-logo">
                                     <a href="">
-                                        <img src="/img/chair.svg" alt="" class="product-img-card">
+                                        <img src="/images/products/<%= products[i].img %>" alt="" class="product-img-card">
                                     </a>
                                 </div>
                                 <div class="product-desc">
@@ -36,7 +32,7 @@
                                         <div class="product-price">
                                             $<%= products[i].price %> 
                                         </div>
-                                        <form action="/admin/products/editProduct/<%= products[i].id %>" method="post">
+                                        <form action="/admin/products/editProduct/<%= products[i].id %>" method="get">
                                             <button type="submit" class="btn btn-outline-primary">Editar</button>
                                         </form>
                                         <form action="/admin/products/deleteProduct/<%= products[i].id %>?_method=DELETE" method="post">

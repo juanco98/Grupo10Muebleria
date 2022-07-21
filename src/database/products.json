@@ -1,40 +1,44 @@
 [
     {
         "id": 1,
-        "name": "silla",
-        "description": "fachera",
-        "price": "1212",
-        "img": "productImg-1656633840006-794800869.jpg",
+        "name": "Sommier y Colchon 1 Plaza",
+        "description": "El Colchón Sealy Linen posee Resortes Bonnell, elaborados en acero doble templado que otorgan gran resistencia y durabilidad. Su marco de acero, permite una perfecta ventilación interna y una mayor superficie de uso. ",
+        "price": "57100",
+        "img": "productImg-1656373000101-523769120.jpg",
         "images": [
-            "productImages-1656633840007-272473920.jpg"
+            "productImages-1656373000101-861817438.jpg",
+            "productImages-1656373000104-800224970.jpg"
         ],
         "room": [
-            "cocina"
+            "dormitorio"
         ],
         "mats": {
             "wood": [
-                "madera"
+                "algarrobo",
+                "fenolico 9mm"
             ],
             "metal": [
-                "hierro fundido"
+                "acero"
             ],
             "cloth": [
-                "pana"
+                ""
             ],
             "others": [
-                ""
+                "resorte"
             ]
         },
         "size": {
-            "height": "12",
-            "width": "12",
-            "deep": "12",
-            "weight": "12"
+            "height": "23",
+            "width": "80",
+            "deep": "190",
+            "weight": "25"
         },
         "colors": [
-            "verde"
+            "blanco"
         ],
         "available": "true",
-        "quantity": "12"
+        "quantity": "5",
+        "mark": "Sealy",
+        "model": "Linen"
     }
 ]
