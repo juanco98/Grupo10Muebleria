@@ -16,6 +16,55 @@ const productController = {
     },
     newProductPost: (req, res) => {
 
+        let createProduct = ExtProductController.createProduct(req)
+
+        if (createProduct) {
+            return res.redirect('/admin/products/');
+        }
+
+    },
+    editProductGet: (req, res) => {
+        let idProduct = req.params.id;
+        let product;
+        try {
+            product = productsArray.find(n => n.id == idProduct)
+        } catch (error) {
+            console.error(error.message())
+        }
+        return res.render('backoffice/products/editProduct', {
+            tittle: 'Modificar Producto',
+            product: product
+        });
+    },
+    editProductPut: (req, res) => {
+
+        let editedProduct = ExtProductController.editProduct(req)
+
+        if (editedProduct) {
+            return res.redirect('/admin/products/');
+        }
+
+    },
+    deleteProduct:(req, res) => {
+
+        let deletedProduct = ExtProductController.deleteProduct(req)
+
+        if (deletedProduct) {
+            return res.redirect('/admin/products/');
+        }
+
+    },
+}
+
+const strToArray = (str) => {
+    let arr = str.split(',').map(function(item) {
+        return item.trim();
+      });
+    return arr
+}
+
+const ExtProductController = {
+    createProduct: (req) => {
         // cuento la cantidad de productos actuales, para saber el id
         let size = productsArray.length;
 
@@ -85,22 +134,9 @@ const productController = {
         )
         fs.writeFileSync(filePath, JSON.stringify(productsArray, null, ''))
 
-        return res.redirect('/admin/products/');
+        return true
     },
-    editProductGet: (req, res) => {
-        let idProduct = req.params.id;
-        let product;
-        try {
-            product = productsArray.find(n => n.id == idProduct)
-        } catch (error) {
-            console.error(error.message())
-        }
-        return res.render('backoffice/products/editProduct', {
-            tittle: 'Modificar Producto',
-            product: product
-        });
-    },
-    editProductPut: (req, res) => {
+    editProduct: (req) => {
         // guardo el id enviado por parametro
         let productId = req.params.id;
 
@@ -181,9 +217,9 @@ const productController = {
             {encoding: "utf-8"}
         );
 
-        return res.redirect('/admin/products/');
+        return true
     },
-    deleteProduct:(req, res) => {
+    deleteProduct: (req) => {
         // tomo el id enviado por parametro
         let productId = req.params.id;
 
@@ -199,15 +235,11 @@ const productController = {
         setTimeout(() => {
         }, 2000);
 
-        return res.redirect('/admin/products/');
+        return true
     }
 }
 
-const strToArray = (str) => {
-    let arr = str.split(',').map(function(item) {
-        return item.trim();
-      });
-    return arr
-}
-
-module.exports = productController; 
+module.exports = {
+    productController   : productController,
+    ExtProductController: ExtProductController
+};

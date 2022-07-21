@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-bg">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/img/chairlogo.svg" alt="" width="30" height="24">
@@ -48,7 +48,7 @@
           <a href="/user/register" class="btn btn-outline-primary dropdown-toggle" id="navbarScrollingDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-user"></i>
           </a>
-          <div class="dropdown-menu home-login-popup" aria-labelledby="navbarScrollingDropdown2">
+          <div class="dropdown-menu <%= locals.isLogged ? 'home-logged-popup' : 'home-login-popup' %>  " aria-labelledby="navbarScrollingDropdown2">
             <% if (locals.isLogged) { %>
               <%- include('userLogged'); %>
             <% } else { %>

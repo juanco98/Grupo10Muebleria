@@ -1,0 +1,48 @@
+<div class="all-products">
+    <article>
+        <div class="product-card">
+            <a href="/user/product/newProduct/">
+                <div class="product-logo">
+                    <img src="/img/agregar.jpg" alt="" class="product-img-card">
+                </div>
+                <div class="product-desc">
+                    <div class="product-tittle">
+                        Agregar un producto nuevo.
+                    </div>
+                </div>
+            </a>
+        </div>
+    </article>
+    <% if (products) { %>
+        <% for( let i = 0; i < products.length; i++ ) { %>
+            <article>
+                <div class="product-card">
+                    <div class="product-logo">
+                        <a href="">
+                            <img src="/images/products/<%= products[i].img %>" alt="" class="product-img-card">
+                        </a>
+                    </div>
+                    <div class="product-desc">
+                        <div class="product-tittle">
+                            <%= products[i].name %> 
+                        </div>
+                        <div class="product-description">
+                            <%= products[i].description %> 
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                $<%= products[i].price %> 
+                            </div>
+                            <form action="/user/product/editProduct/<%= products[i].id %>" method="get">
+                                <button type="submit" class="btn btn-outline-primary">Editar</button>
+                            </form>
+                            <form action="/user/product/deleteProduct/<%= products[i].id %>?_method=DELETE" method="post">
+                                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        <% } %>
+    <% } %>
+</div>

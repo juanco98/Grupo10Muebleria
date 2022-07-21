@@ -1,0 +1,168 @@
+<div class="form-product">
+    <form action="/user/product/newProduct/" method="POST" enctype="multipart/form-data">
+        <div class="form-up">
+            <label for="productName">Nombre</label>
+            <input type="text" name="productName" id="productName" placeholder="Nombre Producto"
+            required maxlength="60">
+        </div>
+        <div class="form-up">
+            <label for="productMark">Marca</label>
+            <input type="text" name="productMark" id="productMark" placeholder="Marca Producto"
+            required maxlength="60">
+        </div>
+        <div class="form-up">
+            <label for="productModel">Modelo</label>
+            <input type="text" name="productModel" id="productModel" placeholder="Modelo Producto"
+            required maxlength="60">
+        </div>
+        <div class="form-up">
+            <label for="productDesc">Descripcion</label>
+            <textarea name="productDesc" id="productDesc" cols="30" rows="10" class="form-desc" required></textarea>
+        </div>
+        <div class="form-up">
+            <label for="productPrice">Precio</label>
+            <input type="text" name="productPrice" id="productPrice" placeholder="9999" 
+            pattern="[0-9]+" title="Solamente números" required>
+        </div>
+        <div class="form-input-div">
+            <label class="label-form label-form-radio">Habitaciones</label>
+            <div class="form-compartido">
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="checkbox" name="checkroom[]" value="cocina" id="cocina">
+                        <label class="label-form" for="cocina">Cocina</label>
+                    </div>
+                </div>
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="checkbox" name="checkroom[]" value="comedor" id="comedor">
+                        <label class="label-form" for="comedor">Comedor</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-compartido">
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="checkbox" name="checkroom[]" value="dormitorio" id="dormitorio">
+                        <label class="label-form " for="dormitorio">Dormitorio</label>
+                    </div>
+                </div>
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="checkbox" name="checkroom[]" value="living" id="living">
+                        <label class="label-form " for="living">Living</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-compartido">
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="checkbox" name="checkroom[]" value="oficina" id="oficina">
+                        <label class="label-form " for="oficina">Oficina</label>
+                    </div>
+                </div>
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="checkbox" name="checkroom[]" value="exterior" id="exterior">
+                        <label class="label-form " for="exterior">Exterior</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label>Materiales</label>
+        <div class="form-up">
+            <label for="matWood">Maderas</label>
+            <input type="text" name="matWood" id="matWood" placeholder="fenolico, pino" 
+            maxlength="60">
+            <label class="little-text">Ingrese separados por comas</label>
+        </div>
+        <div class="form-up">
+            <label for="matMetal">Metales</label>
+            <input type="text" name="matMetal" id="matMetal" placeholder="aluminio, hierro" 
+            maxlength="60">
+            <label class="little-text">Ingrese separados por comas</label>
+        </div>
+        <div class="form-up">
+            <label for="matCloth">Telas</label>
+            <input type="text" name="matCloth" id="matCloth" placeholder="cuero, algodon" 
+            maxlength="60">
+            <label class="little-text">Ingrese separados por comas</label>
+        </div>
+        <div class="form-up">
+            <label for="matOther">Otros</label>
+            <input type="text" name="matOther" id="matOther" placeholder="plastico, vidrio" 
+            maxlength="60">
+            <label class="little-text">Ingrese separados por comas</label>
+        </div>
+        <div class="form-up">
+            <label>Medidas</label>
+            <div class="form-compartido">
+                <div class="form-input-div-four">
+                    <label for="sizeHeight">Alto</label>
+                    <input type="text" name="sizeHeight" id="sizeHeight" placeholder="10" 
+                    pattern="[0-9]+" title="Solamente números" required>
+                </div>
+                <div class="form-input-div-four">
+                    <label for="sizeWidth">Ancho</label>
+                    <input type="text" name="sizeWidth" id="sizeWidth" placeholder="10" 
+                    pattern="[0-9]+" title="Solamente números" required>
+                </div>
+                <div class="form-input-div-four">
+                    <label for="sizeDeep">Profundo</label>
+                    <input type="text" name="sizeDeep" id="sizeDeep" placeholder="10" 
+                    pattern="[0-9]+" title="Solamente números" required>
+                </div>
+                <div class="form-input-div-four">
+                    <label for="sizeWeigth">Peso</label>
+                    <input type="text" name="sizeWeigth" id="sizeWeigth" placeholder="10" 
+                    pattern="[0-9\.]+" title="Solamente números y puntos" required>
+                </div>
+            </div>
+            <label class="little-text">Ingrese la medida en cm (centimetros).<br> 
+                Y el peso en kg (kilogramos) (puntos para los gramos. 0.5 para medio kilo. ) </label>
+        </div>
+        <div class="form-up">
+            <label for="colors">Colores</label>
+            <input type="text" name="colors" id="colors" placeholder="azul, blanco" 
+            required maxlength="60">
+            <label class="little-text">Ingrese separados por comas</label>
+        </div>
+        <div class="form-up">
+            <label for="productImg">Foto de Portada</label>
+            <input type="file" accept="image/*" name="productImg" id="productImg" required>
+        </div>
+        <div class="form-up">
+            <label for="productImages">Fotos</label>
+            <input type="file" accept="image/*" name="productImages" id="productImages" multiple="multiple" required>
+        </div>
+        <div class="form-compartido">
+            <div class="form-input-div-half">
+                <label>Disponible?</label>
+                <div class="form-compartido">
+                    <div class="form-input-div-four">
+                        <div>
+                            <input type="radio" name="radioAvailable" id="availableYes" value="true">
+                            <label for="availableYes">Si</label>
+                        </div>
+                    </div>
+                    <div class="form-input-div-four">
+                        <div>
+                            <input type="radio" name="radioAvailable" id="availableNo" value="false" checked>
+                            <label for="availableNo">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-input-div-half">
+                <label for="quantity">Cantidad</label>
+                <input type="text" name="quantity" id="quantity" placeholder="10" 
+                pattern="[0-9]+" title="Solamente números" required>
+            </div>
+        </div>
+        <div class="form-up">
+            <button type="submit" class="button-blue mid m10">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>

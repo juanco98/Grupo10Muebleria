@@ -1,7 +1,18 @@
 /* ESTILOS */
+.navbar-bg {
+    background-color: #f8f9fa ;
+}
+
+/* .navbar-bg * {
+    background-color: #f8f9fa ;
+} */
 
 .home-login-popup {
     margin-left: -175px;
+}
+
+.home-logged-popup {
+    margin-left: -60px;
 }
 
 .text-danger {
@@ -16,6 +27,10 @@
 @media (max-width: 990px) {
     
     .home-login-popup {
+        margin-left: 0px;
+    }
+
+    .home-logged-popup {
         margin-left: 0px;
     }
 

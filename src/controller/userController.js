@@ -4,11 +4,17 @@ const path      = require('path');
 const {validationResult}    = require('express-validator');
 const bcryptjs              = require('bcryptjs');
 const User                  = require('../models/User');
+const Product               = require('../models/Products');
+
+const {ExtProductController}    = require('../controller/backoffice/productController');
 
 const userController = {
+    // REGISTROS
+    // GET
     register: (req, res) => {
         return res.render('user/register', {tittle: 'Registrate'});
     },
+    // POST
     newRegister: (req, res) => {
         const resVal = validationResult(req);
 
@@ -47,29 +53,26 @@ const userController = {
 
         return res.redirect('profile');
     },
+    // RECUPERAR CONTRASEÑA
+    // GET
     recover: (req, res) => {
         return res.render('user/recover', {tittle: 'Recuperar'});
     },
-    profile: (req, res) => {
-        console.log(req.cookies.email)
-        return res.render('user/profile', {
-            tittle: 'Perfil',
-            user:   req.session.userLogged
-        });
+    // POST
+    sendRecover: (req, res) => {
+        // TODO
     },
+    // LOGIN
+    // POST
     login: (req, res) => {
         let userLog = User.findByField('email', req.body.email);
 
         if(!userLog) {
             returnErrLog('email', req, res);
-            res.redirect('/')
-            throw new Error("email no existe");
         } else {
             let okPass = bcryptjs.compareSync(req.body.pass, userLog.pass)
             if (!okPass) {
                 returnErrLog('pass', req, res);
-                res.redirect('/')
-                throw new Error("pass no existe");
             }
         }
 
@@ -84,10 +87,80 @@ const userController = {
 
         return res.redirect('profile');
     },
+    // LOGOUT
+    // GET
     logout: (req, res) => {
         res.clearCookie('email');
         req.session.destroy();
         return res.redirect('/');
+    },
+    // PERFIL
+    // GET
+    profile: (req, res) => {
+        return res.render('user/profile', {
+            tittle  : 'Perfil',
+            user    : req.session.userLogged,
+            option  : null
+        });
+    },
+    // GET
+    profileOption: (req, res) => {
+        let option = req.params.option
+        if (option == 'data') {
+            return res.render('user/profile', {
+                tittle  : 'Perfil',
+                user    :   req.session.userLogged,
+                option  :   option
+            });
+        } else if (option == 'products') {
+            let idUser   = req.session.id
+            // let products = Product.findByField('userId', idUser);
+            let products = Product.findAll();
+            return res.render('user/profile', {
+                tittle          : 'Perfil',
+                user            : req.session.userLogged,
+                option          : option,
+                products        : products,
+                optionProducts  : null
+            });
+        } else {
+            return res.redirect('/user/profile')
+        }
+    },
+    // EDITAR PRODUCTO
+    editProductGet: (req, res) => {
+        let id      = req.params.id
+        let product = Product.findById(id);
+        return res.render('user/profile', {
+            tittle          : 'Perfil',
+            user            : req.session.userLogged,
+            product         : product,
+            option          : 'products',
+            optionProducts  : 'editProduct'
+        });
+    },
+    editProductPut: (req, res) => {
+        let editedProd = ExtProductController.editProduct(req)
+        return res.redirect('/user/profile/products')
+    },
+    // CREAR PRODUCTO
+    newProductGet: (req, res) => {
+        return res.render('user/profile', {
+            tittle          : 'Perfil',
+            user            : req.session.userLogged,
+            product         : null,
+            option          : 'products',
+            optionProducts  : 'newProduct'
+        });
+    },
+    newProductPost: (req, res) => {
+        let createdProd = ExtProductController.createProduct(req)
+        return res.redirect('/user/profile/products')
+    },
+    // BORRAR PRODUCTO
+    deleteProduct: (req, res) => {
+        let deletedProduct = ExtProductController.deleteProduct(req)
+        return res.redirect('/user/profile/products')
     }
 }
 
@@ -126,7 +199,7 @@ function returnErrReg(field, req, res) {
 
 function returnErrLog(field, req, res) {
     if (field == 'email') {
-        res.render('home/home', {
+        return res.render('home/home', {
             errors: {
                 email: {
                     msg: 'No se encuentra ese email.'
@@ -136,7 +209,7 @@ function returnErrLog(field, req, res) {
             tittle: null
         })
     } else {
-        res.render('home/home', {
+        return res.render('home/home', {
             errors: {
                 pass: {
                     msg: 'No coincide la contraseña'

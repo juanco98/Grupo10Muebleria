@@ -20,6 +20,7 @@ app.use(session({
   saveUninitialized:  false
 }));
 
+// cookies
 app.use(cookies())
 
 // middleware de login

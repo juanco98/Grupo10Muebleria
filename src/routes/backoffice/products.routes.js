@@ -1,6 +1,6 @@
 const express           = require ("express");
 const routes            = express.Router();
-const productController = require ("../../controller/backoffice/productController");
+const {productController} = require ("../../controller/backoffice/productController");
 const multipleImgProd   = require ('../../middlewares/multerProducts')
 
 
