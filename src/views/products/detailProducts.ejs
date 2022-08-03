@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('../partials/head', {tittle: tittle} ); %>
+
+<head>
+    <%- include('../partials/head', {tittle: tittle} ); %>
         <link rel="stylesheet" href="/css/product/product-styles.css">
-    </head>
-    <body>
+</head>
+
+<body>
     <header>
         <%- include('../partials/navigation'); %>
     </header>
@@ -14,50 +16,73 @@
             <div class="div-row div-row-mobile">
                 <div class="div-col margins-x product-card-detail">
                     <div class="div-row">
-                        <img src="/img/chair.svg" class="product-img-size" alt="..." />
+                        <img src="<%= product.img %>" class="product-img-size" alt="..." />
                     </div>
                     <hr />
                     <div class="div-row mini-gallery">
-                    <% for( let index = 0; index < 4; index++ ) { %>
-                        <div class="div-col div-col-mobile">
-                            <img src="/img/chair.svg" class="product-img-mini-gallery" alt="..." />
-                        </div>
-                    <% } %>
+                        <!-- LIMITAMOS SOLO A 4 MINUATURAS CUANDO LAS CARGAMOS -->
+                        <% for( let i=0; i < product.images.length; i++ ) { %>
+                            <div class="div-col div-col-mobile">
+                                <img src="<%= product.images[i] %>" class="product-img-mini-gallery" alt="..." />
+                            </div>
+                            <% } %>
                     </div>
                 </div>
                 <div class="div-col margins-x py-2">
                     <div class="font-title mb-2">
-                        <%= product.name %> 
-                    </div>
-                    <div class="font-txt mb-4">
-                        <%= product.description %> 
+                        <%= product.name %>
                     </div>
                     <div class="font-txt mb-2">
-                        Descripcion (color, textura, tamano, etc) 
+                        <%= product.description %>
                     </div>
                     <div class="font-txt mb-2">
-                        Llega gratis o retiralo por nuestro local.
-                        <!-- AGREGAR COLOR, AMBIENTE, MATERIAL,TAMANO -->
+                        Color: <%= product.colors %>
                     </div>
                     <div class="font-txt mb-2">
-                        <% if(product.available == 'true') { %> 
+                        Ambiente: <%= product.room %>
+                    </div>
+
+                    <!-- EJEMPLO DE VALIDACION PARA REPLICAR EN LOS OTROS DATOS -->
+                    <!-- <div class="font-txt mb-2">
+                        <% if(product.size.height) { %>
+                            Alto: <%= product.size.height %> cms.
+                        <% } %>
+                    </div> -->
+
+
+                    <div class="font-txt mb-2">
+                        Alto: <%= product.size.height %> cms.
+                    </div>
+                    <div class="font-txt mb-2">
+                        Ancho: <%= product.size.width %> cms.
+                    </div>
+                    <div class="font-txt mb-2">
+                        Profundida: <%= product.size.deep %> cms.
+                    </div>
+                    <div class="font-txt mb-2">
+                        Peso: <%= product.size.weight %> kgs.
+                    </div>
+                    <div class="font-txt mb-2">
+                        <% if(product.available=='true' ) { %>
                             Stock disponible: <%= product.quantity %> un.
-                        <% }else{ %> 
-                            Sin stock disponible
-                        <% } %> 
+                                <% }else{ %>
+                                    <strong>Sin stock disponible</strong>
+                                    <% } %>
                     </div>
                     <div class="font-txt mb-2">
-                        Precio: <%= product.price %> 
+                        Precio: $<%= product.price %>
                     </div>
                     <div class="font-txt mb-2">
                         <div class="form-group">
-                          <label for="">Cantidad:</label>
-                          <select class="form-control" name="" id="">
-                            <option>Selecciona una opción</option>
-                            <% for( let index = 1; index <= product.quantity; index++ ) { %>
-                                <option><%= index%></option>
-                            <% } %>
-                          </select>
+                            <label for="">Cantidad:</label>
+                            <select class="form-control" name="" id="">
+                                <option>Selecciona una opción</option>
+                                <% for( let index=1; index <=product.quantity; index++ ) { %>
+                                    <option>
+                                        <%= index%>
+                                    </option>
+                                    <% } %>
+                            </select>
                         </div>
                     </div>
                     <div class="margin-btn">
@@ -65,7 +90,6 @@
                             Comprar ahora
                         </a>
                     </div>
-                    
                     <div class="margin-btn">
                         <a href="/products/detailProduct" class="btn btn-outline-primary">
                             Agregar al carrito
@@ -83,7 +107,7 @@
             </div>
         </div>
     </div>
-    <div class="great-container2">
+    <!-- <div class="great-container2">
         <div class="container-gral align-center">
             <div class="div-row">
                 <div class="font-title mb-5">
@@ -91,23 +115,24 @@
                 </div>
             </div>
             <div class="div-row div-row-mobile">
-                <% for( let index = 0; index < 1; index++ ) { %>
+                <% for( let index=0; index < 1; index++ ) { %>
                     <div class="margins-x product-card-detail">
                         <div class="div-row">
                             <img src="/img/chair.svg" class="product-img-size" alt="..." />
                         </div>
                         <hr />
                         <div class="div-row mini-gallery">
-                        <% for( let index = 0; index < 4; index++ ) { %>
-                            <div class="div-col div-col-mobile">
-                                <img src="/img/chair.svg" class="product-img-mini-gallery" alt="..." />
-                            </div>
-                        <% } %>
+                            <% for( let index=0; index < 4; index++ ) { %>
+                                <div class="div-col div-col-mobile">
+                                    <img src="/img/chair.svg" class="product-img-mini-gallery" alt="..." />
+                                </div>
+                                <% } %>
                         </div>
                     </div>
-                <% } %>
+                    <% } %>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
+
 </html>
