@@ -5,7 +5,9 @@
     flex-direction  : row;
     flex-wrap       : wrap;
     justify-content : center;
-    margin          : 50px;
+    margin: 0;
+    padding: 0;
+    /* margin          : 50px; */
 }
 
 .home-room {

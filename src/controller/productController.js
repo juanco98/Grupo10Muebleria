@@ -2,11 +2,11 @@ const fs            = require('fs');
 const path          = require('path');
 const filePath      = path.resolve(__dirname, '../database/products.json');
 let products        = fs.readFileSync(filePath, {encoding: 'utf-8'});
-let productsArray    = JSON.parse(products);
+let productsArray   = JSON.parse(products);
 
 const productController = {
     products: (req, res) => {
-        res.render('products/products', {
+        return res.render('products/products', {
             tittle: 'Productos', 
             products: productsArray
         });
@@ -17,7 +17,7 @@ const productController = {
         let productsRoom;
         // busco en base a a la habitacion
         productsRoom = productsArray.filter(n => n.room.find(n => n == room) && n.available == 'true');
-        res.render('products/products', {
+        return res.render('products/products', {
             tittle  : 'Productos ' + capitalizeFirstLetter(room),
             room    : capitalizeFirstLetter(room),
             products: productsRoom
@@ -27,7 +27,7 @@ const productController = {
         let idProduct = req.params.id;
         let product;
         product = productsArray.find(n => n.id == idProduct)
-        res.render('products/detailProducts', {
+        return res.render('products/detailProducts', {
             tittle: 'Detalle Producto',
             product: product
         });

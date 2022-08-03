@@ -9,6 +9,12 @@
 
 * {
   font-family: nunito;
+  /* background-color: #D1EDF2; */
+}
+
+body {
+  background-color: whitesmoke;
+  /* background-color: #f8f9fa; */
 }
 
 .bgmain {

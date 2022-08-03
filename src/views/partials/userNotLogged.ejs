@@ -1,0 +1,35 @@
+<form class="px-4 py-3" action="/user/login" method="POST">
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo Electronico</label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="muebles@deco.com" required
+      value="<%= locals.oldData ? locals.oldData.email : null %>">
+    <% if (locals.errors && errors.email) { %>
+      <label class="text-danger">
+        <%= errors.email.msg %>
+      </label>
+      <% } %>
+  </div>
+  <div class="mb-3">
+    <label for="pass" class="form-label">Password</label>
+    <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres">
+    <% if (locals.errors && errors.pass) { %>
+      <label class="text-danger">
+        <%= errors.pass.msg %>
+      </label>
+      <% } %>
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="remember" id="checkremember">
+      <label class="form-check-label" for="checkremember">
+        Recordarme
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="/user/register">Nuevo? Registrate!</a>
+<a class="dropdown-item" href="/user/recover">Olvidaste tu contraseña?</a>

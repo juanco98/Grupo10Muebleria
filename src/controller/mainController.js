@@ -1,12 +1,12 @@
 const mainController = {
     home: (req, res) => {
-        res.render('home/home', {tittle: null})
+        return res.render('home/home', {tittle: null})
     },
     aboutUs: (req, res) => {
-        res.render('aboutus/aboutus', {tittle: 'Sobre Nosotros'})
+        return res.render('aboutus/aboutus', {tittle: 'Sobre Nosotros'})
     },
     contact: (req, res) => {
-        res.render('contact/contact', {tittle: 'Contacto'})
+        return res.render('contact/contact', {tittle: 'Contacto'})
     }
 }
 

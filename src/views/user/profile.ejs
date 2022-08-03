@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head', {tittle: tittle} ); %>
+        <link rel="stylesheet" href="/css/user/profile-styles.css">
+        <link rel="stylesheet" href="/css/user/products-styles.css">
+        <link rel="stylesheet" href="/css/user/product/form-product-styles.css">
+    </head>
+    <body>
+        <header>
+            <%- include('../partials/navigation'); %>
+        </header>
+        
+        <div class="profile">
+            <div class="topbar">
+                <%- include('./partials/topbar') %> 
+            </div>
+            <div class="bottombar">
+                <div class="leftbottombar">
+                    <%- include('./partials/lefbar') %> 
+                </div>
+                <div class="rightbottombar">
+                    <% if (option == 'data') { %>
+                        <%- include('./partials/rightbarData') %> 
+                    <% } else if (option == 'products') { %>
+                        <% if (optionProducts == 'editProduct') { %>
+                            <%- include('./partials/products/rightbarEditProduct') %> 
+                        <% } else if (optionProducts == 'newProduct') { %>
+                            <%- include('./partials/products/rightbarNewProduct') %> 
+                        <% } else { %>
+                            <%- include('./partials/products/rightbarAllProducts') %> 
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
