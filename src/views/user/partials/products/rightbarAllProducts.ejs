@@ -13,30 +13,32 @@
             </a>
         </div>
     </article>
-    <% if (products) { %>
-        <% for( let i = 0; i < products.length; i++ ) { %>
+    <% if (models) { %>
+        <% for( let i = 0; i < models.length; i++ ) { %>
             <article>
                 <div class="product-card">
                     <div class="product-logo">
                         <a href="">
-                            <img src="/images/products/<%= products[i].img %>" alt="" class="product-img-card">
+                            <img src="/images/products/<%= models[i].img %>" alt="" class="product-img-card">
                         </a>
                     </div>
                     <div class="product-desc">
                         <div class="product-tittle">
-                            <%= products[i].name %> 
+                            <%= models[i].product.name %> 
                         </div>
                         <div class="product-description">
-                            <%= products[i].description %> 
+                            <%= models[i].description %> 
                         </div>
                         <div class="product-bottom">
                             <div class="product-price">
-                                $<%= products[i].price %> 
+                                $<%= models[i].prices[0].value %> 
                             </div>
-                            <form action="/user/product/editProduct/<%= products[i].id %>" method="get">
-                                <button type="submit" class="btn btn-outline-primary">Editar</button>
+                        </div>
+                        <div class="product-bottom">
+                            <form action="/user/product/editProduct/<%= models[i].id %>" method="get">
+                                <button type="submit" class="btn btn-outline-primary">Modificar</button>
                             </form>
-                            <form action="/user/product/deleteProduct/<%= products[i].id %>?_method=DELETE" method="post">
+                            <form action="/user/product/deleteProduct/<%= models[i].id %>?_method=DELETE" method="post">
                                 <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                             </form>
                         </div>

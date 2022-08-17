@@ -29,45 +29,62 @@
             <div class="form-compartido">
                 <div class="form-input-div-half">
                     <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="cocina" id="cocina">
-                        <label class="label-form" for="cocina">Cocina</label>
+                        <input type="radio" name="radioroom" value="<%= rooms[0].id %>" id="<%= rooms[0].name %>">
+                        <label class="label-form" for="<%= rooms[0].name %>"><%= rooms[0].name %></label>
                     </div>
                 </div>
                 <div class="form-input-div-half">
                     <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="comedor" id="comedor">
-                        <label class="label-form" for="comedor">Comedor</label>
+                        <input type="radio" name="radioroom" value="<%= rooms[1].id %>" id="<%= rooms[1].name %>">
+                        <label class="label-form" for="<%= rooms[1].name %>"><%= rooms[1].name %></label>
                     </div>
                 </div>
             </div>
             <div class="form-compartido">
                 <div class="form-input-div-half">
                     <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="dormitorio" id="dormitorio">
-                        <label class="label-form " for="dormitorio">Dormitorio</label>
+                        <input type="radio" name="radioroom" value="<%= rooms[2].id %>" id="<%= rooms[2].name %>">
+                        <label class="label-form" for="<%= rooms[2].name %>"><%= rooms[2].name %></label>
                     </div>
                 </div>
                 <div class="form-input-div-half">
                     <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="living" id="living">
-                        <label class="label-form " for="living">Living</label>
+                        <input type="radio" name="radioroom" value="<%= rooms[3].id %>" id="<%= rooms[3].name %>">
+                        <label class="label-form" for="<%= rooms[3].name %>"><%= rooms[3].name %></label>
                     </div>
                 </div>
             </div>
             <div class="form-compartido">
                 <div class="form-input-div-half">
                     <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="oficina" id="oficina">
-                        <label class="label-form " for="oficina">Oficina</label>
+                        <input type="radio" name="radioroom" value="<%= rooms[4].id %>" id="<%= rooms[4].name %>">
+                        <label class="label-form" for="<%= rooms[4].name %>"><%= rooms[4].name %></label>
                     </div>
                 </div>
                 <div class="form-input-div-half">
                     <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="exterior" id="exterior">
-                        <label class="label-form " for="exterior">Exterior</label>
+                        <input type="radio" name="radioroom" value="<%= rooms[5].id %>" id="<%= rooms[5].name %>">
+                        <label class="label-form" for="<%= rooms[5].name %>"><%= rooms[5].name %></label>
                     </div>
                 </div>
             </div>
+            <div class="form-compartido">
+                <div class="form-input-div-half">
+                    <div class="form-checkbox">
+                        <input type="radio" name="radioroom" value="<%= rooms[6].id %>" id="<%= rooms[6].name %>">
+                        <label class="label-form" for="<%= rooms[6].name %>"><%= rooms[6].name %></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-up">
+            <label for="subCategory">Categoria y Sub Categorias</label>
+            <select name="subCategory">
+                <option hidden selected>Elegi una</option>
+                <% for( let i = 0; i < subCategory.length; i++ ) { %>
+                    <option value="<%= subCategory[i].id %> "> <%= subCategory[i].category.name %> - <%= subCategory[i].name %>  </option>
+                <% } %>
+            </select>
         </div>
         <label>Materiales</label>
         <div class="form-up">
@@ -141,13 +158,13 @@
                 <div class="form-compartido">
                     <div class="form-input-div-four">
                         <div>
-                            <input type="radio" name="radioAvailable" id="availableYes" value="true">
+                            <input type="radio" name="radioAvailable" id="availableYes" value=1 checked>
                             <label for="availableYes">Si</label>
                         </div>
                     </div>
                     <div class="form-input-div-four">
                         <div>
-                            <input type="radio" name="radioAvailable" id="availableNo" value="false" checked>
+                            <input type="radio" name="radioAvailable" id="availableNo" value=0 >
                             <label for="availableNo">No</label>
                         </div>
                     </div>

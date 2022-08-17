@@ -8,7 +8,6 @@
         <header>
             <%- include('../partials/navigation'); %>
         </header>
-        
         <div class="products">
             <%- include('./optionsProducts'); %>
             <div class="product-products">
@@ -18,7 +17,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb bg-white">
                                     <li class="breadcrumb-item active"><a href="/products/roomProducts/<%= room %>"><%= room %></a></li>
-                                    <li class="breadcrumb-item" aria-current="page">Silla</li>
+                                    <!-- <li class="breadcrumb-item" aria-current="page"><%= room %></li> -->
                                 </ol>
                             </nav>
                         </div>
@@ -33,8 +32,8 @@
                             <article>
                                 <div class="product-card">
                                     <div class="product-logo">
-                                        <a href="/products/detailProduct/<%= products[i].id %>">
-                                            <img src="/images/products/<%= products[i].img %>" alt="" class="product-img-card">
+                                        <a href="/products/detailProduct/<%= products[i].models[0].id %>">
+                                            <img src="/images/products/<%= products[i].models[0].img %>" alt="" class="product-img-card">
                                         </a>
                                     </div>
                                     <div class="product-desc">
@@ -42,11 +41,11 @@
                                             <%= products[i].name %> 
                                         </div>
                                         <div class="product-description">
-                                            <%= products[i].description %> 
+                                            <%= products[i].models[0].description %> 
                                         </div>
                                         <div class="product-bottom">
                                             <div class="product-price">
-                                                $<%= products[i].price %> 
+                                                $<%= products[i].models[0].prices[0].value %> 
                                             </div>
                                             <div class="product-buttom btn-group">
                                                 <a href="#" class="btn btn-outline-primary">
@@ -61,11 +60,9 @@
                                 </div>
                             </article>
                         <% } %>
-
                     </div>
                 </div>
             </div>
         </div>
-        
     </body>
 </html>
