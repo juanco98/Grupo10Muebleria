@@ -1,6 +1,7 @@
 const express           = require ("express");
 const routes            = express.Router();
 const userController    = require ("../controller/userController");
+const productController = require ("../controller/productController");
 const fileUpload        = require ("../middlewares/multerAvatar");
 const userRegValidation = require ("../middlewares/formUserReg");
 const userLogged        = require ("../middlewares/userLogged");
@@ -22,8 +23,11 @@ routes.get("/profile/:option", userNotLogged, userController.profileOption);
 routes.get("/product/editProduct/:id", userNotLogged, userController.editProductGet);
 routes.put("/product/editProduct/:id", userNotLogged, multipleImgProd, userController.editProductPut);
 
+routes.get("/product/editProductPrice/:id", userNotLogged, userController.editProductGet);
+routes.put("/product/editProductPrice/:id", userNotLogged, productController.editProductPricePut);
+
 routes.get("/product/newProduct", userNotLogged, userController.newProductGet);
-routes.post("/product/newProduct", userNotLogged, multipleImgProd, userController.newProductPost);
+routes.post("/product/newProduct", userNotLogged, multipleImgProd, productController.newProductPost);
 
 routes.delete("/product/deleteProduct/:id", userController.deleteProduct);
 

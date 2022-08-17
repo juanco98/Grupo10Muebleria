@@ -64,6 +64,14 @@
                     </div>
                     <div class="form-compartido">
                         <div class="form-up-half">
+                            <label for="nameAddress" class="form-label">Nombre Dirección</label>
+                            <input type="text" name="nameAddress" id="nameAddress" placeholder="Casa" class="form-input"
+                            value="<%= locals.oldData ? locals.oldData.nameAddress : null %>" required >
+                            <% if (locals.errors && errors.nameAddress) { %>
+                                <label class="text-danger"> <%= errors.nameAddress.msg %>  </label>
+                            <% } %>
+                        </div>
+                        <div class="form-up-half">
                             <label for="postalCode" class="form-label">Código postal</label>
                             <input type="text" name="postalCode" id="postalCode" placeholder="1000" class="form-input"  pattern="[0-9]+" 
                             title="Solamente números" maxlength="5"
@@ -72,6 +80,14 @@
                                 <label class="text-danger"> <%= errors.postalCode.msg %>  </label>
                             <% } %>
                         </div>
+                    </div>
+                    <div class="form-up">
+                        <label for="descriptionAddress" class="form-label">Descripción</label>
+                        <input type="text" name="descriptionAddress" id="descriptionAddress" placeholder="Puerta de madera" class="form-input"  maxlength="60"
+                        value="<%= locals.oldData ? locals.oldData.descriptionAddress : null %>" required >
+                        <% if (locals.errors && errors.descriptionAddress) { %>
+                            <label class="text-danger"> <%= errors.descriptionAddress.msg %>  </label>
+                        <% } %>
                     </div>
                     <div class="form-up">
                         <label for="address" class="form-label">Dirección</label>
@@ -141,24 +157,6 @@
                         <% if (locals.errors && errors.avatar) { %>
                             <label class="text-danger"> <%= errors.avatar.msg %>  </label>
                         <% } %>
-                    </div>
-                    <div class="form-up">
-                        <label class="form-label">Desea vender?</label>
-                        <div class="form-compartido">
-                            <div class="form-up-half">
-                                <div class="form-checkbox">
-                                    <input type="radio" id="userSellerYes" name="seller" class="form-input" value="true" >
-                                    <label for="userSellerYes" class="form-label">Si</label>
-                                </div>
-                            </div>
-                            <div class="form-up-half">
-                                <div class="form-checkbox">
-                                    <input type="radio" id="userSellerNo" name="seller" class="form-input" value="false" checked >
-                                    <label for="userSellerNo" class="form-label">No</label>
-                                </div>
-                            </div>
-                        </div>
-                        <label class="little-text">Esto se puede cambiar más adelante.</label>
                     </div>
                     <input type="reset" name="Limpiar" class="forgetpass cleanbtn">
                     <div class="form-button">

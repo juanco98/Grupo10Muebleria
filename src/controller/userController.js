@@ -3,8 +3,8 @@ const path      = require('path');
 
 const {validationResult}    = require('express-validator');
 const bcryptjs              = require('bcryptjs');
-const User                  = require('../models/User');
 const Product               = require('../models/Products');
+const db                    = require('../database/models');
 
 const {ExtProductController}    = require('../controller/backoffice/productController');
 
@@ -12,13 +12,14 @@ const userController = {
     // REGISTROS
     // GET
     register: (req, res) => {
-        return res.render('user/register', {tittle: 'Registrate'});
+        return res.render('user/register', {
+            tittle: 'Registrate',
+        });
     },
     // POST
     newRegister: (req, res) => {
-        const resVal = validationResult(req);
 
-        if (resVal.errors.length > 0) {
+        if (validationResult(req).errors.length > 0) {
             deleteFile(req)
             return res.render('user/register', {
                 tittle:     'Registrate',
@@ -27,31 +28,61 @@ const userController = {
             });
         }
 
-        let emailInDB   = User.findByField('email', req.body.email)
-        let userInDB    = User.findByField('user',  req.body.user)
-
-        if (emailInDB) {
-            deleteFile(req);
-            returnErrReg('email', req, res);
-            throw new Error("email ya existe");
-        } else if (userInDB) {
-            deleteFile(req)
-            returnErrReg('user', req, res);
-            throw new Error("usuario ya existe");
+        db.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then((email)=>{
+            if (email) {
+                deleteFile(req)
+                returnErrReg('email', req, res);
+                throw new Error("email ya existe");
+            }
+        }).then(() => {
+            db.User.findOne({
+                where: {
+                    user: req.body.user
+                }
+            })
+        }).then((user) => {
+            if (user) {
+                deleteFile(req)
+                returnErrReg('user', req, res);
+                throw new Error("user ya existe");
+            }
+        }).then(() => {
+            return newUser = db.User.create({
+                name        : req.body.name,
+                last_name   : req.body.lastName,
+                born_date   : req.body.bornDate,
+                email       : req.body.email,
+                user        : req.body.user,
+                password    : bcryptjs.hashSync(req.body.pass, 10),
+                avatar      : req.file.filename,
+                id_role     : 2
+            })
+        }).then(function(newUser) {
+            db.Address.create({
+                name            : req.body.nameAddress,
+                description     : req.body.descriptionAddress,
+                city            : req.body.city,
+                state           : req.body.state,
+                postal_code     : req.body.postalCode,
+                address         : req.body.address,
+                number_address  : req.body.numberAddress,
+                number_floor    : req.body.numberFloor,
+                number_apartment: req.body.numberApartment,
+                id_user         : newUser.id
+            })
+            return newUser
         }
+        ).then(function(newUser) {
+            req.session.userLogged = newUser;
+            return res.redirect('profile');
+        }).catch((error) => {
+            console.log(error)
+        });
 
-        delete req.body.pass2
-
-        let newUser = {
-            ...req.body,
-            pass:   bcryptjs.hashSync(req.body.pass, 10),
-            role: 'user',
-            avatar: req.file.filename
-        }
-
-        User.create(newUser)
-
-        return res.redirect('profile');
     },
     // RECUPERAR CONTRASEÑA
     // GET
@@ -65,46 +96,55 @@ const userController = {
     // LOGIN
     // POST
     login: (req, res) => {
-        let userLog = User.findByField('email', req.body.email);
 
-        if(!userLog) {
-            returnErrLog('email', req, res);
-        } else {
-            let okPass = bcryptjs.compareSync(req.body.pass, userLog.pass)
+        db.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then((user) => {
+            if (!user){
+                returnErrLog('email', req, res);
+            }
+            return user
+        }).then((user) => {
+            let okPass = bcryptjs.compareSync(req.body.pass, user.password)
             if (!okPass) {
                 returnErrLog('pass', req, res);
             }
-        }
+            return user
+        }).then((user) => {
+            delete user.password;
+            req.session.userLogged = user;
+            if (req.body.remember) {
+                res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
+            }
+            return res.redirect('profile');
+        })
 
-        delete userLog.pass;
-        delete userLog.pass2;
-
-        req.session.userLogged = userLog;
-
-        if (req.body.remember) {
-            res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
-        }
-
-        return res.redirect('profile');
     },
     // LOGOUT
     // GET
     logout: (req, res) => {
+
         res.clearCookie('email');
         req.session.destroy();
         return res.redirect('/');
+
     },
     // PERFIL
     // GET
     profile: (req, res) => {
+
         return res.render('user/profile', {
             tittle  : 'Perfil',
             user    : req.session.userLogged,
             option  : null
         });
+
     },
     // GET
     profileOption: (req, res) => {
+
         let option = req.params.option
         if (option == 'data') {
             return res.render('user/profile', {
@@ -113,54 +153,140 @@ const userController = {
                 option  :   option
             });
         } else if (option == 'products') {
-            let idUser   = req.session.id
-            // let products = Product.findByField('userId', idUser);
-            let products = Product.findAll();
-            return res.render('user/profile', {
-                tittle          : 'Perfil',
-                user            : req.session.userLogged,
-                option          : option,
-                products        : products,
-                optionProducts  : null
-            });
+            db.Model.findAll({
+                include : [
+                    {association: "product",
+                        where : {
+                            id_user: req.session.userLogged.id
+                        }, 
+                    },
+                    {association: "property"},
+                    {association: "feature"},
+                    {association: "stock"},
+                    {association: "prices",
+                        include: [
+                            {association: "discount"}
+                        ]
+                    }
+                ]
+            }).then((models) =>{
+                return res.render('user/profile', {
+                    tittle          : 'Perfil',
+                    user            : req.session.userLogged,
+                    option          : option,
+                    models          : models,
+                    optionProducts  : null
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            })
         } else {
             return res.redirect('/user/profile')
         }
+
     },
     // EDITAR PRODUCTO
     editProductGet: (req, res) => {
+
         let id      = req.params.id
-        let product = Product.findById(id);
-        return res.render('user/profile', {
-            tittle          : 'Perfil',
-            user            : req.session.userLogged,
-            product         : product,
-            option          : 'products',
-            optionProducts  : 'editProduct'
+
+        const rooms         = db.Room.findAll();
+        const subCategories = db.SubCategory.findAll({
+            include: [{association: "category"}]
         });
+        const categories    = db.Category.findAll();
+        const model = db.Model.findOne({
+            where : {
+                id: id
+            },
+            include : [
+                {association: "product",
+                    include : [
+                        {association: "rooms"}
+                    ]},
+                {association: "property"},
+                {association: "feature"},
+                {association: "stock"},
+                {association: "prices",
+                    include: [
+                        {association: "discount"}
+                    ]
+                }
+            ]
+        })
+
+        Promise.all(
+            [rooms, subCategories, categories, model]
+        ).then(response => {
+            return res.render('user/profile', {
+                tittle          : 'Perfil',
+                user            : req.session.userLogged,
+                rooms           : response[0],
+                subCategory     : response[1],
+                category        : response[2],
+                model           : response[3],
+                option          : 'products',
+                optionProducts  : 'editProduct'
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+
+        // .then((model) =>{
+        //     return res.render('user/profile', {
+        //         tittle          : 'Perfil',
+        //         user            : req.session.userLogged,
+        //         model           : model,
+        //         option          : 'products',
+        //         optionProducts  : 'editProductPrice'
+        //     });
+        // })
+        // .catch((err) => {
+        //     console.log(err);
+        // })
+
+
     },
     editProductPut: (req, res) => {
+
         let editedProd = ExtProductController.editProduct(req)
         return res.redirect('/user/profile/products')
+
     },
     // CREAR PRODUCTO
     newProductGet: (req, res) => {
-        return res.render('user/profile', {
-            tittle          : 'Perfil',
-            user            : req.session.userLogged,
-            product         : null,
-            option          : 'products',
-            optionProducts  : 'newProduct'
+
+        const rooms         = db.Room.findAll();
+        const subCategories = db.SubCategory.findAll({
+            include: [{association: "category"}]
         });
-    },
-    newProductPost: (req, res) => {
-        let createdProd = ExtProductController.createProduct(req)
-        return res.redirect('/user/profile/products')
+        const categories    = db.Category.findAll();
+
+        Promise.all(
+            [rooms, subCategories, categories]
+        ).then(response => {
+            return res.render('user/profile', {
+                tittle          : 'Perfil',
+                user            : req.session.userLogged,
+                product         : null,
+                option          : 'products',
+                optionProducts  : 'newProduct',
+                rooms           : response[0],
+                subCategory     : response[1],
+                category        : response[2]
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+
     },
     // BORRAR PRODUCTO
     deleteProduct: (req, res) => {
+
         let deletedProduct = ExtProductController.deleteProduct(req)
         return res.redirect('/user/profile/products')
+
     }
 }
 

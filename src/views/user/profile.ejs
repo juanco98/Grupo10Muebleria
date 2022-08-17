@@ -27,6 +27,8 @@
                             <%- include('./partials/products/rightbarEditProduct') %> 
                         <% } else if (optionProducts == 'newProduct') { %>
                             <%- include('./partials/products/rightbarNewProduct') %> 
+                        <% } else if (optionProducts == 'editProductPrice') { %>
+                            <%- include('./partials/products/rightbarEditPrice') %> 
                         <% } else { %>
                             <%- include('./partials/products/rightbarAllProducts') %> 
                         <% } %>
@@ -34,6 +36,6 @@
                 </div>
             </div>
         </div>
-        
+        <script src='/js/newProductForm.js'></script>
     </body>
 </html>
