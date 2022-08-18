@@ -1,8 +1,8 @@
-const path      = require('path');
-const multer    = require("multer");
+const path = require('path');
+const multer = require("multer");
 
 // configurando el almacenamiento
-const storage = multer.diskStorage({ 
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         let folder = path.join(__dirname, '../public/images/products')
         cb(null, folder);
@@ -14,6 +14,6 @@ const storage = multer.diskStorage({
 })
 let fileUpload = multer({ storage });
 
-const multipleImgProd = fileUpload.fields([{ name: 'productImg', maxCount: 1 }, { name: 'productImages', maxCount: 8 }])
+const multipleImgProd = fileUpload.fields([{ name: 'productImg', maxCount: 1 }, { name: 'productImages', maxCount: 4 }])
 
 module.exports = multipleImgProd;

@@ -1,0 +1,88 @@
+<div class="form-product">
+    <form action="/user/products/editProduct/<%=model.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-up">
+            <label>Imagen Portada</label>
+            <img src="/images/products/<%= model.img %>" alt="Portada" class="product-img">
+        </div>
+        <div class="form-up">
+            <label for="productName">Nombre</label>
+            <input type="text" name="productName" id="productName"  value="<%= model.product.name %>"
+            required maxlength="60" disabled>
+        </div>
+        <div class="form-up">
+            <label for="productMark">Marca</label>
+            <input type="text" name="productMark" id="productMark"  value="<%= model.product.brand %>"
+            required maxlength="60" disabled>
+        </div>
+        <div class="form-up">
+            <label for="productModel">Modelo</label>
+            <input type="text" name="productModel" id="productModel"  value="<%= model.name %>"
+            required maxlength="60" disabled>
+        </div>
+        <div class="form-up">
+            <label for="productDesc">Descripcion</label>
+            <textarea name="productDesc" id="productDesc" cols="30" rows="10" class="form-desc" required disabled><%= model.description %></textarea>
+        </div>
+        <div class="form-up">
+            <label for="productPrice">Precio</label>
+            <input type="text" name="productPrice" id="productPrice" value="<%= model.prices[0].value %>"
+            pattern="[0-9]+" title="Solamente números" required>
+        </div>
+        <label>Materiales</label>
+        <div class="form-up">
+            <label for="matWood">Maderas</label>
+            <input type="text" name="matWood" id="matWood" value="<%= model.property.wood %>"
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas" disabled>
+        </div>
+        <div class="form-up">
+            <label for="matMetal">Metales</label>
+            <input type="text" name="matMetal" id="matMetal" value="<%= model.property.metal %>"
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas" disabled>
+        </div>
+        <div class="form-up">
+            <label for="matCloth">Telas</label>
+            <input type="text" name="matCloth" id="matCloth" value="<%= model.property.cloth %>"
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas" disabled>
+        </div>
+        <div class="form-up">
+            <label for="matOther">Otros</label>
+            <input type="text" name="matOther" id="matOther" value="<%= model.property.others %>"
+            maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas" disabled>
+        </div>
+        <div class="form-up">
+            <label>Medidas</label>
+            <div class="form-compartido">
+                <div class="form-input-div-four">
+                    <label for="sizeHeight">Alto</label>
+                    <input type="text" name="sizeHeight" id="sizeHeight" value="<%= model.feature.height %>"
+                    pattern="[0-9]+" title="Solamente números" required disabled>
+                </div>
+                <div class="form-input-div-four">
+                    <label for="sizeWidth">Ancho</label>
+                    <input type="text" name="sizeWidth" id="sizeWidth" value="<%= model.feature.width %>"
+                    pattern="[0-9]+" title="Solamente números" required disabled>
+                </div>
+                <div class="form-input-div-four">
+                    <label for="sizeDeep">Profundo</label>
+                    <input type="text" name="sizeDeep" id="sizeDeep" value="<%= model.feature.deep %>"
+                    pattern="[0-9]+" title="Solamente números" required disabled>
+                </div>
+                <div class="form-input-div-four">
+                    <label for="sizeWeigth">Peso</label>
+                    <input type="text" name="sizeWeigth" id="sizeWeigth" value="<%= model.feature.weight %>"
+                    pattern="[0-9\.]+" title="Solamente números y puntos" required disabled>
+                </div>
+            </div>
+        </div>
+        <div class="form-up">
+            <label for="colors">Colores</label>
+            <input type="text" name="colors" id="colors" value="<%= model.feature.colors %>"
+            required maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas" disabled>
+        </div>
+        <div class="form-up">
+            <button type="submit" class="button-blue mid m10">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>

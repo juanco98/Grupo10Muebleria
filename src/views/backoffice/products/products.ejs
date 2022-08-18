@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head'); %>
-    <link rel="stylesheet" href="/css/backoffice/product/product-styles.css">
-    <link rel="stylesheet" href="/css/backoffice/product/form-product-styles.css">
+        <link rel="stylesheet" href="/css/backoffice/product/product-styles.css">
+        <link rel="stylesheet" href="/css/backoffice/product/form-product-styles.css">
 </head>
+
 <body>
     <div class="main">
-        <%- include('../partials/topbar', {tittle: tittle});  %> 
-        <div class="mid-main">
-            <%- include('../partials/leftbar');  %> 
-            <div class="right-main">
-                <%- include('../partials/rightoption');  %> 
-                <div class="all-products">
-                    <% for( let i = 0; i < products.length; i++ ) { %>
-                        <article>
-                            <div class="product-card">
-                                <div class="product-logo">
-                                    <a href="">
-                                        <img src="/images/products/<%= products[i].img %>" alt="" class="product-img-card">
-                                    </a>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-tittle">
-                                        <%= products[i].name %> 
-                                    </div>
-                                    <div class="product-description">
-                                        <%= products[i].description %> 
-                                    </div>
-                                    <div class="product-bottom">
-                                        <div class="product-price">
-                                            $<%= products[i].price %> 
+        <%- include('../partials/topbar', {tittle: tittle}); %>
+            <div class="mid-main">
+                <%- include('../partials/leftbar'); %>
+                    <div class="right-main">
+                        <%- include('../partials/rightoption'); %>
+                            <div class="all-products">
+                                <% for( let i=0; i < products.length; i++ ) { %>
+                                    <article>
+                                        <div class="product-card">
+                                            <div class="product-logo">
+                                                <a href="">
+                                                    <img src="/images/products/<%= products[i].img %>" alt=""
+                                                        class="product-img-card">
+                                                </a>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-tittle">
+                                                    <%= products[i].name %>
+                                                </div>
+                                                <div class="product-description">
+                                                    <%= products[i].description %>
+                                                </div>
+                                                <div class="product-bottom">
+                                                    <div class="product-price">
+                                                        $<%= products[i].price %>
+                                                    </div>
+                                                    <form action="/admin/products/editProduct/<%= products[i].id %>"
+                                                        method="get">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Editar</button>
+                                                    </form>
+                                                    <form
+                                                        action="/admin/products/deleteProduct/<%= products[i].id %>?_method=DELETE"
+                                                        method="post">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-danger">Eliminar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <form action="/admin/products/editProduct/<%= products[i].id %>" method="get">
-                                            <button type="submit" class="btn btn-outline-primary">Editar</button>
-                                        </form>
-                                        <form action="/admin/products/deleteProduct/<%= products[i].id %>?_method=DELETE" method="post">
-                                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                    </article>
+                                    <% } %>
                             </div>
-                        </article>
-                    <% } %>
-                </div>
+                    </div>
             </div>
-        </div>
-        <%- include('../partials/footer');  %> 
+            <%- include('../partials/footer'); %>
     </div>
 </body>
+
 </html>

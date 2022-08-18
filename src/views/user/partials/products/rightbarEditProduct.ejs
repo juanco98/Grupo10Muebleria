@@ -1,19 +1,19 @@
 <div class="form-product">
-    <form action="/user/products/editProduct/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <form action="/user/products/editProduct/<%=model.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="form-up">
             <label>Imagen Portada</label>
-            <img src="/images/products/<%= product.img %>" alt="Portada" class="product-img">
+            <img src="/images/products/<%= model.img %>" alt="Portada" class="product-img">
         </div>
         <div class="form-up">
             <label>Imagenes Galeria</label>
             <label class="little-text">Desmarque los que quiera borrar</label>
             <div class="img-galery-row-wrap">
-                <% for( let i=0; i<product.images.length; i++ ) { %>
+                <% for( let i=0; i< model.images.length; i++ ) { %>
                     <div>
-                        <img src="/images/products/<%=product.images[i] %>" alt="Portada" class="product-img-galery">
+                        <img src="/images/products/<%=model.images[i] %>" alt="Portada" class="product-img-galery">
                         <div class="check-delete-img-gal">
-                            <input type="checkbox" name="checkImgGal[]" value="<%=product.images[i]%>" id="<%=product.images[i]%>" checked >
-                            <label class="label-form " for="<%=product.images[i]%>">Mantener</label>
+                            <input type="checkbox" name="checkImgGal[]" value="<%=model.images[i]%>" id="<%=model.images[i]%>" checked >
+                            <label class="label-form " for="<%=model.images[i]%>">Mantener</label>
                         </div>
                     </div>
                 <% } %>
@@ -21,131 +21,75 @@
         </div>
         <div class="form-up">
             <label for="productName">Nombre</label>
-            <input type="text" name="productName" id="productName" placeholder="Nombre Producto" value="<%= product.name %>"
+            <input type="text" name="productName" id="productName" placeholder="Nombre Producto" value="<%= model.product.name %>"
             required maxlength="60">
         </div>
         <div class="form-up">
             <label for="productMark">Marca</label>
-            <input type="text" name="productMark" id="productMark" placeholder="Marca Producto" value="<%= product.mark %>"
+            <input type="text" name="productMark" id="productMark" placeholder="Marca Producto" value="<%= model.product.brand %>"
             required maxlength="60">
         </div>
         <div class="form-up">
             <label for="productModel">Modelo</label>
-            <input type="text" name="productModel" id="productModel" placeholder="Modelo Producto" value="<%= product.model %>"
+            <input type="text" name="productModel" id="productModel" placeholder="Modelo Producto" value="<%= model.name %>"
             required maxlength="60">
         </div>
         <div class="form-up">
             <label for="productDesc">Descripcion</label>
-            <textarea name="productDesc" id="productDesc" cols="30" rows="10" class="form-desc" required><%= product.description %></textarea>
+            <textarea name="productDesc" id="productDesc" cols="30" rows="10" class="form-desc" required><%= model.description %></textarea>
         </div>
         <div class="form-up">
             <label for="productPrice">Precio</label>
-            <input type="text" name="productPrice" id="productPrice" placeholder="9999" value="<%= product.price %>"
+            <input type="text" name="productPrice" id="productPrice" placeholder="9999" value="<%= model.prices[0].value%>"
             pattern="[0-9]+" title="Solamente números" required>
         </div>
-        <div class="form-input-div">
-            <label class="label-form label-form-radio">Habitaciones</label>
-            <div class="form-compartido">
-                <div class="form-input-div-half">
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="cocina" id="cocina"
-                        <% product.room.forEach(element => { %>
-                            <% if (element == 'cocina') { %>
-                                checked
-                            <% } %>
-                        <% }) %> 
-                        >
-                        <label class="label-form" for="cocina" >Cocina</label>
-                    </div>
-                </div>
-                <div class="form-input-div-half">
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="comedor" id="comedor"
-                        <% product.room.forEach(element => { %>
-                            <% if (element == 'comedor') { %>
-                                checked
-                            <% } %>
-                        <% }) %> 
-                        >
-                        <label class="label-form" for="comedor">Comedor</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-compartido">
-                <div class="form-input-div-half">
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="dormitorio" id="dormitorio"
-                        <% product.room.forEach(element => { %>
-                            <% if (element == 'dormitorio') { %>
-                                checked
-                            <% } %>
-                        <% }) %> 
-                        >
-                        <label class="label-form " for="dormitorio">Dormitorio</label>
-                    </div>
-                </div>
-                <div class="form-input-div-half">
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="living" id="living"
-                        <% product.room.forEach(element => { %>
-                            <% if (element == 'living') { %>
-                                checked
-                            <% } %>
-                        <% }) %> 
-                        >
-                        <label class="label-form " for="living">Living</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-compartido">
-                <div class="form-input-div-half">
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="oficina" id="oficina"
-                        <% product.room.forEach(element => { %>
-                            <% if (element == 'oficina') { %>
-                                checked
-                            <% } %>
-                        <% }) %> 
-                        >
-                        <label class="label-form " for="oficina">Oficina</label>
-                    </div>
-                </div>
-                <div class="form-input-div-half">
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="checkroom[]" value="exterior" id="exterior"
-                        <% product.room.forEach(element => { %>
-                            <% if (element == 'exterior') { %>
-                                checked
-                            <% } %>
-                        <% }) %> 
-                        >
-                        <label class="label-form " for="exterior">Exterior</label>
-                    </div>
-                </div>
-            </div>
+        <div class="form-up">
+            <label for="rooms">Habitacions</label>
+            <select name="rooms">
+                <% for( let i = 0; i < rooms.length; i++ ) { %>
+                    <option value="<%= rooms[i].id %> "
+                        <% if (rooms[i].id === model.product.rooms.id) { %>
+                            selected
+                        <% } %>
+                    > <%= rooms[i].name %>  </option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-up">
+            <label for="subCategory">Categoria y Sub Categorias</label>
+            <select name="subCategory">
+                <option hidden selected>Elegi una</option>
+                <% for( let i = 0; i < subCategory.length; i++ ) { %>
+                    <option value="<%= subCategory[i].id %> "
+                        <% if (subCategory[i].id === model.product.id_subcategory) { %>
+                            selected
+                        <% } %>
+                    > <%= subCategory[i].category.name %> - <%= subCategory[i].name %>  </option>
+                <% } %>
+            </select>
         </div>
         <label>Materiales</label>
         <div class="form-up">
             <label for="matWood">Maderas</label>
-            <input type="text" name="matWood" id="matWood" placeholder="fenolico, pino" value="<%= product.mats.wood %>"
+            <input type="text" name="matWood" id="matWood" placeholder="fenolico, pino" value="<%= model.property.wood %>"
             maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
             <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matMetal">Metales</label>
-            <input type="text" name="matMetal" id="matMetal" placeholder="aluminio, hierro" value="<%= product.mats.metal %>"
+            <input type="text" name="matMetal" id="matMetal" placeholder="aluminio, hierro" value="<%= model.property.metal %>"
             maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
             <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matCloth">Telas</label>
-            <input type="text" name="matCloth" id="matCloth" placeholder="cuero, algodon" value="<%= product.mats.cloth %>"
+            <input type="text" name="matCloth" id="matCloth" placeholder="cuero, algodon" value="<%= model.property.cloth %>"
             maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
             <label class="little-text" >Ingrese separados por comas</label>
         </div>
         <div class="form-up">
             <label for="matOther">Otros</label>
-            <input type="text" name="matOther" id="matOther" placeholder="plastico, vidrio" value="<%= product.mats.others %>"
+            <input type="text" name="matOther" id="matOther" placeholder="plastico, vidrio" value="<%= model.property.others %>"
             maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
             <label class="little-text" >Ingrese separados por comas</label>
         </div>
@@ -154,22 +98,22 @@
             <div class="form-compartido">
                 <div class="form-input-div-four">
                     <label for="sizeHeight">Alto</label>
-                    <input type="text" name="sizeHeight" id="sizeHeight" placeholder="10" value="<%= product.size.height %>"
+                    <input type="text" name="sizeHeight" id="sizeHeight" placeholder="10" value="<%= model.feature.height %>"
                     pattern="[0-9]+" title="Solamente números" required>
                 </div>
                 <div class="form-input-div-four">
                     <label for="sizeWidth">Ancho</label>
-                    <input type="text" name="sizeWidth" id="sizeWidth" placeholder="10" value="<%= product.size.width %>"
+                    <input type="text" name="sizeWidth" id="sizeWidth" placeholder="10" value="<%= model.feature.width %>"
                     pattern="[0-9]+" title="Solamente números" required>
                 </div>
                 <div class="form-input-div-four">
                     <label for="sizeDeep">Profundo</label>
-                    <input type="text" name="sizeDeep" id="sizeDeep" placeholder="10" value="<%= product.size.deep %>"
+                    <input type="text" name="sizeDeep" id="sizeDeep" placeholder="10" value="<%= model.feature.deep %>"
                     pattern="[0-9]+" title="Solamente números" required>
                 </div>
                 <div class="form-input-div-four">
                     <label for="sizeWeigth">Peso</label>
-                    <input type="text" name="sizeWeigth" id="sizeWeigth" placeholder="10" value="<%= product.size.weight %>"
+                    <input type="text" name="sizeWeigth" id="sizeWeigth" placeholder="10" value="<%= model.feature.weight %>"
                     pattern="[0-9\.]+" title="Solamente números y puntos" required>
                 </div>
             </div>
@@ -178,7 +122,7 @@
         </div>
         <div class="form-up">
             <label for="colors">Colores</label>
-            <input type="text" name="colors" id="colors" placeholder="azul, blanco" value="<%= product.colors %>"
+            <input type="text" name="colors" id="colors" placeholder="azul, blanco" value="<%= model.feature.colors %>"
             required maxlength="60" pattern="[a-zA-Z0-9\s,]+" title="Separe por comas">
             <label class="little-text">Ingrese separados por comas</label>
         </div>
@@ -196,8 +140,8 @@
                 <div class="form-compartido">
                     <div class="form-input-div-four">
                         <div>
-                            <input type="radio" name="radioAvailable" id="availableYes" value="true"
-                            <% if (product.available == 'true') { %>
+                            <input type="radio" name="radioAvailable" id="availableYes" value=1
+                            <% if (model.stock.available === 1) { %>
                                 checked
                             <% } %>
                             >
@@ -206,8 +150,8 @@
                     </div>
                     <div class="form-input-div-four">
                         <div>
-                            <input type="radio" name="radioAvailable" id="availableNo" value="false"
-                            <% if (product.available == 'false') { %>
+                            <input type="radio" name="radioAvailable" id="availableNo" value=0
+                            <% if (model.stock.available === 0) { %>
                                 checked
                             <% } %>
                             >
@@ -218,7 +162,7 @@
             </div>
             <div class="form-input-div-half">
                 <label for="quantity">Cantidad</label>
-                <input type="text" name="quantity" id="quantity" placeholder="10" value="<%= product.quantity %>"
+                <input type="text" name="quantity" id="quantity" placeholder="10" value="<%= model.stock.quantity %>"
                 pattern="[0-9]+" title="Solamente números">
             </div>
         </div>
