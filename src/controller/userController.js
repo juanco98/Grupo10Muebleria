@@ -3,7 +3,6 @@ const path      = require('path');
 
 const {validationResult}    = require('express-validator');
 const bcryptjs              = require('bcryptjs');
-const Product               = require('../models/Products');
 const db                    = require('../database/models');
 
 const {ExtProductController}    = require('../controller/backoffice/productController');
@@ -94,8 +93,11 @@ const userController = {
         // TODO
     },
     // LOGIN
+    loginGet: (req, res) => {
+        return res.render('user/login', {tittle: 'Logearse'});
+    },
     // POST
-    login: (req, res) => {
+    loginPost: (req, res) => {
 
         db.User.findOne({
             where: {
@@ -115,7 +117,7 @@ const userController = {
         }).then((user) => {
             delete user.password;
             req.session.userLogged = user;
-            if (req.body.remember) {
+            if (req.body.checkRem) {
                 res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
             }
             return res.redirect('profile');
@@ -125,7 +127,7 @@ const userController = {
     // LOGOUT
     // GET
     logout: (req, res) => {
-
+        
         res.clearCookie('email');
         req.session.destroy();
         return res.redirect('/');

@@ -104,4 +104,8 @@
     font-weight:    bold;
 }
 
+section.error {
+    color: red;
+}
+
 /* MEDIA QUERYS */
