@@ -106,3 +106,7 @@
 .m10 {
     margin: 10px;
 }
+
+section.error {
+    color: red;
+}
