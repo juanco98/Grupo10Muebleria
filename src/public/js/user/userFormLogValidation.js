@@ -5,11 +5,10 @@ window.addEventListener('load', function() {
 
         let errors = [];
 
-        e.preventDefault();
         var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
 
-        let email = document.querySelector("#email")
-        let pass = document.querySelector("#pass")
+        let email = document.getElementById("#email")
+        let pass = document.getElementById("#pass")
         if (email.value === '') {
             errors.push('Email vacio');
         }

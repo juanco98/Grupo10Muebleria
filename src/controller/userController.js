@@ -5,8 +5,6 @@ const {validationResult}    = require('express-validator');
 const bcryptjs              = require('bcryptjs');
 const db                    = require('../database/models');
 
-const {ExtProductController}    = require('../controller/backoffice/productController');
-
 const userController = {
     // REGISTROS
     // GET
@@ -252,7 +250,6 @@ const userController = {
     },
     editProductPut: (req, res) => {
 
-        let editedProd = ExtProductController.editProduct(req)
         return res.redirect('/user/profile/products')
 
     },
@@ -286,7 +283,6 @@ const userController = {
     // BORRAR PRODUCTO
     deleteProduct: (req, res) => {
 
-        let deletedProduct = ExtProductController.deleteProduct(req)
         return res.redirect('/user/profile/products')
 
     }
