@@ -3,7 +3,7 @@ const path          = require('path');
 const bodyParser    = require('body-parser');
 const methodOverride= require('method-override');
 const session       = require('express-session');
-const userNavBarLog = require('./middlewares/userNavBarLog');
+const userLogWithCookie = require('./middlewares/userLogWithCookie');
 const cookies       = require('cookie-parser');
 
 // Inicializando express
@@ -24,7 +24,7 @@ app.use(session({
 app.use(cookies())
 
 // middleware de login
-app.use(userNavBarLog);
+app.use(userLogWithCookie);
 
 // aca se configura las vistas
 app.set('views', path.join(__dirname, 'views'));
@@ -39,7 +39,6 @@ app.use(methodOverride('_method'));
 
 // Rutas
 app.use("/",        require ("./routes/index.routes"));
-app.use("/admin",   require ("./routes/backoffice/admin.routes"));
 
 // Publico
 app.use(express.static(path.join(__dirname, 'public')))
