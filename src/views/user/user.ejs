@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head', {tittle: tittle} ); %>
+        <link rel="stylesheet" href="/css/user/register-styles.css">
+        <script src="/js/user/userFormValidation.js"></script>
+    </head>
+    <body>
+        <header>
+            <%- include('../partials/navigation'); %>
+        </header>
+        
+        <% if (site == 'reg') { %>
+            <%- include('./register') %> 
+        <% } else if (site == 'log') { %>
+            <%- include('./login') %> 
+        <% } else if (site == 'rec') { %>
+            <%- include('./recover') %> 
+        <% } %>
+        
+    </body>
+</html>

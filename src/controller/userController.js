@@ -9,8 +9,9 @@ const userController = {
     // REGISTROS
     // GET
     register: (req, res) => {
-        return res.render('user/register', {
-            tittle: 'Registrate',
+        return res.render('user/user', {
+            tittle  : 'Registrate',
+            site    : 'reg'
         });
     },
     // POST
@@ -19,9 +20,9 @@ const userController = {
         if (validationResult(req).errors.length > 0) {
             deleteFile(req)
             return res.render('user/register', {
-                tittle:     'Registrate',
-                errors:     resVal.mapped(),
-                oldData:    req.body
+                tittle  : 'Registrate',
+                errors  : resVal.mapped(),
+                oldData : req.body
             });
         }
 
@@ -84,7 +85,10 @@ const userController = {
     // RECUPERAR CONTRASEÑA
     // GET
     recover: (req, res) => {
-        return res.render('user/recover', {tittle: 'Recuperar'});
+        return res.render('user/user', {
+            tittle  : 'Recuperar',
+            site    : 'rec'
+        });
     },
     // POST
     sendRecover: (req, res) => {
@@ -92,7 +96,10 @@ const userController = {
     },
     // LOGIN
     loginGet: (req, res) => {
-        return res.render('user/login', {tittle: 'Logearse'});
+        return res.render('user/user', {
+            tittle  : 'Logearse',
+            site    : 'log'
+        });
     },
     // POST
     loginPost: (req, res) => {
