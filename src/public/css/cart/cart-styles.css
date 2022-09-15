@@ -1,5 +1,11 @@
 /* ESTILOS */
 
+.form-group{
+  
+    border-radius: 5px;
+    left: 100px
+
+}
 .great-container{
     border-radius: 5px;
     border: 1px solid gray;
@@ -39,6 +45,10 @@
     display: flex;
     width: 80%;
     margin-left: 50px;
+}
+.cantidad{
+    display: block;
+    left: 100px;
 }
 
 .product-img-mini-cart{

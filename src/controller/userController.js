@@ -5,6 +5,7 @@ const {validationResult}    = require('express-validator');
 const bcryptjs              = require('bcryptjs');
 const db                    = require('../database/models');
 
+
 const userController = {
     // REGISTROS
     // GET
@@ -18,10 +19,11 @@ const userController = {
     newRegister: (req, res) => {
 
         if (validationResult(req).errors.length > 0) {
+            let resVal = 0
             deleteFile(req)
             return res.render('user/register', {
                 tittle  : 'Registrate',
-                errors  : resVal.mapped(),
+                errors  : resVal.mapped(),old:req.body,
                 oldData : req.body
             });
         }
@@ -114,7 +116,7 @@ const userController = {
             }
             return user
         }).then((user) => {
-            let okPass = bcryptjs.compareSync(req.body.pass, user.password)
+            let okPass = bcryptjs.compareSync(req.body.pass, user.pass)
             if (!okPass) {
                 returnErrLog('pass', req, res);
             }
