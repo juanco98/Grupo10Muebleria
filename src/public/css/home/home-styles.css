@@ -30,11 +30,18 @@
 .home-room-img {
     transition: 1s;
 }
+.nav-item{
+    transition: 1s;
+}
 
 .home-room-img:hover, .home-room-img:active {
     filter: gray;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
+    border: 5px ridge #66cc66;
+}
+.nav-item:hover{
+    border: 2px inset gray;
 }
 
 /* MEDIA QUERYS */
