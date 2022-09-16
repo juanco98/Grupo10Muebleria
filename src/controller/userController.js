@@ -18,16 +18,20 @@ const userController = {
     // POST
     newRegister: (req, res) => {
 
-        if (validationResult(req).errors.length > 0) {
+      /*  if (validationResult(req).errors.length > 0) {
             let resVal = 0
             deleteFile(req)
             return res.render('user/register', {
                 tittle  : 'Registrate',
-                errors  : resVal.mapped(),old:req.body,
+                errors: {
+                    user : {
+                        msg: `Este ${req} ya está registrado.`
+                    }
+                },
                 oldData : req.body
             });
         }
-
+*/
         db.User.findOne({
             where: {
                 email: req.body.email
