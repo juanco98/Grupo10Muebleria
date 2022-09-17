@@ -19,9 +19,10 @@ const userController = {
 
         if (validationResult(req).errors.length > 0) {
             deleteFile(req)
-            return res.render('user/register', {
+            return res.render('user/user', {
                 tittle  : 'Registrate',
                 errors  : resVal.mapped(),
+                site    : 'reg',
                 oldData : req.body
             });
         }
@@ -240,20 +241,6 @@ const userController = {
             console.log(err);
         });
 
-        // .then((model) =>{
-        //     return res.render('user/profile', {
-        //         tittle          : 'Perfil',
-        //         user            : req.session.userLogged,
-        //         model           : model,
-        //         option          : 'products',
-        //         optionProducts  : 'editProductPrice'
-        //     });
-        // })
-        // .catch((err) => {
-        //     console.log(err);
-        // })
-
-
     },
     editProductPut: (req, res) => {
 
@@ -306,48 +293,52 @@ function deleteFile(req) {
 
 function returnErrReg(field, req, res) {
     if (field == 'email') {
-        return res.render('user/register', {
+        return res.render('user/user', {
             tittle:     'Registrate',
             errors: {
                 email : {
                     msg: `Este ${field} ya está registrado.`
                 }
             },
-            oldData:    req.body
+            oldData:    req.body,
+            site:       'reg',
         });
     } else {
-        return res.render('user/register', {
+        return res.render('user/user', {
             tittle:     'Registrate',
             errors: {
                 user : {
                     msg: `Este ${field} ya está registrado.`
                 }
             },
-            oldData:    req.body
+            oldData:    req.body,
+            site:       'reg',
         });
     }
 }
 
 function returnErrLog(field, req, res) {
     if (field == 'email') {
-        return res.render('home/home', {
+        return res.render('user/user', {
             errors: {
                 email: {
                     msg: 'No se encuentra ese email.'
                 }
             },
             oldData: req.body,
-            tittle: null
+            tittle  : 'Logearse',
+            site    : 'log'
         })
     } else {
-        return res.render('home/home', {
+        return res.render('user/user', {
             errors: {
                 pass: {
                     msg: 'No coincide la contraseña'
                 }
             },
             oldData: req.body,
-            tittle: null
+            tittle  : 'Logearse',
+            site    : 'log'
         })
     }
 }

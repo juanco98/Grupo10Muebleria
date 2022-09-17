@@ -6,153 +6,163 @@
             </ul>
         </section>
         <form action="/user/newRegister" method="POST" id="formUserReg" enctype="multipart/form-data">
-            <div class="form-up">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" id="name" name="name" placeholder="Nombre" class="form-input" maxlength="60"
-                value="<%= locals.oldData ? locals.oldData.name : null %>"  >
-                <% if (locals.errors && errors.name) { %>
-                    <label class="text-danger"> <%= errors.name.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="lastName" class="form-label">Apellido</label>
-                <input type="text" id="lastName" name="lastName" name="lastName" placeholder="Apellido" class="form-input"  maxlength="60"
-                value="<%= locals.oldData ? locals.oldData.lastName : null %>"   >
-                <% if (locals.errors && errors.lastName) { %>
-                    <label class="text-danger"> <%= errors.lastName.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="bornDate" class="form-label">Fecha de nacimiento</label>
-                <input type="date" id="bornDate" name="bornDate" class="form-input"
-                value="<%= locals.oldData ? locals.oldData.bornDate : null %>"   >
-                <% if (locals.errors && errors.bornDate) { %>
-                    <label class="text-danger"> <%= errors.bornDate.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" placeholder="hola@mundo.com" class="form-input"
-                value="<%= locals.oldData ? locals.oldData.email : null %>"   >
-                <% if (locals.errors && errors.email) { %>
-                    <label class="text-danger"> <%= errors.email.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-compartido">
-                <div class="form-up-half">
-                    <label for="city" class="form-label">Ciudad</label>
-                    <input type="text" name="city" id="city" placeholder="Ciudad" class="form-input"  pattern="[A-Za-z\s]+"
-                    value="<%= locals.oldData ? locals.oldData.city : null %>"   >
-                    <% if (locals.errors && errors.city) { %>
-                        <label class="text-danger"> <%= errors.city.msg %>  </label>
-                    <% } %>
+            <div class="form-inputs">
+                <div class="form-data">
+                    <div class="form-up">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Nombre" class="form-input" maxlength="60"
+                        value="<%= locals.oldData ? locals.oldData.name : null %>"  >
+                        <% if (locals.errors && errors.name) { %>
+                            <label class="text-danger"> <%= errors.name.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="lastName" class="form-label">Apellido</label>
+                        <input type="text" id="lastName" name="lastName" name="lastName" placeholder="Apellido" class="form-input"  maxlength="60"
+                        value="<%= locals.oldData ? locals.oldData.lastName : null %>"   >
+                        <% if (locals.errors && errors.lastName) { %>
+                            <label class="text-danger"> <%= errors.lastName.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="bornDate" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" id="bornDate" name="bornDate" class="form-input"
+                        value="<%= locals.oldData ? locals.oldData.bornDate : null %>"   >
+                        <% if (locals.errors && errors.bornDate) { %>
+                            <label class="text-danger"> <%= errors.bornDate.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" placeholder="hola@mundo.com" class="form-input"
+                        value="<%= locals.oldData ? locals.oldData.email : null %>"   >
+                        <% if (locals.errors && errors.email) { %>
+                            <label class="text-danger"> <%= errors.email.msg %>  </label>
+                        <% } %>
+                    </div>
                 </div>
-                <div class="form-up-half">
-                    <label for="state" class="form-label">Provincia</label>
-                    <input type="text" name="state" id="state" placeholder="Provincia" class="form-input"  pattern="[A-Za-z\s]+"
-                    value="<%= locals.oldData ? locals.oldData.state : null %>"   >
-                    <% if (locals.errors && errors.state) { %>
-                        <label class="text-danger"> <%= errors.state.msg %>  </label>
-                    <% } %>
+                <div class="form-address">
+                    <div class="form-compartido">
+                        <div class="form-up-half">
+                            <label for="city" class="form-label">Ciudad</label>
+                            <input type="text" name="city" id="city" placeholder="Ciudad" class="form-input"  pattern="[A-Za-z\s]+"
+                            value="<%= locals.oldData ? locals.oldData.city : null %>"   >
+                            <% if (locals.errors && errors.city) { %>
+                                <label class="text-danger"> <%= errors.city.msg %>  </label>
+                            <% } %>
+                        </div>
+                        <div class="form-up-half">
+                            <label for="state" class="form-label">Provincia</label>
+                            <input type="text" name="state" id="state" placeholder="Provincia" class="form-input"  pattern="[A-Za-z\s]+"
+                            value="<%= locals.oldData ? locals.oldData.state : null %>"   >
+                            <% if (locals.errors && errors.state) { %>
+                                <label class="text-danger"> <%= errors.state.msg %>  </label>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-compartido">
+                        <div class="form-up-half">
+                            <label for="nameAddress" class="form-label">Nombre Dirección</label>
+                            <input type="text" name="nameAddress" id="nameAddress" placeholder="Casa" class="form-input"
+                            value="<%= locals.oldData ? locals.oldData.nameAddress : null %>"   >
+                            <% if (locals.errors && errors.nameAddress) { %>
+                                <label class="text-danger"> <%= errors.nameAddress.msg %>  </label>
+                            <% } %>
+                        </div>
+                        <div class="form-up-half">
+                            <label for="postalCode" class="form-label">Código postal</label>
+                            <input type="text" name="postalCode" id="postalCode" placeholder="1000" class="form-input"  pattern="[0-9]+" 
+                            title="Solamente números" maxlength="5"
+                            value="<%= locals.oldData ? locals.oldData.postalCode : null %>"   >
+                            <% if (locals.errors && errors.postalCode) { %>
+                                <label class="text-danger"> <%= errors.postalCode.msg %>  </label>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-up">
+                        <label for="descriptionAddress" class="form-label">Descripción</label>
+                        <input type="text" name="descriptionAddress" id="descriptionAddress" placeholder="Puerta de madera" class="form-input"  maxlength="60"
+                        value="<%= locals.oldData ? locals.oldData.descriptionAddress : null %>"   >
+                        <% if (locals.errors && errors.descriptionAddress) { %>
+                            <label class="text-danger"> <%= errors.descriptionAddress.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="address" class="form-label">Dirección</label>
+                        <input type="text" name="address" id="address" placeholder="Calle Falsa" class="form-input"  maxlength="60"
+                        value="<%= locals.oldData ? locals.oldData.address : null %>"   >
+                        <% if (locals.errors && errors.address) { %>
+                            <label class="text-danger"> <%= errors.address.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-compartido">
+                        <div class="form-up-three">
+                            <label for="numberAddress" class="form-label">Altura</label>
+                            <input type="text" name="numberAddress" id="numberAddress" placeholder="123" class="form-input" pattern="[0-9]+" 
+                            title="Solamente números" maxlength="5"
+                            value="<%= locals.oldData ? locals.oldData.numberAddress : null %>"   >
+                            <% if (locals.errors && errors.numberAddress) { %>
+                                <label class="text-danger"> <%= errors.numberAddress.msg %>  </label>
+                            <% } %>
+                        </div>
+                        <div class="form-up-three">
+                            <label for="numberFloor" class="form-label">Piso</label>
+                            <input type="text" name="numberFloor" id="numberFloor" placeholder="PB" class="form-input"
+                            value="<%= locals.oldData ? locals.oldData.numberFloor : null %>"   >
+                            <% if (locals.errors && errors.numberFloor) { %>
+                                <label class="text-danger"> <%= errors.numberFloor.msg %>  </label>
+                            <% } %>
+                        </div>
+                        <div class="form-up-three">
+                            <label for="numberApartment" class="form-label">Depto.</label>
+                            <input type="text" name="numberApartment" id="numberApartment" placeholder="1" class="form-input"
+                            value="<%= locals.oldData ? locals.oldData.numberApartment : null %>"   >
+                            <% if (locals.errors && errors.numberApartment) { %>
+                                <label class="text-danger"> <%= errors.numberApartment.msg %>  </label>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-user">
+                    <div class="form-up">
+                        <label for="user" class="form-label">Usuario</label>
+                        <input type="text" name="user" placeholder="Usuario" class="form-input"
+                        pattern="[A-Za-z0-9_]{5,10}" title="5 caracteres como mínimo, 10 máximo, sin espacios"
+                        value="<%= locals.oldData ? locals.oldData.user : null %>"   >
+                        <% if (locals.errors && errors.user) { %>
+                            <label class="text-danger"> <%= errors.user.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="pass" class="form-label">Contraseña</label>
+                        <input type="password" id="pass" name="pass" placeholder="Contraseña" class="form-input"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres"   >
+                        <% if (locals.errors && errors.pass) { %>
+                            <label class="text-danger"> <%= errors.pass.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="pass2" class="form-label">Repetir Contraseña</label>
+                        <input type="password" name="pass2" placeholder="Contraseña" class="form-input"
+                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres"   >
+                        <% if (locals.errors && errors.pass2) { %>
+                            <label class="text-danger"> <%= errors.pass2.msg %>  </label>
+                        <% } %>
+                    </div>
+                    <div class="form-up">
+                        <label for="avatar">Avatar</label>
+                        <input type="file" accept="image/png, image/jpg, image/jpeg" id="avatar" name="avatar" id="avatar"   >
+                        <% if (locals.errors && errors.avatar) { %>
+                            <label class="text-danger"> <%= errors.avatar.msg %>  </label>
+                        <% } %>
+                    </div>
                 </div>
             </div>
-            <div class="form-compartido">
-                <div class="form-up-half">
-                    <label for="nameAddress" class="form-label">Nombre Dirección</label>
-                    <input type="text" name="nameAddress" id="nameAddress" placeholder="Casa" class="form-input"
-                    value="<%= locals.oldData ? locals.oldData.nameAddress : null %>"   >
-                    <% if (locals.errors && errors.nameAddress) { %>
-                        <label class="text-danger"> <%= errors.nameAddress.msg %>  </label>
-                    <% } %>
-                </div>
-                <div class="form-up-half">
-                    <label for="postalCode" class="form-label">Código postal</label>
-                    <input type="text" name="postalCode" id="postalCode" placeholder="1000" class="form-input"  pattern="[0-9]+" 
-                    title="Solamente números" maxlength="5"
-                    value="<%= locals.oldData ? locals.oldData.postalCode : null %>"   >
-                    <% if (locals.errors && errors.postalCode) { %>
-                        <label class="text-danger"> <%= errors.postalCode.msg %>  </label>
-                    <% } %>
-                </div>
+            <div class="reset-div">
+                <input type="reset" name="Limpiar" class="forgetpass cleanbtn">
             </div>
-            <div class="form-up">
-                <label for="descriptionAddress" class="form-label">Descripción</label>
-                <input type="text" name="descriptionAddress" id="descriptionAddress" placeholder="Puerta de madera" class="form-input"  maxlength="60"
-                value="<%= locals.oldData ? locals.oldData.descriptionAddress : null %>"   >
-                <% if (locals.errors && errors.descriptionAddress) { %>
-                    <label class="text-danger"> <%= errors.descriptionAddress.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="address" class="form-label">Dirección</label>
-                <input type="text" name="address" id="address" placeholder="Calle Falsa" class="form-input"  maxlength="60"
-                value="<%= locals.oldData ? locals.oldData.address : null %>"   >
-                <% if (locals.errors && errors.address) { %>
-                    <label class="text-danger"> <%= errors.address.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-compartido">
-                <div class="form-up-three">
-                    <label for="numberAddress" class="form-label">Altura</label>
-                    <input type="text" name="numberAddress" id="numberAddress" placeholder="123" class="form-input" pattern="[0-9]+" 
-                    title="Solamente números" maxlength="5"
-                    value="<%= locals.oldData ? locals.oldData.numberAddress : null %>"   >
-                    <% if (locals.errors && errors.numberAddress) { %>
-                        <label class="text-danger"> <%= errors.numberAddress.msg %>  </label>
-                    <% } %>
-                </div>
-                <div class="form-up-three">
-                    <label for="numberFloor" class="form-label">Piso</label>
-                    <input type="text" name="numberFloor" id="numberFloor" placeholder="PB" class="form-input"
-                    value="<%= locals.oldData ? locals.oldData.numberFloor : null %>"   >
-                    <% if (locals.errors && errors.numberFloor) { %>
-                        <label class="text-danger"> <%= errors.numberFloor.msg %>  </label>
-                    <% } %>
-                </div>
-                <div class="form-up-three">
-                    <label for="numberApartment" class="form-label">Depto.</label>
-                    <input type="text" name="numberApartment" id="numberApartment" placeholder="1" class="form-input"
-                    value="<%= locals.oldData ? locals.oldData.numberApartment : null %>"   >
-                    <% if (locals.errors && errors.numberApartment) { %>
-                        <label class="text-danger"> <%= errors.numberApartment.msg %>  </label>
-                    <% } %>
-                </div>
-            </div>
-            <div class="form-up">
-                <label for="user" class="form-label">Usuario</label>
-                <input type="text" name="user" placeholder="Usuario" class="form-input"
-                pattern="[A-Za-z0-9_]{5,10}" title="5 caracteres como mínimo, 10 máximo, sin espacios"
-                value="<%= locals.oldData ? locals.oldData.user : null %>"   >
-                <% if (locals.errors && errors.user) { %>
-                    <label class="text-danger"> <%= errors.user.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="pass" class="form-label">Contraseña</label>
-                <input type="password" id="pass" name="pass" placeholder="Contraseña" class="form-input"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres"   >
-                <% if (locals.errors && errors.pass) { %>
-                    <label class="text-danger"> <%= errors.pass.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="pass2" class="form-label">Repetir Contraseña</label>
-                <input type="password" name="pass2" placeholder="Contraseña" class="form-input"
-                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres"   >
-                <% if (locals.errors && errors.pass2) { %>
-                    <label class="text-danger"> <%= errors.pass2.msg %>  </label>
-                <% } %>
-            </div>
-            <div class="form-up">
-                <label for="avatar">Avatar</label>
-                <input type="file" accept="image/png, image/jpg, image/jpeg" id="avatar" name="avatar" id="avatar"   >
-                <% if (locals.errors && errors.avatar) { %>
-                    <label class="text-danger"> <%= errors.avatar.msg %>  </label>
-                <% } %>
-            </div>
-            <input type="reset" name="Limpiar" class="forgetpass cleanbtn">
             <div class="form-button">
                 <button type="submit" class="button-blue" >Registrate
                     <i class="fas fa-user-plus"></i>

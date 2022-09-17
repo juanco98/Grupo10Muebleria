@@ -52,13 +52,32 @@ const productController = {
 
     },
     detailProduct: (req, res) => {
+
         let idProduct = req.params.id;
-        let product;
-        product = productsArray.find(n => n.id == idProduct)
-        return res.render('products/detailProducts', {
-            tittle: 'Detalle Producto',
-            product: product
-        });
+
+        db.Model.findOne({
+            where: {
+                id: idProduct
+            },
+            include : [
+                {association: "product"},
+                {association: "property"},
+                {association: "feature"},
+                {association: "prices", 
+                    include: [{
+                        association: "discount"
+                    }]},
+                {association: "stock"}
+            ]
+        }).then((model) => {
+            return res.render('products/detailProducts', {
+                tittle: 'Detalle Producto',
+                model: model
+            });
+        }).catch((err) => {
+            console.error(err)
+        })
+
     },
     newProductPost: (req, res) => {
 

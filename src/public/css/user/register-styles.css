@@ -108,5 +108,31 @@ section.error {
     color: red;
 }
 
+.form-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.reset-div {
+    text-align: center;
+}
+
 /* MEDIA QUERYS */
 
+@media (max-width: 1020px) {
+    .form-inputs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .form-address {
+        order: 3;
+    }
+}
+
+@media (max-width: 720px) {
+    .form-user {
+        order: 3;
+    }
+}

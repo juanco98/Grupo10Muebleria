@@ -3,7 +3,7 @@
 
 <head>
     <%- include('../partials/head', {tittle: tittle} ); %>
-        <link rel="stylesheet" href="/css/product/product-styles.css">
+        <link rel="stylesheet" href="/css/product/product-detail.css">
 </head>
 
 <body>
@@ -11,128 +11,116 @@
         <%- include('../partials/navigation'); %>
     </header>
 
-    <div class="great-container">
-        <div class="container-gral align-center">
-            <div class="div-row div-row-mobile">
-                <div class="div-col margins-x product-card-detail">
-                    <div class="div-row">
-                        <img src="<%= product.img %>" class="product-img-size" alt="..." />
-                    </div>
-                    <hr />
-                    <div class="div-row mini-gallery">
-                        <!-- LIMITAMOS SOLO A 4 MINUATURAS CUANDO LAS CARGAMOS -->
-                        <% for( let i=0; i < product.images.length; i++ ) { %>
-                            <div class="div-col div-col-mobile">
-                                <img src="<%= product.images[i] %>" class="product-img-mini-gallery" alt="..." />
-                            </div>
-                            <% } %>
-                    </div>
+    <main>
+        <article>
+            <div class="prod-img">
+                <div class="prod-img-pry">
+                    <img src="/images/products/<%= model.img %>" class="main-img" alt="">
                 </div>
-                <div class="div-col margins-x py-2">
-                    <div class="font-title mb-2">
-                        <%= product.name %>
-                    </div>
-                    <div class="font-txt mb-2">
-                        <%= product.description %>
-                    </div>
-                    <div class="font-txt mb-2">
-                        Color: <%= product.colors %>
-                    </div>
-                    <div class="font-txt mb-2">
-                        Ambiente: <%= product.room %>
-                    </div>
-
-                    <!-- EJEMPLO DE VALIDACION PARA REPLICAR EN LOS OTROS DATOS -->
-                    <!-- <div class="font-txt mb-2">
-                        <% if(product.size.height) { %>
-                            Alto: <%= product.size.height %> cms.
-                        <% } %>
-                    </div> -->
-
-
-                    <div class="font-txt mb-2">
-                        Alto: <%= product.size.height %> cms.
-                    </div>
-                    <div class="font-txt mb-2">
-                        Ancho: <%= product.size.width %> cms.
-                    </div>
-                    <div class="font-txt mb-2">
-                        Profundida: <%= product.size.deep %> cms.
-                    </div>
-                    <div class="font-txt mb-2">
-                        Peso: <%= product.size.weight %> kgs.
-                    </div>
-                    <div class="font-txt mb-2">
-                        <% if(product.available=='true' ) { %>
-                            Stock disponible: <%= product.quantity %> un.
-                                <% }else{ %>
-                                    <strong>Sin stock disponible</strong>
-                                    <% } %>
-                    </div>
-                    <div class="font-txt mb-2">
-                        Precio: $<%= product.price %>
-                    </div>
-                    <div class="font-txt mb-2">
-                        <div class="form-group">
-                            <label for="">Cantidad:</label>
-                            <select class="form-control" name="" id="">
-                                <option>Selecciona una opción</option>
-                                <% for( let index=1; index <=product.quantity; index++ ) { %>
-                                    <option>
-                                        <%= index%>
-                                    </option>
-                                    <% } %>
-                            </select>
+                <div class="prod-img-sec">
+                    <% model.images.forEach(image => { %>
+                        <img src="/images/products/<%= image %>" class="galery-img" alt="">
+                    <% }) %>
+                </div>
+            </div>
+            <div class="prod-info">
+                <h1> <%= model.product.name %> </h1>
+                <hr class="hr-prod-det">
+                <h4> <%= model.product.brand %> - <%= model.name %> </h4>
+                <p> <%= model.description %>  </p>
+                <div class="prod-colors">
+                    <h3>Colores</h3>
+                    <div class="colors">
+                        <div class="color">
+                            <ul>
+                                <% model.feature.colors.forEach(color => { %>
+                                    <li> <%= color %>  </li>
+                                <% }) %>
+                            </ul>
                         </div>
                     </div>
-                    <div class="margin-btn">
-                        <a href="#" class="btn btn-primary">
-                            Comprar ahora
-                        </a>
+                </div>
+                <div class="prod-feats">
+                    <h3>Medidas</h3>
+                    <div class="feats">
+                        <div class="feat">
+                            <h5>Alto:</h5>
+                            <%= model.feature.height %>
+                        </div>
+                        <div class="feat">
+                            <h5>Ancho</h5>
+                            <%= model.feature.width %>
+                        </div>
+                        <div class="feat">
+                            <h5>Profundida:</h5>
+                            <%= model.feature.deep %>
+                        </div>
+                        <div class="feat">
+                            <h5>Peso:</h5>
+                            <%= model.feature.weight %>
+                        </div>
                     </div>
-                    <div class="margin-btn">
-                        <a href="/products/detailProduct" class="btn btn-outline-primary">
-                            Agregar al carrito
-                        </a>
+                </div>
+                <div class="prod-props">
+                    <h3>Materiales</h3>
+                    <div class="props">
+                        <div class="prop">
+                            <h5>Maderas:</h5>
+                            <ul>
+                                <% model.property.wood.forEach(wood => { %>
+                                    <li> <%= wood %>  </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <div class="prop">
+                            <h5>Metales:</h5>
+                            <ul>
+                                <% model.property.metal.forEach(metal => { %>
+                                    <li> <%= metal %>  </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <div class="prop">
+                            <h5>Telas:</h5>
+                            <ul>
+                                <% model.property.cloth.forEach(cloth => { %>
+                                    <li> <%= cloth %>  </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <div class="prop">
+                            <h5>Otros:</h5>
+                            <ul>
+                                <% model.property.other.forEach(other => { %>
+                                    <li> <%= other %>  </li>
+                                <% }) %>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="margin-btn">
-                        <form action="/admin/products/editProduct/<%= product.id %>" method="GET">
-                            <button type="submit" class="btn btn-outline-primary">Editar</button>
-                        </form>
-                        <form action="/admin/products/deleteProduct/<%= product.id %>?_method=DELETE" method="post">
-                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                        </form>
+                </div>
+                <div class="prod-buttons">
+                    <div class="buttons">
+                        <div class="prod-prices">
+                            $<%= model.prices[0].value %>
+                        </div>
+                        <div>
+                            <a href="" class="cart-btn">
+                                <i class="fa-sharp fa-solid fa-cart-plus"></i>
+                                <label class="label-btn">Añadir al carrito</label>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="" class="buy-btn">
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                                <label class="label-btn">Comprar</label>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- <div class="great-container2">
-        <div class="container-gral align-center">
-            <div class="div-row">
-                <div class="font-title mb-5">
-                    Productos recomendados
-                </div>
-            </div>
-            <div class="div-row div-row-mobile">
-                <% for( let index=0; index < 1; index++ ) { %>
-                    <div class="margins-x product-card-detail">
-                        <div class="div-row">
-                            <img src="/img/chair.svg" class="product-img-size" alt="..." />
-                        </div>
-                        <hr />
-                        <div class="div-row mini-gallery">
-                            <% for( let index=0; index < 4; index++ ) { %>
-                                <div class="div-col div-col-mobile">
-                                    <img src="/img/chair.svg" class="product-img-mini-gallery" alt="..." />
-                                </div>
-                                <% } %>
-                        </div>
-                    </div>
-                    <% } %>
-            </div>
-        </div>
-    </div> -->
+        </article>
+    </main>
+
 </body>
 
 </html>
