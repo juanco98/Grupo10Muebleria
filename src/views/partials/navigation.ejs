@@ -8,9 +8,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
-      <form class="d-flex mx-auto search-bar">
+      <form action="/products/search" method="GET" class="d-flex mx-auto search-bar">
         <div class="input-group">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control" type="text" name="search_query" minlength="5" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>

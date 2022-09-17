@@ -51,6 +51,39 @@ const productController = {
         })
 
     },
+    sellerProducts: (req, res) => {
+
+        let user = req.params.idUser;
+
+        db.Product.findAll({
+            include : [
+                {association: "user",
+                    where: {
+                        id: user
+                    }},
+                {association: "models", 
+                include: [
+                    {association: "property"},
+                    {association: "feature"},
+                    {association: "stock"},
+                    {association: "prices",
+                        include: [
+                            {association: "discount"}
+                        ]}
+                ]}
+            ]
+        }).then((products) => {
+            return res.render('products/products', {
+                tittle  : 'Productos ',
+                room    : products[0].user.name + ' ' + products[0].user.last_name,
+                products: products
+            });
+        }).catch((err) => {
+            console.log(err)
+            return res.redirect('/');
+        })
+
+    },
     detailProduct: (req, res) => {
 
         let idProduct = req.params.id;
@@ -60,13 +93,16 @@ const productController = {
                 id: idProduct
             },
             include : [
-                {association: "product"},
+                {association: "product",
+                    include: [
+                        {association: "user"}
+                    ]},
                 {association: "property"},
                 {association: "feature"},
                 {association: "prices", 
-                    include: [{
-                        association: "discount"
-                    }]},
+                    include: [
+                        {association: "discount"}
+                    ]},
                 {association: "stock"}
             ]
         }).then((model) => {
@@ -78,6 +114,63 @@ const productController = {
             console.error(err)
         })
 
+    },
+    searchProducts: (req, res) => {
+        let searchQuery = req.query.search_query
+        if (searchQuery === '') {
+            db.Product.findAll({
+                include : [
+                    {association: "models", 
+                    include: [
+                        {association: "property"},
+                        {association: "feature"},
+                        {association: "stock"},
+                        {association: "prices",
+                            include: [
+                                {association: "discount"}
+                            ]}
+                    ]}
+                ]
+            }).then((products) => {
+                return res.render('products/products', {
+                    tittle  : 'Productos ',
+                    room    : 'Todos',
+                    products: products
+                });
+            }).catch((err) => {
+                console.log(err)
+                return res.redirect('/');
+            })
+        } else {
+            console.log(searchQuery);
+            db.Product.findAll({
+                include : [
+                    {association: "models",
+                        where: {
+                            description: {[Op.substring]: searchQuery}
+                        }, 
+                        include: [
+                            {association: "property"},
+                            {association: "feature"},
+                            {association: "stock"},
+                            {association: "prices",
+                                include: [
+                                    {association: "discount"}
+                                ]}
+                        ]}
+                ]
+            }).then((products) => {
+                console.log(products);
+                return res.render('products/products', {
+                    tittle  : 'Productos ',
+                    room    : searchQuery,
+                    products: products
+                });
+            }).catch((err) => {
+                console.log(err)
+                return res.redirect('/');
+            })
+        }
     },
     newProductPost: (req, res) => {
 

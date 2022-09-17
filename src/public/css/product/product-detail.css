@@ -22,7 +22,6 @@ article {
 }
 
 .prod-img-pry {
-    height: 400px;
     margin-bottom: 5px;
     display: flex;
     justify-content: center;
@@ -39,7 +38,6 @@ article {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 70px;
 }
 
 .galery-img {
@@ -48,6 +46,13 @@ article {
     margin: 10px;
     border-radius: 5px;
     border: 1px solid black;
+}
+
+.prod-user {
+    display: flex;
+    flex-direction: column;
+    margin: auto 25px;
+    padding-top: 50px;
 }
 
 .prod-info {
@@ -164,9 +169,6 @@ article {
         border-left: 0;
         border-top: 1px solid black;
     }
-    .prod-img {
-        margin-bottom: 50px;
-    }
 }
 
 @media (max-width: 540px) {
@@ -217,6 +219,9 @@ article {
     }
     article {
         padding: 0px;
+    }
+    .prod-user {
+        margin: auto 0px;
     }
 
 }

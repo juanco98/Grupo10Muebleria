@@ -16,7 +16,7 @@
                         <div>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb bg-white">
-                                    <li class="breadcrumb-item active"><a href="/products/roomProducts/<%= room %>"><%= room %></a></li>
+                                    <li class="breadcrumb-item active"><%= room %></li>
                                     <!-- <li class="breadcrumb-item" aria-current="page"><%= room %></li> -->
                                 </ol>
                             </nav>
@@ -51,7 +51,7 @@
                                                 <a href="#" class="btn btn-outline-primary">
                                                     <i class="fas fa-cart-plus icon-nice-blue"></i>
                                                 </a>
-                                                <a href="/products/detailProduct/<%= products[i].id %>" class="btn btn-outline-primary">
+                                                <a href="/products/detailProduct/<%= products[i].models[0].id %>" class="btn btn-outline-primary">
                                                     <i class="fas fa-external-link-square-alt icon-nice-blue" ></i>
                                                 </a>
                                             </div>

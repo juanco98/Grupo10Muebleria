@@ -22,11 +22,25 @@
                         <img src="/images/products/<%= image %>" class="galery-img" alt="">
                     <% }) %>
                 </div>
+                <hr>
+                <div class="prod-user">
+                    <div>
+                        <h5>Vendedor:</h5>
+                    </div>
+                    <div>
+                        <h4>
+                            <a href="/products/sellerProducts/<%= model.product.user.id %> ">
+                                <%= model.product.user.name %> <%= model.product.user.last_name %>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
             </div>
             <div class="prod-info">
                 <h1> <%= model.product.name %> </h1>
                 <hr class="hr-prod-det">
-                <h4> <%= model.product.brand %> - <%= model.name %> </h4>
+                <h6>Marca - Modelo</h6>
+                <h3> <%= model.product.brand %> - <%= model.name %> </h3>
                 <p> <%= model.description %>  </p>
                 <div class="prod-colors">
                     <h3>Colores</h3>
@@ -45,19 +59,19 @@
                     <div class="feats">
                         <div class="feat">
                             <h5>Alto:</h5>
-                            <%= model.feature.height %>
+                            <%= model.feature.height %> cm
                         </div>
                         <div class="feat">
                             <h5>Ancho</h5>
-                            <%= model.feature.width %>
+                            <%= model.feature.width %> cm
                         </div>
                         <div class="feat">
-                            <h5>Profundida:</h5>
-                            <%= model.feature.deep %>
+                            <h5>Profundo:</h5>
+                            <%= model.feature.deep %> cm
                         </div>
                         <div class="feat">
                             <h5>Peso:</h5>
-                            <%= model.feature.weight %>
+                            <%= model.feature.weight %> Kg
                         </div>
                     </div>
                 </div>
