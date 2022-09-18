@@ -3,75 +3,25 @@
     <head>
         <%- include('../partials/head', {tittle: tittle} ); %>
         <link rel="stylesheet" href="/css/cart/cart-styles.css">
+        <script src="/js/cart/cart-func.js"></script>
     </head>
     <body>
         <header>
             <%- include('../partials/navigation'); %>
         </header>
-        
-        <div class="great-container">
-            <div class="container-gral">
-                <div class="div-row">
-                    <div class="div-col caja1">
-                        <div class="div-row">
-                            <div class="div-col">
-                                <img src="/img/chair.svg" class="product-img-mini-cart mini-gallery" alt="..." />
-                            </div>
-                            <div class="div-col">
-                                <div class="div-row">
-                                    <div class="div-col">
-                                        <span class="font-title-cart">
-                                            <p>LOREM IPSUM</p>
-                                        </span>
-                                        <span class="font-title-cart">
-                                            <p>$ 99.99</p>
-                                        </span>
-                                    </div>
-                                    <div class="div-col center-add">
-                                        <div class="form-group">
-                                            <label for="" class="font-title-cart">Cantidad</label>
-                                            <div>
-                                                <span>
-                                                    <a name="" id="" class="btn btn-primary" href="#" role="button">+</a>
-                                                    <input type="text" class="input-add" name="" id="" placeholder="">
-                                                    <a name="" id="" class="btn btn-primary" href="#" role="button">-</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div-col caja2">
-                        <div class="px-5">
-                            <div class="font-title-cart">
-                                Entrega
-                            </div>
-                            <div class="font-title-cart">
-                                Lorem ipsum, dolor sit amet.
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="px-5">
-                            <div class="form-group">
-                                <label for="" class="font-title-cart">Cupón</label>
-                                <input type="text" class="form-control" name="" id="" placeholder="">
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="px-5">
-                            <div class="font-title-cart">
-                                Total
-                            </div>
-                            <div class="font-title-cart">
-                                $ 99.99
-                            </div>
-                            <a name="" id="" class="btn btn-primary mt-3" href="#" role="button">Finalizar compra</a>
-                        </div>
+
+        <main class="mainCart">
+            <article>
+                <div class="products-list">
+                    <div class="product">
+
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="buy-details">
+
+                </div>
+            </article>
+        </main>
+
     </body>
 </html>

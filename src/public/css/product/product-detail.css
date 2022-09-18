@@ -8,10 +8,11 @@ article {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 5px;
     margin: 40px;
     padding: 30px 0px;
+    background-color: white;
 }
 
 .prod-img {
@@ -31,7 +32,7 @@ article {
     width: 400px;
     height: 400px;
     border-radius: 5px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .prod-img-sec {
@@ -45,7 +46,7 @@ article {
     height: 100px;
     margin: 10px;
     border-radius: 5px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .prod-user {
@@ -57,7 +58,7 @@ article {
 
 .prod-info {
     width: 800px;
-    border-left: 1px solid black;
+    border-left: 2px solid lightgray;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -131,6 +132,10 @@ article {
 
 .cart-btn:hover {
     color: blue;
+}
+
+button {
+    border: none;
 }
 
 .cart-btn i,

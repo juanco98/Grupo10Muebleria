@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head', {tittle: tittle} ); %>
         <link rel="stylesheet" href="/css/product/product-detail.css">
+        <script src="/js/cart/cart-func.js"></script>
 </head>
 
 <body>
@@ -15,6 +16,7 @@
         <article>
             <div class="prod-img">
                 <div class="prod-img-pry">
+                    <input type="hidden"  name="idModel" id="idModel" value="<%= model.id %>">
                     <img src="/images/products/<%= model.img %>" class="main-img" alt="">
                 </div>
                 <div class="prod-img-sec">
@@ -118,10 +120,10 @@
                             $<%= model.prices[0].value %>
                         </div>
                         <div>
-                            <a href="" class="cart-btn">
+                            <a href="/cart/addToCart/<%= model.id %> " class="cart-btn">
                                 <i class="fa-sharp fa-solid fa-cart-plus"></i>
                                 <label class="label-btn">Añadir al carrito</label>
-                            </a>
+                            </a >
                         </div>
                         <div>
                             <a href="" class="buy-btn">

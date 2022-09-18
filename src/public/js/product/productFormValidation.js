@@ -2,7 +2,6 @@ window.addEventListener('load', function() {
 
     let form = document.forms['formNewProduct']
     form.addEventListener("submit", function(e) {
-
         let errors = [];
 
         e.preventDefault();

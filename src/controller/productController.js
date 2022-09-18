@@ -201,7 +201,7 @@ const productController = {
                 name: req.body.productModel,
                 description: req.body.productDesc,
                 img: req.files['productImg'][0]['filename'],
-                images: productImages.join(),
+                images: productImages,
                 id_product: newProduct.id
             })
         }).then(function(newModel) {
@@ -246,6 +246,29 @@ const productController = {
     },
     editProductPricePut: (req, res) => {
 
+    },
+    getModelsForCart: (req, res) => {
+        res.status(200).json(req.body)
+        let modelId = req.body
+        db.Model.findAll({
+            where: {
+                id: { [Op.in]: modelId },
+            },
+            include : [
+                {association: "product",
+                    include: [
+                        {association: "user"}
+                    ]},
+                {association: "property"},
+                {association: "feature"},
+                {association: "prices", 
+                    include: [
+                        {association: "discount"}
+                    ]},
+                {association: "stock"}
+            ]
+        })
+        .then((model) => res.status(200).json(model))
     }
 }
 
