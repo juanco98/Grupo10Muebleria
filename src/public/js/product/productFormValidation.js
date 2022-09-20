@@ -4,8 +4,6 @@ window.addEventListener('load', function() {
     form.addEventListener("submit", function(e) {
         let errors = [];
 
-        e.preventDefault();
-
         let productName = document.querySelector("#productName")
         let productDesc = document.querySelector("#productDesc")
         if (productName.value === '') {
