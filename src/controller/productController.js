@@ -46,7 +46,7 @@ const productController = {
                 products: products
             });
         }).catch((err) => {
-            console.log(err)
+            console.error(err)
             return res.redirect('/');
         })
 
@@ -79,7 +79,7 @@ const productController = {
                 products: products
             });
         }).catch((err) => {
-            console.log(err)
+            console.error(err)
             return res.redirect('/');
         })
 
@@ -138,11 +138,10 @@ const productController = {
                     products: products
                 });
             }).catch((err) => {
-                console.log(err)
+                console.error(err)
                 return res.redirect('/');
             })
         } else {
-            console.log(searchQuery);
             db.Product.findAll({
                 include : [
                     {association: "models",
@@ -160,14 +159,13 @@ const productController = {
                         ]}
                 ]
             }).then((products) => {
-                console.log(products);
                 return res.render('products/products', {
                     tittle  : 'Productos ',
                     room    : searchQuery,
                     products: products
                 });
             }).catch((err) => {
-                console.log(err)
+                console.error(err)
                 return res.redirect('/');
             })
         }
@@ -240,7 +238,7 @@ const productController = {
             return res.redirect('/user/profile/products')
         })
         .catch((err) => {
-            console.log(err)
+            console.error(err)
         })
 
     },

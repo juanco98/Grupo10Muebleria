@@ -79,7 +79,7 @@ const userController = {
             req.session.userLogged = newUser;
             return res.redirect('profile');
         }).catch((error) => {
-            console.log(error)
+            console.error(error)
         });
 
     },
@@ -123,6 +123,7 @@ const userController = {
         }).then((user) => {
             delete user.password;
             req.session.userLogged = user;
+            res.locals.isLogged    = true;
             if (req.body.checkRem) {
                 res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
             }
@@ -187,7 +188,7 @@ const userController = {
                 });
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             })
         } else {
             return res.redirect('/user/profile')
@@ -238,7 +239,7 @@ const userController = {
                 optionProducts  : 'editProduct'
             });
         }).catch(err => {
-            console.log(err);
+            console.error(err);
         });
 
     },
@@ -270,7 +271,7 @@ const userController = {
                 category        : response[2]
             });
         }).catch(err => {
-            console.log(err);
+            console.error(err);
         });
 
     },

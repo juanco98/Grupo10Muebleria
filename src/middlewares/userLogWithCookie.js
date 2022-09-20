@@ -11,7 +11,6 @@ function userLogWithCookie(req, res, next) {
             }
         }).then((data) => {
             req.session.userLogged = data;
-            console.log(req.session.userLogged);
         }).then(() => {
             if (req.session && req.session.userLogged) {
                 res.locals.isLogged     = true;
