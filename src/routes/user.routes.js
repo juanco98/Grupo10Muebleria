@@ -13,7 +13,7 @@ routes.get("/register", userLogged, userController.register);
 routes.post("/newRegister", fileUpload.single('avatar'), userRegValidation, userController.newRegister);
 
 // login
-routes.get("/login", userController.loginGet);
+routes.get("/login", userLogged, userController.loginGet);
 routes.post("/login", userController.loginPost);
 
 // logout
@@ -27,15 +27,17 @@ routes.get("/profile", userNotLogged, userController.profile);
 routes.get("/profile/:option", userNotLogged, userController.profileOption);
 
 // product
-routes.get("/product/editProduct/:id", userNotLogged, userController.editProductGet);
-routes.put("/product/editProduct/:id", userNotLogged, multipleImgProd, userController.editProductPut);
+routes.get("/product/editProduct/:id", userNotLogged, productController.editProductGet);
+routes.put("/product/editProduct/:id", userNotLogged, multipleImgProd, productController.editProductPut);
 
-routes.get("/product/editProductPrice/:id", userNotLogged, userController.editProductGet);
-routes.put("/product/editProductPrice/:id", userNotLogged, productController.editProductPricePut);
-
-routes.get("/product/newProduct", userNotLogged, userController.newProductGet);
+routes.get("/product/newProduct", userNotLogged, productController.newProductGet);
 routes.post("/product/newProduct", userNotLogged, multipleImgProd, productController.newProductPost);
 
-routes.delete("/product/deleteProduct/:id", userController.deleteProduct);
+routes.delete("/product/deleteProduct/:id", productController.deleteProduct);
+
+
+// API REST
+routes.get('/allUsers',             userController.getAllUsers);
+routes.get('/findEmail/:email',     userController.validationEmail);
 
 module.exports = routes; 

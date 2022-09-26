@@ -4,6 +4,8 @@ const path      = require('path');
 const {validationResult}    = require('express-validator');
 const bcryptjs              = require('bcryptjs');
 const db                    = require('../database/models');
+const { send } = require('process');
+const { count } = require('console');
 
 const userController = {
     // REGISTROS
@@ -121,7 +123,6 @@ const userController = {
             }
             return user
         }).then((user) => {
-            delete user.password;
             req.session.userLogged = user;
             res.locals.isLogged    = true;
             if (req.body.checkRem) {
@@ -195,91 +196,40 @@ const userController = {
         }
 
     },
-    // EDITAR PRODUCTO
-    editProductGet: (req, res) => {
-
-        let id      = req.params.id
-
-        const rooms         = db.Room.findAll();
-        const subCategories = db.SubCategory.findAll({
-            include: [{association: "category"}]
-        });
-        const categories    = db.Category.findAll();
-        const model = db.Model.findOne({
-            where : {
-                id: id
-            },
-            include : [
-                {association: "product",
-                    include : [
-                        {association: "rooms"}
-                    ]},
-                {association: "property"},
-                {association: "feature"},
-                {association: "stock"},
-                {association: "prices",
-                    include: [
-                        {association: "discount"}
-                    ]
-                }
+    getAllUsers: (req, res) => {
+        db.User.findAll({
+            include: [
+                {association: 'rol'}
             ]
+        }).then((users) => {
+            return res.status(200).json({
+                users   : users,
+                quantity: users.length
+            })
+        }).catch((err) => {
+            console.error(err)
+            return res.status(500).json({
+                error: err
+            })
         })
-
-        Promise.all(
-            [rooms, subCategories, categories, model]
-        ).then(response => {
-            return res.render('user/profile', {
-                tittle          : 'Perfil',
-                user            : req.session.userLogged,
-                rooms           : response[0],
-                subCategory     : response[1],
-                category        : response[2],
-                model           : response[3],
-                option          : 'products',
-                optionProducts  : 'editProduct'
-            });
-        }).catch(err => {
-            console.error(err);
-        });
-
     },
-    editProductPut: (req, res) => {
-
-        return res.redirect('/user/profile/products')
-
-    },
-    // CREAR PRODUCTO
-    newProductGet: (req, res) => {
-
-        const rooms         = db.Room.findAll();
-        const subCategories = db.SubCategory.findAll({
-            include: [{association: "category"}]
-        });
-        const categories    = db.Category.findAll();
-
-        Promise.all(
-            [rooms, subCategories, categories]
-        ).then(response => {
-            return res.render('user/profile', {
-                tittle          : 'Perfil',
-                user            : req.session.userLogged,
-                product         : null,
-                option          : 'products',
-                optionProducts  : 'newProduct',
-                rooms           : response[0],
-                subCategory     : response[1],
-                category        : response[2]
-            });
-        }).catch(err => {
-            console.error(err);
-        });
-
-    },
-    // BORRAR PRODUCTO
-    deleteProduct: (req, res) => {
-
-        return res.redirect('/user/profile/products')
-
+    validationEmail: (req, res) => {
+        let email = req.params.email
+        db.User.findOne({
+            where: {
+                email: email
+            }
+        }).then((email) => {
+            if (email) {
+                return res.status(200).json({
+                    found: true
+                })
+            } else {
+                return res.status(204).json({
+                    found: false
+                })
+            }
+        })
     }
 }
 

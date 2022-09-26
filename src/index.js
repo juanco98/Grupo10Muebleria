@@ -1,10 +1,11 @@
-const express       = require('express');
-const path          = require('path');
-const bodyParser    = require('body-parser');
-const methodOverride= require('method-override');
-const session       = require('express-session');
+const express           = require('express');
+const path              = require('path');
+const bodyParser        = require('body-parser');
+const methodOverride    = require('method-override');
+const session           = require('express-session');
 const userLogWithCookie = require('./middlewares/userLogWithCookie');
-const cookies       = require('cookie-parser');
+const cookies           = require('cookie-parser');
+const cors              = require('cors');
 
 // Inicializando express
 const app = express();
@@ -36,6 +37,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 })); 
 app.use(methodOverride('_method'));
+
+// cors
+app.use(cors())
 
 // Rutas
 app.use("/",        require ("./routes/index.routes"));

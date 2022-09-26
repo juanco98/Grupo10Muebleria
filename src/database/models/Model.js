@@ -18,6 +18,7 @@ module.exports = function (sequelize, dataTypes) {
         images: {
             type: dataTypes.STRING,
             get() {
+                console.log(this);
                 return this.getDataValue('images').split(',')
             },
             set(val) {

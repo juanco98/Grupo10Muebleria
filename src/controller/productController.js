@@ -170,6 +170,32 @@ const productController = {
             })
         }
     },
+    newProductGet: (req, res) => {
+
+        const rooms         = db.Room.findAll();
+        const subCategories = db.SubCategory.findAll({
+            include: [{association: "category"}]
+        });
+        const categories    = db.Category.findAll();
+
+        Promise.all(
+            [rooms, subCategories, categories]
+        ).then(response => {
+            return res.render('user/profile', {
+                tittle          : 'Perfil',
+                user            : req.session.userLogged,
+                product         : null,
+                option          : 'products',
+                optionProducts  : 'newProduct',
+                rooms           : response[0],
+                subCategory     : response[1],
+                category        : response[2]
+            });
+        }).catch(err => {
+            console.error(err);
+        });
+
+    },
     newProductPost: (req, res) => {
 
         let productImages   = [];
@@ -233,8 +259,7 @@ const productController = {
                 quantity: req.body.quantity,
                 id_model: newModel.id
             })
-        })
-        .then(() => {
+        }).then(() => {
             return res.redirect('/user/profile/products')
         })
         .catch((err) => {
@@ -242,7 +267,137 @@ const productController = {
         })
 
     },
-    editProductPricePut: (req, res) => {
+    editProductGet: (req, res) => {
+
+        let id      = req.params.id
+
+        const rooms         = db.Room.findAll();
+        const subCategories = db.SubCategory.findAll({
+            include: [{association: "category"}]
+        });
+        const categories    = db.Category.findAll();
+        const model = db.Model.findOne({
+            where : {
+                id: id
+            },
+            include : [
+                {association: "product",
+                    include : [
+                        {association: "rooms"}
+                    ]},
+                {association: "property"},
+                {association: "feature"},
+                {association: "stock"},
+                {association: "prices",
+                    include: [
+                        {association: "discount"}
+                    ]
+                }
+            ]
+        })
+
+        Promise.all(
+            [rooms, subCategories, categories, model]
+        ).then(response => {
+            return res.render('user/profile', {
+                tittle          : 'Perfil',
+                user            : req.session.userLogged,
+                rooms           : response[0],
+                subCategory     : response[1],
+                category        : response[2],
+                model           : response[3],
+                option          : 'products',
+                optionProducts  : 'editProduct'
+            });
+        }).catch(err => {
+            console.error(err);
+        });
+
+    },
+    editProductPut: (req, res) => {
+
+        let productImages   = [];
+        req.body.checkImgGal.forEach(element => {
+            productImages.push(element);
+        });
+        arrayMatWood    = strToArray(req.body.matWood);
+        arrayMatMetal   = strToArray(req.body.matMetal);
+        arrayMatCloth   = strToArray(req.body.matCloth);
+        arrayMaOther    = strToArray(req.body.matOther);
+        arrayColor      = strToArray(req.body.colors);
+
+        let id = req.params.id
+
+        db.Model.update({
+            name: req.body.productModel,
+            description: req.body.productDesc,
+            img: req.body.imgMain,
+            images: productImages,
+        }, {
+            where: {
+                id: id
+            }
+        }).then(() => {
+            return db.Model.findByPk(id)
+        }).then((model) => {
+            db.Product.update({
+                name: req.body.productName,
+                brand: req.body.productMark,
+                active: req.body.radioAvailable,
+            },{
+                where: {
+                    id: model.id_product
+                }
+            })
+            return model
+        }).then((model)=> {
+            db.Feature.update({
+                height: req.body.sizeHeight,
+                width: req.body.sizeWidth,
+                deep: req.body.sizeDeep,
+                weight: req.body.sizeWeigth,
+                colors: arrayColor,
+            },{
+                where: {
+                    id_model: model.id
+                }
+            })
+            return model
+        }).then((model)=> {
+            db.Property.update({
+                wood: arrayMatWood,
+                metal: arrayMatMetal,
+                cloth: arrayMatCloth,
+                other: arrayMaOther,
+            },{
+                where: {
+                    id_model: model.id
+                }
+            })
+            return model
+        }).then((model)=> {
+            db.Price.update({
+                value: req.body.productPrice,
+            },{
+                where: {
+                    id_model: model.id
+                }
+            })
+            return model
+        }).then((model) => {
+            db.Stock.update({
+                available: req.body.radioAvailable,
+                quantity: req.body.quantity,
+            },{
+                where: {
+                    id_model: model.id
+                }
+            })
+        }).then(() => {
+            return res.redirect('/user/profile/products')
+        }).catch((err) => {
+            console.error(err)
+        })
 
     },
     getModelsForCart: (req, res) => {
@@ -267,6 +422,92 @@ const productController = {
             ]
         })
         .then((model) => res.status(200).json(model))
+    },
+    // BORRAR PRODUCTO
+    deleteProduct: (req, res) => {
+        let id = req.params.id
+        db.Feature.destroy({
+            where: {
+                id_model : id
+            }
+        }).then(() => {
+            db.Property.destroy({
+                where: {
+                    id_model : id
+                }
+            })
+        }).then(() => {
+            db.Price.destroy({
+                where: {
+                    id_model : id
+                }
+            })
+        }).then(() => {
+            db.Stock.destroy({
+                where: {
+                    id_model : id
+                }
+            })
+        }).then(() => {
+            return db.Model.findByPk(id)
+        }).then((model) => {
+            db.ProductRoom.destroy({
+                where: {
+                    id_product: model.id_product
+                }
+            })
+            return model
+        }).then((model) => {
+            db.Model.destroy({
+                where: {
+                    id: id
+                }
+            })
+            return model
+        }).then((model) => {
+            db.Product.destroy({
+                where: {
+                    id: model.id_product
+                }
+            })
+        }).then(() => {
+            return res.redirect('/user/profile/products')
+        }).catch((err) => {
+            console.error(err)
+        })
+
+    },
+    getAllProducts: (req, res) => {
+        db.Product.findAll({
+            include: [
+                {association: 'user'},
+                {association: 'rooms'},
+                {association: 'subCategory',
+                    include: [
+                        {association: 'category'}
+                    ]},
+                {association: 'models',
+                    include: [
+                        {association: 'property'},
+                        {association: 'feature'},
+                        {association: 'stock'},
+                        {association: 'prices',
+                            include: [
+                                {association : 'discount'}
+                            ]},
+                    ]}
+            ]
+        }).then((products) => {
+            return res.status(200).json({
+                products: products,
+                quantity: products.length
+            })
+        }).catch((err) => {
+            console.error(err)
+            return res.status(500).json({
+                error: err
+            })
+        })
     }
 }
 

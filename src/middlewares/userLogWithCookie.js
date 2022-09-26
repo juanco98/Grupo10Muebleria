@@ -2,28 +2,56 @@ const db = require('../database/models');
 
 function userLogWithCookie(req, res, next) {
 
+
     res.locals.isLogged = false;
-    let emailCookie = req.cookies.email;
-    if (emailCookie) {
+    let emailInCookie = req.cookies.email;
+    if (emailInCookie) {
         db.User.findOne({
             where: {
-                email: emailCookie
+                email: emailInCookie
             }
-        }).then((data) => {
-            req.session.userLogged = data;
-        }).then(() => {
-            if (req.session && req.session.userLogged) {
+        }).then((user) => {
+            req.session.userLogged = user
+            if (req.session.userLogged) {
                 res.locals.isLogged     = true;
                 res.locals.userLogged   = req.session.userLogged
             }
         }).then(() => {
             next()
-        }).catch((e) => {
-            console.error(e);
         })
     } else {
-        next();
+        if (req.session.userLogged) {
+            res.locals.isLogged     = true;
+            res.locals.userLogged   = req.session.userLogged
+        }
+        next()
     }
+    
+
+    // next()
+    
+    // res.locals.isLogged = false;
+    // if (req.locals) {
+    //     if (req.locals.userLogged) {
+    //         res.locals.isLogged = true;
+    //     }
+    // }
+    // let emailCookie = req.cookies.email;
+    // if (emailCookie) {
+    //     db.User.findOne({
+    //         where: {
+    //             email: emailCookie
+    //         }
+    //     }).then((data) => {
+    //         res.locals.isLogged     = true;
+    //         res.locals.userLogged   = data
+    //         next()
+    //     }).catch((e) => {
+    //         console.error(e);
+    //     })
+    // } else {
+    //     next();
+    // }
 
 }
 
