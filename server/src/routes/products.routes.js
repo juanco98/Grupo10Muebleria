@@ -11,6 +11,7 @@ routes.get("/detailProduct/:id",            productController.detailProduct);
 routes.post('/modelsForCart',               productController.getModelsForCart);
 
 // API REST
-routes.get('/allProducts',                  productController.getAllProducts);
+routes.get('/api/allProducts',                  productController.getAllProductsAPI);
+routes.get('/api/detailProduct/:id',            productController.detailProductAPI);
 
 module.exports = routes; 

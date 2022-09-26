@@ -80,7 +80,7 @@ window.addEventListener('load', function() {
     }
 
     function checkEmail(email, existe) {
-        let url2 = url+'/user/findEmail/'+email;
+        let url2 = url+'/user/api/findEmail/'+email;
         if (existe) {
             fetch(url2)
             .then((res) => {

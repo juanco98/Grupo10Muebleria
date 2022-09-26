@@ -37,7 +37,8 @@ routes.delete("/product/deleteProduct/:id", productController.deleteProduct);
 
 
 // API REST
-routes.get('/allUsers',             userController.getAllUsers);
-routes.get('/findEmail/:email',     userController.validationEmail);
+routes.get('/api/allUsers',             userController.getAllUsersAPI);
+routes.get('/api/detailUser/:id',       userController.detailUserAPI);
+routes.get('/api/findEmail/:email',     userController.validationEmailAPI);
 
 module.exports = routes; 

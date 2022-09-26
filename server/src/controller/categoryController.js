@@ -2,7 +2,7 @@ const db            = require('../database/models');
 const Op            = db.Sequelize.Op;
 
 const categoryController = {
-    getAllCategories: (req, res) => {
+    getAllCategoriesAPI: (req, res) => {
         db.Category.findAll({
             include: [
                 {association: 'subCategories',

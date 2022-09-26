@@ -196,7 +196,7 @@ const userController = {
         }
 
     },
-    getAllUsers: (req, res) => {
+    getAllUsersAPI: (req, res) => {
         db.User.findAll({
             include: [
                 {association: 'rol'}
@@ -213,7 +213,27 @@ const userController = {
             })
         })
     },
-    validationEmail: (req, res) => {
+    detailUserAPI: (req, res) => {
+        let id = req.params.id;
+        db.User.findOne({
+            where: {
+                id: id
+            },
+            include: [
+                {association: 'rol'}
+            ]
+        }).then((user) => {
+            return res.status(200).json({
+                users   : user,
+            })
+        }).catch((err) => {
+            console.error(err)
+            return res.status(500).json({
+                error: err
+            })
+        })
+    },
+    validationEmailAPI: (req, res) => {
         let email = req.params.email
         db.User.findOne({
             where: {

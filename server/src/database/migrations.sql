@@ -25,7 +25,6 @@ alter table muebleriadh.addresses
     modify number_floor varchar(20) not null;
 
 INSERT INTO `rooms`(`id`, `name`) VALUES (1, 'Baño'), (2, 'Cocina'), (3, 'Comedor'), (4, 'Dormitorio'), (5, 'Exterior'), (6, 'Living'), (7, 'Oficina');
-INSERT INTO `rooms`(`id`, `name`) VALUES (1, 'Baño'), (2, 'Cocina'), (3, 'Comedor'), (4, 'Dormitorio'), (5, 'Exterior'), (6, 'Living'), (7, 'Oficina');
 INSERT INTO `categories` (name) VALUES ('Sofas'), ('Sillas'), ('Mesas'), ('Camas'), ('Escritorios'), ('Muebles'), ('Decoracion'), ('Otros');
 INSERT INTO `subcategories` (name, id_category) VALUES ('Futón', 1), ('Sofá lineal', 1), ('Sillón', 1), ('en L', 1), ('Sofá modular', 1), ('Sofá cama', 1),
                                                        ('Mecedora', 2), ('Taburete', 2), ('Diván', 2), ('Silla Comedor', 2), ('Silla Oficina', 2), ('Butaca', 2),
@@ -46,3 +45,7 @@ alter table muebleriadh.prices
     modify id_discount int null;
 
 rename table propierties to properties;
+
+
+ALTER TABLE `models` CHANGE `description` `description` VARCHAR(1000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `models` CHANGE `images` `images` VARCHAR(1000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

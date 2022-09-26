@@ -477,7 +477,7 @@ const productController = {
         })
 
     },
-    getAllProducts: (req, res) => {
+    getAllProductsAPI: (req, res) => {
         db.Product.findAll({
             include: [
                 {association: 'user'},
@@ -501,6 +501,41 @@ const productController = {
             return res.status(200).json({
                 products: products,
                 quantity: products.length
+            })
+        }).catch((err) => {
+            console.error(err)
+            return res.status(500).json({
+                error: err
+            })
+        })
+    },
+    detailProductAPI: (req, res) => {
+        let id = req.params.id
+        db.Product.findOne({
+            where: {
+                id: id
+            },
+            include: [
+                {association: 'user'},
+                {association: 'rooms'},
+                {association: 'subCategory',
+                    include: [
+                        {association: 'category'}
+                    ]},
+                {association: 'models',
+                    include: [
+                        {association: 'property'},
+                        {association: 'feature'},
+                        {association: 'stock'},
+                        {association: 'prices',
+                            include: [
+                                {association : 'discount'}
+                            ]},
+                    ]}
+            ]
+        }).then((product) => {
+            return res.status(200).json({
+                product: product,
             })
         }).catch((err) => {
             console.error(err)
