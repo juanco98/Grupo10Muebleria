@@ -1,11 +1,6 @@
 /* ESTILOS */
 
-.form-group{
-  
-    border-radius: 5px;
-    left: 100px
 
-}
 .great-container{
     border-radius: 5px;
     border: 1px solid gray;
@@ -18,8 +13,12 @@
     display         : flex;
     flex-direction  : row;
     flex-wrap       : wrap;
-    justify-content : center;
     margin          : 10px;
+}
+.cantidad{
+    display: flex;
+    height: 5px;
+    flex-direction: row;
 }
   
 .div-row{
@@ -28,39 +27,56 @@
 }
   
 .div-col{
-    display: flex;
+    
     flex-direction: column;
+    padding: 10px;
 }
 
 .space-box{
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .caja1{
     display: flex;
-    width: 80%;
-    margin-right: 50px;
+    width: 100%;
+    margin-right: 25px;
+    margin-left: 25px;
+    padding: 20px;
 }
 .caja2{
-    display: flex;
-    width: 80%;
-    margin-left: 50px;
+    margin-left:100px;
+    width: 100%;
+   
 }
 .cantidad{
-    display: block;
-    left: 100px;
+    height: 40px;
+    
 }
 
 .product-img-mini-cart{
     width: 100%;
-    height: 85px;
-    margin: 5% auto 5% auto;
+    height: 100%;
+    margin: 5% auto auto auto;
+}
+.precio{
+    right: 100px;
+    font-weight: bold;
+    text-align: center;
+    right: 100px;
+    font-size: 20px;
+    padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
 
 .font-title-cart{
     font-weight: bold;
-    font-size: var(--font-size-title);
-    text-align: left;
+    text-align: center;
+    right: 100px;
+    font-size: 20px;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
 
 .mini-gallery {
@@ -82,6 +98,7 @@
     height: auto;
     width: 100%;
 }
+
 
 /* MEDIA QUERYS */
 
@@ -105,6 +122,9 @@
     .div-row{
         display: flex;
         flex-direction: row;
+    }
+    .buttonA{
+        width: 5px;
     }
       
     .div-col{
