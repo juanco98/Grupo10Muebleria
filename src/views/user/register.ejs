@@ -144,9 +144,9 @@
                     <% } %>
                 </div>
             </div>
-            <div class="form-up form-up-incorrecto">
+            <div class="form-up >
                 <label for="user" class="form-label">Usuario</label>
-                <input type="text" name="user" placeholder="Usuario" class="form-input"
+                <input type="text" name="user" id="user" placeholder="Usuario" class="form-input"
                 pattern="[A-Za-z0-9_]{5,10}" title="5 caracteres como mínimo, 10 máximo, sin espacios"
                 value="<%= locals.oldData ? locals.oldData.user : null %>"   >
                 <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
@@ -198,6 +198,7 @@
             <p class="formulario_mensaje-exito" id="formulario_mensaje-exito">Se registro exitosamente!</p>
             
         </form>
+        <script src="/js/user/userFormValidation.js"></script>
       <script src="https://fontawesome.com/" crossing="anonymous" ></script>
     </div>
 </div>
