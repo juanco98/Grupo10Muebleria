@@ -1,0 +1,55 @@
+.card-body-juancho {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.img-product {
+    width: 400px;
+    height: 400px;
+}
+
+.data-side {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid lightgray;
+    margin-left: 20px;
+    padding-left: 20px;
+    width: 800px;
+}
+
+.right-side-jc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.inside-right-side {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.data-desc{
+    margin: 20px 10px;
+}
+
+
+.list-prop-jc{
+    display: flex;
+    flex-direction: column;
+}
+
+.list-jc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+.list-ind-jc {
+    display: flex;
+    flex-direction: column;
+}

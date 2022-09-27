@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import CardProduct from "../CardProduct/CardProduct";
 
 function ProducDetail({ ...props }) {
     const location = useLocation();
@@ -25,7 +26,9 @@ function ProducDetail({ ...props }) {
 
     return (
         <>
-            {detailProduct && detailProduct.name}
+            {detailProduct && 
+                <CardProduct product={detailProduct} />
+            }
         </>
     )
 }

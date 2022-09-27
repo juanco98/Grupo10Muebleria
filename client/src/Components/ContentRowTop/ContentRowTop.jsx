@@ -1,4 +1,5 @@
 import React from "react";
+import CardProduct from "../CardProduct/CardProduct";
 import TopInfo from "../TopInfo/TopInfo";
 
 
@@ -40,7 +41,9 @@ function ContentRowTop({ ...props }) {
 				}
 			</div>
 
-			{/* COPMONENTNE MEDIO PELO PARA ULTIMO PRODUCT BABY  ---> lastProduct */}
+			{lastProduct && 
+                <CardProduct product={lastProduct} tittle='Ultimo Producto Agregado: ' />
+            }
 		</div>
 	)
 }

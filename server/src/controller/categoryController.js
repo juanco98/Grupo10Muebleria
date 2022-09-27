@@ -9,7 +9,10 @@ const categoryController = {
                     include: [
                         {association: 'products'}
                     ]}
-            ]
+            ],
+            order: [
+                ['id', 'ASC'],
+            ],
         }).then((categories) => {
             return res.status(200).json({
                 categories: categories,

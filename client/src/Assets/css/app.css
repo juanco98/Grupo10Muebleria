@@ -11198,7 +11198,7 @@ a:focus {
 
 .sidebar {
     width: 6.5rem;
-    min-height: 100vh
+    min-height: 95vh
 }
 
 .sidebar .nav-item {
@@ -12233,7 +12233,7 @@ form.user .btn-user {
 }
 
 footer.sticky-footer {
-    padding: 2rem 0;
+    padding: 1rem 0;
     flex-shrink: 0
 }
 

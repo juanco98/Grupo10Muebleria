@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Logo from "../../Assets/images/logo-DH.png";
+import Logo2 from "../../Assets/images/mueblerdh-logo.png";
 
 function Sidebar() {
     const history = useHistory();
@@ -11,7 +12,7 @@ function Sidebar() {
             {/* <!-- Sidebar - Brand --> */}
             <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div className="sidebar-brand-icon">
-                    <img className="w-100" src={Logo} alt="MuebleriaDH" />
+                    <img className="w-100" src={Logo2} alt="MuebleriaDH" />
                 </div>
             </a>
 
@@ -22,7 +23,7 @@ function Sidebar() {
             <li className="nav-item active">
                 <a className="nav-link" href="/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard - DH movies</span></a>
+                    <span>Dashboard - muebleria DH</span></a>
             </li>
 
             {/* <!-- Divider --> */}

@@ -20,7 +20,7 @@ function TableCategories({ ...props }) {
                         <td>
                             {row.subCategories.map((sub, i) => 
                                 <ul key={i}>
-                                    <li>#{sub.id} - {sub.name}</li>
+                                    <li>{sub.name}</li>
                                 </ul>
                             )}
                         </td>

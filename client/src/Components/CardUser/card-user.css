@@ -1,0 +1,16 @@
+.card-body-juancho {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.img-avatar {
+    width: 300px;
+    height: 300px;
+}
+
+.right-side {
+    border-left: 1px solid lightgray;
+    margin-left: 20px;
+    padding-left: 20px;
+}

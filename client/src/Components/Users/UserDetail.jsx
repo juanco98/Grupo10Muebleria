@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import CardUser from "../CardUser/CardUser";
 
 function UserDetail({ ...props }) {
     const location = useLocation();
@@ -25,7 +26,9 @@ function UserDetail({ ...props }) {
 
     return (
         <>
-            {detailUser && detailUser.users.name}
+            {detailUser && 
+                <CardUser user={detailUser.users} />
+            }
         </>
     )
 }

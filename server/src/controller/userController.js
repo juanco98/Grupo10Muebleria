@@ -200,7 +200,10 @@ const userController = {
         db.User.findAll({
             include: [
                 {association: 'rol'}
-            ]
+            ],
+            order: [
+                ['id', 'ASC'],
+            ],
         }).then((users) => {
             return res.status(200).json({
                 users   : users,
