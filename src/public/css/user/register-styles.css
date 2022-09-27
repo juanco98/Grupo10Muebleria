@@ -15,6 +15,13 @@
     border-radius   : 5px;
 }
 
+.form-label{
+    display: block;
+    font-weight: 700;
+    padding: 5px;
+    cursor: pointer;
+}
+
 .form-up,
 .form-up-half, 
 .form-up-three {
@@ -24,8 +31,90 @@
     justify-content : center;
     align-self      : baseline;
     margin-bottom   : 15px;
+    border: 3px solid transparent;
+    transition: .3s ease all;
 }
 
+.form-up:focus{
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+.form-up-half:focus{
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+.form-up-three:focus{
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+.form-compartido:focus{
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+.formulario__validacion-error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+.formulario__validacion-error-activo{
+    display: block;
+}
+.formulario__validacion-estado{
+    position:relative;
+    right: auto;
+    bottom: 1px;
+    opacity: 0;
+    
+    
+}
+.formulario_mensaje{
+    height: 45px;
+    line-height: 45px;
+    background: #f66060;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
+}
+
+.formulario_mensaje-activo{
+    display: block;
+}
+
+.formulario_mensaje p{
+    margin: 0;
+}
+.formulario_mensaje-exito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #119200;
+    display: none;
+}
+.formulario_mensaje-exito-activo{
+display: block;
+}
+/*Estilos para validación*/
+.form-up-correcto .formulario__validacion-estado{
+    color: #1ed12d;
+    opacity:1;
+}
+.form-up-incorrecto .form-label{
+    color: #bb2929;
+}
+.form-up-incorrecto .formulario__validacion-estado{
+    color: #bb2929;
+    opacity: 1;
+}
+.form-up-incorrecto .formulario__input{
+    border: 3px solid #bb2929;
+    
+}
 .form-up-half {
     width: 140px;
 }
@@ -84,6 +173,7 @@
     text-align  : start;
     font-size   : 12px;
 }
+
 
 .little-text {
     text-align      : start;

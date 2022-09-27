@@ -8,16 +8,20 @@
         <form action="/user/newRegister" method="POST" id="formUserReg" enctype="multipart/form-data">
             <div class="form-up">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" id="name" name="name" placeholder="Nombre" class="form-input" maxlength="60"
+                <input type="text" id="name" name="name" id="Nombre" placeholder="Nombre" class="form-input" maxlength="60"
                 value="<%= locals.oldData ? locals.oldData.name : null %>"  >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">El Nombre solo debe contener letras</p>
                 <% if (locals.errors && errors.name) { %>
                     <label class="text-danger"> <%= errors.name.msg %>  </label>
                 <% } %>
             </div>
             <div class="form-up">
                 <label for="lastName" class="form-label">Apellido</label>
-                <input type="text" id="lastName" name="lastName" name="lastName" placeholder="Apellido" class="form-input"  maxlength="60"
+                <input type="text" id="lastName" name="lastName" name="lastName" id="Apellido" placeholder="Apellido" class="form-input"  maxlength="60"
                 value="<%= locals.oldData ? locals.oldData.lastName : null %>"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">El Apellido solo debe contener letras</p>
                 <% if (locals.errors && errors.lastName) { %>
                     <label class="text-danger"> <%= errors.lastName.msg %>  </label>
                 <% } %>
@@ -26,14 +30,18 @@
                 <label for="bornDate" class="form-label">Fecha de nacimiento</label>
                 <input type="date" id="bornDate" name="bornDate" class="form-input"
                 value="<%= locals.oldData ? locals.oldData.bornDate : null %>"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                 <% if (locals.errors && errors.bornDate) { %>
                     <label class="text-danger"> <%= errors.bornDate.msg %>  </label>
                 <% } %>
             </div>
             <div class="form-up">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" placeholder="hola@mundo.com" class="form-input"
+                <input type="email" id="email" name="email" id="email" placeholder="muebleriadh@gmail.com" class="form-input"
                 value="<%= locals.oldData ? locals.oldData.email : null %>"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo</p>
                 <% if (locals.errors && errors.email) { %>
                     <label class="text-danger"> <%= errors.email.msg %>  </label>
                 <% } %>
@@ -43,6 +51,8 @@
                     <label for="city" class="form-label">Ciudad</label>
                     <input type="text" name="city" id="city" placeholder="Ciudad" class="form-input"  pattern="[A-Za-z\s]+"
                     value="<%= locals.oldData ? locals.oldData.city : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                     <% if (locals.errors && errors.city) { %>
                         <label class="text-danger"> <%= errors.city.msg %>  </label>
                     <% } %>
@@ -51,6 +61,8 @@
                     <label for="state" class="form-label">Provincia</label>
                     <input type="text" name="state" id="state" placeholder="Provincia" class="form-input"  pattern="[A-Za-z\s]+"
                     value="<%= locals.oldData ? locals.oldData.state : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                     <% if (locals.errors && errors.state) { %>
                         <label class="text-danger"> <%= errors.state.msg %>  </label>
                     <% } %>
@@ -61,15 +73,19 @@
                     <label for="nameAddress" class="form-label">Nombre Dirección</label>
                     <input type="text" name="nameAddress" id="nameAddress" placeholder="Casa" class="form-input"
                     value="<%= locals.oldData ? locals.oldData.nameAddress : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                     <% if (locals.errors && errors.nameAddress) { %>
                         <label class="text-danger"> <%= errors.nameAddress.msg %>  </label>
                     <% } %>
                 </div>
                 <div class="form-up-half">
                     <label for="postalCode" class="form-label">Código postal</label>
-                    <input type="text" name="postalCode" id="postalCode" placeholder="1000" class="form-input"  pattern="[0-9]+" 
+                    <input type="text" name="postalCode" id="postalCode" placeholder="3300" class="form-input"  pattern="[0-9]+" 
                     title="Solamente números" maxlength="5"
                     value="<%= locals.oldData ? locals.oldData.postalCode : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                     <% if (locals.errors && errors.postalCode) { %>
                         <label class="text-danger"> <%= errors.postalCode.msg %>  </label>
                     <% } %>
@@ -77,16 +93,20 @@
             </div>
             <div class="form-up">
                 <label for="descriptionAddress" class="form-label">Descripción</label>
-                <input type="text" name="descriptionAddress" id="descriptionAddress" placeholder="Puerta de madera" class="form-input"  maxlength="60"
+                <input type="text" name="descriptionAddress" id="descriptionAddress" placeholder="Departamento 8" class="form-input"  maxlength="60"
                 value="<%= locals.oldData ? locals.oldData.descriptionAddress : null %>"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                 <% if (locals.errors && errors.descriptionAddress) { %>
                     <label class="text-danger"> <%= errors.descriptionAddress.msg %>  </label>
                 <% } %>
             </div>
             <div class="form-up">
                 <label for="address" class="form-label">Dirección</label>
-                <input type="text" name="address" id="address" placeholder="Calle Falsa" class="form-input"  maxlength="60"
+                <input type="text" name="address" id="address" placeholder="Av. Centenario " class="form-input"  maxlength="60"
                 value="<%= locals.oldData ? locals.oldData.address : null %>"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                 <% if (locals.errors && errors.address) { %>
                     <label class="text-danger"> <%= errors.address.msg %>  </label>
                 <% } %>
@@ -94,17 +114,21 @@
             <div class="form-compartido">
                 <div class="form-up-three">
                     <label for="numberAddress" class="form-label">Altura</label>
-                    <input type="text" name="numberAddress" id="numberAddress" placeholder="123" class="form-input" pattern="[0-9]+" 
+                    <input type="text" name="numberAddress" id="numberAddress" placeholder="2985" class="form-input" pattern="[0-9]+" 
                     title="Solamente números" maxlength="5"
                     value="<%= locals.oldData ? locals.oldData.numberAddress : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">Solo puede contener numeros </p>
                     <% if (locals.errors && errors.numberAddress) { %>
                         <label class="text-danger"> <%= errors.numberAddress.msg %>  </label>
                     <% } %>
                 </div>
                 <div class="form-up-three">
                     <label for="numberFloor" class="form-label">Piso</label>
-                    <input type="text" name="numberFloor" id="numberFloor" placeholder="PB" class="form-input"
+                    <input type="text" name="numberFloor" id="numberFloor" placeholder="8" class="form-input"
                     value="<%= locals.oldData ? locals.oldData.numberFloor : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                     <% if (locals.errors && errors.numberFloor) { %>
                         <label class="text-danger"> <%= errors.numberFloor.msg %>  </label>
                     <% } %>
@@ -113,34 +137,43 @@
                     <label for="numberApartment" class="form-label">Depto.</label>
                     <input type="text" name="numberApartment" id="numberApartment" placeholder="1" class="form-input"
                     value="<%= locals.oldData ? locals.oldData.numberApartment : null %>"   >
+                    <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                     <% if (locals.errors && errors.numberApartment) { %>
                         <label class="text-danger"> <%= errors.numberApartment.msg %>  </label>
                     <% } %>
                 </div>
             </div>
-            <div class="form-up">
+            <div class="form-up form-up-incorrecto">
                 <label for="user" class="form-label">Usuario</label>
                 <input type="text" name="user" placeholder="Usuario" class="form-input"
                 pattern="[A-Za-z0-9_]{5,10}" title="5 caracteres como mínimo, 10 máximo, sin espacios"
                 value="<%= locals.oldData ? locals.oldData.user : null %>"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">La casilla no puede quedar vacia </p>
                 <% if (locals.errors && errors.user) { %>
                     <label class="text-danger"> <%= errors.user.msg %>  </label>
                 <% } %>
             </div>
             <div class="form-up">
                 <label for="pass" class="form-label">Contraseña</label>
-                <input type="password" id="pass" name="pass" placeholder="Contraseña" class="form-input"
+                <input type="password" id="pass" name="pass" id="password" placeholder="Contraseña" class="form-input"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres"   >
+                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres</p>
+             
                 <% if (locals.errors && errors.pass) { %>
                     <label class="text-danger"> <%= errors.pass.msg %>  </label>
                 <% } %>
             </div>
             <div class="form-up">
                 <label for="pass2" class="form-label">Repetir Contraseña</label>
-                <input type="password" name="pass2" placeholder="Contraseña" class="form-input"
+                <input type="password" name="pass2" id="pass2" placeholder="Contraseña" class="form-input"
                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                title="Debe contener al menos un número, una letra mayúscula, minúscula, y al menos 8 o más caracteres"   >
+                 <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                <p class="formulario__validacion-error">Ambas contraseñas deben ser iguales</p>
+                 
+                
                 <% if (locals.errors && errors.pass2) { %>
                     <label class="text-danger"> <%= errors.pass2.msg %>  </label>
                 <% } %>
@@ -152,12 +185,19 @@
                     <label class="text-danger"> <%= errors.avatar.msg %>  </label>
                 <% } %>
             </div>
+            <div class="formulario_mensaje" id="formulario_mensaje">
+                <p><i class="fa-solid fa-triangle-exclamation"></i><b>Error:El formulario debe estar completo</b></p>
+            </div>
             <input type="reset" name="Limpiar" class="forgetpass cleanbtn">
             <div class="form-button">
                 <button type="submit" class="button-blue" >Registrate
                     <i class="fas fa-user-plus"></i>
                 </button>
+                
             </div>
+            <p class="formulario_mensaje-exito" id="formulario_mensaje-exito">Se registro exitosamente!</p>
+            
         </form>
+      <script src="https://fontawesome.com/" crossing="anonymous" ></script>
     </div>
 </div>
