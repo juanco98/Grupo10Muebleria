@@ -1,28 +1,28 @@
 import React from "react";
-import CategoriesInDb from "../CategoriesInDB/CategoriesInDB";
-import LastProductInDB from "../LastProductInDB/LastProductInDB";
 import TopInfo from "../TopInfo/TopInfo";
 
 
-function ContentRowTop() {
+function ContentRowTop({ ...props }) {
 
-	const moviesData = [
+	let lastProduct = props.products.pop(); // ultimo producto bbto
+
+	const topData = [
 		{
 			title: "Usuarios registrados",
 			borderColor: "border-left-primary",
-			value: 21,
+			value: props.usersQuant ? props.usersQuant : 0,
 			icon: "fa-film"
 		},
 		{
 			title: "Cantidad de productos",
 			borderColor: "border-left-success",
-			value: 49,
+			value: props.productsQuant ? props.productsQuant : 0,
 			icon: "fa-award"
 		},
 		{
 			title: "Cantidad de categorias",
 			borderColor: "border-left-warning",
-			value: 79,
+			value: props.categoriesQuant ? props.categoriesQuant : 0,
 			icon: "fa-user"
 		}
 	]
@@ -34,15 +34,13 @@ function ContentRowTop() {
 			</div>
 			<div className="row">
 				{
-					moviesData.map(function (element, i) {
+					topData.map(function (element, i) {
 						return <TopInfo key={element.title + i} data={element} />
 					})
 				}
 			</div>
-			<div className="row">
-				<LastProductInDB />
-				<CategoriesInDb />
-			</div>
+
+			{/* COPMONENTNE MEDIO PELO PARA ULTIMO PRODUCT BABY  ---> lastProduct */}
 		</div>
 	)
 }

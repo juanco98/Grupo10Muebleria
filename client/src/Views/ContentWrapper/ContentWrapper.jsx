@@ -1,29 +1,63 @@
 import React, { useEffect, useState } from "react";
-import MuebleriaEndpoints from "../../Utils/Helper";
-import Topbar from "../../Components/Topbar/Topbar";
-import Footer from "../../Components/Footer/Footer";
 import ContentRowTop from "../../Components/ContentRowTop/ContentRowTop";
-import Table from "../../Components/Table/Table";
+import axios from "axios";
 
 function ContentWrapper() {
 
-  const [movies, setMovies] = useState([]);
+  const [productsQuant, setProductsQuant] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [categoriesQuant, setCategoriesQuant] = useState([]);
+  const [usersQuant, setUsersQuant] = useState([]);
 
-  useEffect(() => {
+    useEffect(() => {
 
-    // getData();
-  }, []);
+      getProducts();
+      getCategories();
+      getUsers();
+    }, []);
 
-  // const getData = async () => {
-  //   await MuebleriaEndpoints.Productos.getProductos().then(response => {
-  //     console.log('test', response.data);
-  //     setMovies(response.data)
-  //   });
-  // }
+    const getProducts = async () => {
+        let response = await axios.get('http://localhost:4000/products/api/allProducts')
+            .then(function (response) {
+              setProductsQuant(response.data.quantity);
+              setProducts(response.data.products);
+            })
+            .catch((error) => {
+                console.error('No se pudo conectar a la Api' + error);
+            });
+        return response;
+    }
+
+    const getCategories = async () => {
+      let response = await axios.get('http://localhost:4000/category/api/allCategories')
+          .then(function (response) {
+            setCategoriesQuant(response.data.quantity);
+          })
+          .catch((error) => {
+              console.error('No se pudo conectar a la Api' + error);
+          });
+      return response;
+    } 
+
+    const getUsers = async () => {
+      let response = await axios.get('http://localhost:4000/user/api/allUsers')
+          .then(function (response) {
+            setUsersQuant(response.data.quantity);
+          })
+          .catch((error) => {
+              console.error('No se pudo conectar a la Api' + error);
+          });
+      return response;
+  }
 
   return (
     <div id="content-wrapper" className="d-flex flex-column">
-      <ContentRowTop />
+      <ContentRowTop 
+        products={products}
+        productsQuant={productsQuant} 
+        categoriesQuant={categoriesQuant}
+        usersQuant={usersQuant}
+      />
     </div>
   )
 }

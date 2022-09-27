@@ -30,7 +30,7 @@ const NoMatch = () => {
   return (
     <div>
       <h1>Pagina no encontrada D:</h1>
-      <button onClick={() => history.push('/')}>Volver a casaaaa...</button>
+      <button onClick={() => history.push('/')}>Volver a casaaaa... ♪♫</button>
     </div>
   );
 }
