@@ -1,1 +1,29 @@
-DATOS
+<div class="all-data" style="padding: 20px; display: flex; flex-direction: column; border: 1px solid black; border-radius: 5px;">
+    <div class="data" style="display: flex; flex-direction: column;">
+        <h4>
+            Nombre:
+        </h4>
+        <%= user.name %> <%= user.apellido %>
+        <hr>
+    </div>
+    <div class="data" style="display: flex; flex-direction: column;">
+        <h4>
+            Nombre de Usuario:
+        </h4>
+        <%= user.user %>
+        <hr>
+    </div>
+    <div class="data" style="display: flex; flex-direction: column;">
+        <h4>
+            Correo:
+        </h4>
+        <%= user.email %>
+        <hr>
+    </div>
+    <div class="data" style="display: flex; flex-direction: column;">
+        <h4>
+            Fecha de Nacimiento:
+        </h4>
+        <%= user.born_date %>
+    </div>
+</div>
